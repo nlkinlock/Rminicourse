@@ -22,6 +22,8 @@ github      :
 
 #### <i>Nicole Kinlock</i>
 
+##### January 21st and 22nd, 2016
+
 --- .seventy
 
 ## Directory
