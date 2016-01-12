@@ -18,7 +18,7 @@ github      :
 
 ## <b>R Mini Course</b>
 
-### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a>
+### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)
 
 #### <i>Nicole Kinlock</i>
 
@@ -31,7 +31,7 @@ github      :
 - Part 3: <a href = "#/62"> Data manipulation </a>
 - Part 4: <a href = "#/95"> Looping and vectorization </a>
 - Part 5: <a href = "#/131"> Functions </a>
-- Part 6: <a href = "#/148"> Data visualization using ggplot2 </a>
+- Part 6: <a href = "#/146"> Data visualization using ggplot2 </a>
 
 ---
 
@@ -2709,9 +2709,9 @@ library(ggplot2)
 
 ## Why `ggplot2`?
 
-- More elegant and compact code than base graphics 
-- More aesthetically pleasing than base graphics 
-- Powerful for exploratory analysis 
+- The way you write code in `ggplot2` makes a lot more sense compared to base graphics
+- Easier to create visually appealing figures 
+- Useful for exploring trends in your data
 
 --- ds:noborder
 
@@ -2735,23 +2735,22 @@ ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_b
 
 ## Why gg?
 
-- `gg` is for "grammar of graphics"
+- `gg` stands for "grammar of graphics"
 
-- Uses a set of terms that defines the basic components of a plot
+- Uses a set of terms that defines the basic components of (every) plot
 
-- Used to produce figures using coherent, consistant syntax
+- Produce figures using coherent, consistent syntax (very similar code for very different figures)
   - However, this syntax does vary quite a bit from typical R syntax!
-  - If you are a little confused by the syntax at first, that probably just means that you are getting more comfortable with R
+  - If you are a little confused by the syntax at first, that probably just means that you are getting more comfortable with the R language
 
 ---
 
 ## The grammar
 
 - A basic `ggplot2` plot consists of:
-  - `data`: Must be a data frame 
+  - `data`: Must be a <b>data frame</b>
   - `aes`(thetics): How your data are represented visually <i>(x, y, color, size, shape, etc.)</i>
-  - `geom`(etry): Geometries of plotted objects <i>(points, lines, boxplots, polygons, etc. </i>
-  - and more... 
+  - `geom`(etry): What type of geometric objects you want to display <i>(points, lines, polygons, etc.)</i>
 
 --- ds:noborder
 
@@ -2775,7 +2774,7 @@ ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 
 
 ```r
-state <- data.frame(state.x77, state.region)
+state <- data.frame(state.x77, state.region, state.abb)
 stateplot <- ggplot(data = state, aes(x = Population, y = Area))
 stateplot + geom_point()
 ```
@@ -2784,7 +2783,7 @@ stateplot + geom_point()
 
 --- ds:noborder
 
-## Changing aesthetics
+## Aesthetics
 
 Increase the size of points
 
@@ -2797,9 +2796,9 @@ ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 
 --- ds:noborder
 
-## Changing aesthetics
+## Aesthetics
 
-- Differentiate <b>state region</b> by color
+- Differentiate state region by <b>color</b>
 
 
 ```r
@@ -2810,9 +2809,9 @@ ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + ge
 
 --- ds:noborder
 
-## Changing aesthetics
+## Aesthetics
 
-- Differentiate <b>state region</b> by color and shape
+- Differentiate state region by <b>color</b> and <b>shape</b>
 
 
 ```r
@@ -2821,7 +2820,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 
 ![plot of chunk unnamed-chunk-99](assets/fig/unnamed-chunk-99-1.png) 
 
---- ds:soothe ds:noborder
+--- ds:soothe .noborder
 
 ## Try It!
 
@@ -2845,8 +2844,7 @@ Type `geom_` and hit tab to see them all. Then, use `?geom_nameofgeom` to see th
 --- ds:noborder
 
 ## Other geometric objects
-
-Boxplot
+#### Boxplot
 
 
 ```r
@@ -2855,26 +2853,76 @@ ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 
 ![plot of chunk unnamed-chunk-102](assets/fig/unnamed-chunk-102-1.png) 
 
+--- ds:noborder
+
+## Other geometric objects
+#### Histograms
+
+- Change some of the aesthetics - `binwidth`, `fill`
+
+
+```r
+ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black", fill = "paleturquoise")
+```
+
+![plot of chunk unnamed-chunk-103](assets/fig/unnamed-chunk-103-1.png) 
+
+--- ds:noborder
+
+## Other geometric objects
+#### Bar plots 
+
+
+```r
+ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
+```
+
+![plot of chunk unnamed-chunk-104](assets/fig/unnamed-chunk-104-1.png) 
+
+--- ds:noborder
+
+## Other geometric objects
+#### Line plots 
+
+
+```r
+ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
+```
+
+![plot of chunk unnamed-chunk-105](assets/fig/unnamed-chunk-105-1.png) 
+
+--- ds:noborder
+
+## Other geometric objects
+#### Density plots 
+
+
+```r
+ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
+```
+
+![plot of chunk unnamed-chunk-106](assets/fig/unnamed-chunk-106-1.png) 
+
 --- ds:soothe  ds:noborder
 
 ## Try It!
 
 1. Look up `geom_histogram`. What does it do?
 
-2. Make  a histogram of `Sepal.Length` from the `iris` data set. What did it do with the different species?
+2. Make a histogram of `Sepal.Length` from the `iris` data set. What did it do with the different species?
 
 --- ds:noborder
 
 ## Facets
 
-Plots can also have <b>facets</b> to make lattice plots. 
+Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). 
 
 
 ```r
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
 ```
 
-![plot of chunk unnamed-chunk-103](assets/fig/unnamed-chunk-103-1.png) 
+![plot of chunk unnamed-chunk-107](assets/fig/unnamed-chunk-107-1.png) 
 
 --- ds:noborder
 
@@ -2887,17 +2935,17 @@ Change to `facet_grid(. ~ Species)` and get one row, three columns.
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(. ~ Species)
 ```
 
-![plot of chunk unnamed-chunk-104](assets/fig/unnamed-chunk-104-1.png) 
+![plot of chunk unnamed-chunk-108](assets/fig/unnamed-chunk-108-1.png) 
 
 --- ds:noborder
 
-## Adding stats 
+## Stats 
 
 Type `stat_` and hit tab to see them all. Then, use `?stat_nameofstat` to see the help screen.
 
 --- ds:noborder
 
-## Adding stats 
+## Stats 
 
 Use `stat_smooth` to add a linear fit
 
@@ -2905,7 +2953,7 @@ Use `stat_smooth` to add a linear fit
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point() + stat_smooth(method = "lm")
 ```
 
-![plot of chunk unnamed-chunk-105](assets/fig/unnamed-chunk-105-1.png) 
+![plot of chunk unnamed-chunk-109](assets/fig/unnamed-chunk-109-1.png) 
 
 --- ds:noborder
 
@@ -2914,7 +2962,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 - `scales` are used to modify axes and colors 
 
 - For example: 
-  - `scale_y_continuous()` Set name, breaks, labels, limits of y-axis  
+  - `scale_y_continuous()` Set name, breaks, labels, limits of y-axis 
   - `scale_x_log10()` log transform the x-axis 
   - `scale_colour_manual()` Specify colors for geoms 
   - `scale_fill_discrete()` Specify colors for geoms 
@@ -2930,7 +2978,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-106](assets/fig/unnamed-chunk-106-1.png) 
+![plot of chunk unnamed-chunk-110](assets/fig/unnamed-chunk-110-1.png) 
 
 --- ds:noborder
 
@@ -2943,93 +2991,47 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
 ```
 
-![plot of chunk unnamed-chunk-107](assets/fig/unnamed-chunk-107-1.png) 
-
-
---- ds:noborder
-
-### More examples: Histograms
-
-
-```r
-ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 30, colour="black")
-```
-
-![plot of chunk unnamed-chunk-108](assets/fig/unnamed-chunk-108-1.png) 
-
---- ds:noborder
-
-### More examples: Histograms
-
-- Change some of the aesthetics
-
-
-```r
-ggplot(faithful, aes(x=waiting)) + geom_histogram(binwidth = 8, colour="black", fill="paleturquoise")
-```
-
-![plot of chunk unnamed-chunk-109](assets/fig/unnamed-chunk-109-1.png) 
-
---- ds:noborder
-
-### More examples: Bar plots 
-
-
-```r
-ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
-```
-
-![plot of chunk unnamed-chunk-110](assets/fig/unnamed-chunk-110-1.png) 
-
---- ds:noborder
-
-### More examples: Line plots 
-
-
-```r
-ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
-```
-
 ![plot of chunk unnamed-chunk-111](assets/fig/unnamed-chunk-111-1.png) 
 
 --- ds:noborder
 
-### More examples: Density plots 
+## Labels
+
+- Add labels, including a title and axes labels, using `+ labs()`
 
 
 ```r
-ggplot(faithful, aes(waiting)) + geom_density()
+ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)")
 ```
 
 ![plot of chunk unnamed-chunk-112](assets/fig/unnamed-chunk-112-1.png) 
 
 --- ds:noborder
 
-### More examples: Density plots 
+## Labels
 
-Add a fill
+- Add labels inside the figure using `+ geom_text()`
+
 
 ```r
-ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
+ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)") + geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
 ```
 
 ![plot of chunk unnamed-chunk-113](assets/fig/unnamed-chunk-113-1.png) 
 
---- ds:noborder
+--- ds:noborder .ninety
 
 ## Themes 
 
-Even more precise control can be done with <b>themes</b>. See `?theme` for all of the options 
+- Control over the figure as a whole can be done by modifying <b>themes</b>. See `?theme` for all of the options 
 
---- ds:noborder
+- I prefer `+ theme_bw()` (white background with gridlines) or `+ theme_classic()` (white background without gridlines)
 
-## Themes 
-
-I prefer `+ theme_bw()` (white background rather than the default gray).
+- You can also change the overall font family and font size
 
 
 ```r
-ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_bw()
+ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_bw(base_family = "Times", base_size = 14)
 ```
 
 ![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png) 
@@ -3050,19 +3052,6 @@ You can specify the file name, dimensions, resolution, etc.
 <b>Note:</b> Saved in your current working directory (unless specified).
 
 --- ds:noborder
-## Remember!
-
-<b>Data must be a data frame to plot with ggplot2</b>
-
-
-```r
-# This won't work!
-xvar <- rnorm(100)
-yvar <- rnorm(100)
-ggplot(aes(xvar, yvar)) + geom_point()
-```
-
---- ds:noborder
 
 ## Remember!
 
@@ -3076,13 +3065,13 @@ df <- data.frame(xvar, yvar) # coerce to data frame
 ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-117](assets/fig/unnamed-chunk-117-1.png) 
+![plot of chunk unnamed-chunk-116](assets/fig/unnamed-chunk-116-1.png) 
 
 --- ds:noborder
 
 ## Proper data formatting 
 
-Often our data looks like this ("<b>wide</b>")
+- Often our data looks like this ("<b>wide</b>"), where multiple observations can be found in each row
 
 
 
@@ -3112,7 +3101,7 @@ dim(df)
 
 ## Proper data formatting 
 
-But our data should look like this ("<b>long</b>")
+- Data is much easier to analyze visually and statisically if it looks like this ("<b>long</b>"), where there is one row per observation
 
 
 
@@ -3166,7 +3155,8 @@ head(df)
 
 ### Melting: from wide to long 
 
-Use the `melt()` function in `reshape2` package
+- Use the `melt()` function in `reshape2` package
+
 
 ```r
 library(reshape2)
@@ -3201,7 +3191,9 @@ dim(df2)
 
 --- ds:noborder
 
-## Now we can plot 
+## Melting: from wide to long 
+
+- Melting the data makes it easier to plot
 
 
 ```r
@@ -3215,26 +3207,24 @@ FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust thi
 FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
 ```
 
-![plot of chunk unnamed-chunk-124](assets/fig/unnamed-chunk-124-1.png) 
+![plot of chunk unnamed-chunk-123](assets/fig/unnamed-chunk-123-1.png) 
 
 --- ds:noborder
 
-## Plotting means & error bars 
-
-- <a href = "http://rpubs.com/mccannecology/47829">Example by Mike McCann</a>  
-- <a href = "http://www.cookbook-r.com/Graphs/">R Cookbook: Graphs</a>
-
----
-
-## More helpful links
+## Helpful links
 
 <a href = "http://docs.ggplot2.org/current/">ggplot2 documentation</a>
 
 <a href = "http://ggplot2.org/resources/2007-vanderbilt.pdf">Presentation by Hadley Wickham about ggplot2</a>
 
-<a href = "http://sharpstatistics.co.uk/r/ggplot2-guide">ggplot2 guide</a>
+<a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot Cheat Sheet</a>
 
 <a href = "http://colorbrewer2.org">R ColorBrewer</a>
+
+<a href = "http://rpubs.com/mccannecology/47829">Plotting means and error bars</a>
+
+<a href = "http://www.cookbook-r.com/Graphs/">R Cookbook: Graphs</a>
+
 
 ---
 
@@ -3245,12 +3235,28 @@ FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust thi
 
 <a href = "https://rpubs.com/mccannecology/53363">Answers</a>
 
-1. Type in `data(package="datasets")` to see all of the datasets pre-installed with R. 
+1. Type in `data(package = "datasets")` to see all of the datasets pre-installed with R. 
 
 2. Find some data that interests you (or use your own) and examine its structure. Are they vectors, data frames, other? How many observations are there? 
 
-3. Use `ggplot2` to make a one plot of some attribute of the data. 
+3. Use `ggplot2` to make a plot of some attribute of the data. 
 
+--- .ninety
 
+## Additional topics and links
 
+- When you get a bit more comfortable with R, I recommend taking a look at the additional material on Mike McCann's website.
 
+<a href = "http://rpubs.com/mccannecology/53465">Reproducible Research with RMarkdown</a>
+
+<a href = "http://rpubs.com/mccannecology/53465">Advanced Data Manipulation with dplyr</a>
+
+- I also recommend creating a GitHub account (where I've uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)
+
+<a href = "http://www.github.com">GitHub</a>
+
+<a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/">Basic tutorial on using GitHub (with RStudio)</a>
+
+<a href = "https://try.github.io">GitHub tutorial (using command line)</a>
+
+ 

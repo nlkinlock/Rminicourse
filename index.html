@@ -20,7 +20,7 @@
     <div class="slides">
       <section class='' data-state='' id='slide-1'>
   <h2><b>R Mini Course</b></h2>
-  <h3>Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a></h3>
+  <h3>Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)</h3>
 
 <h4><i>Nicole Kinlock</i></h4>
 
@@ -33,7 +33,7 @@
 <li>Part 3: <a href = "#/62"> Data manipulation </a></li>
 <li>Part 4: <a href = "#/95"> Looping and vectorization </a></li>
 <li>Part 5: <a href = "#/131"> Functions </a></li>
-<li>Part 6: <a href = "#/148"> Data visualization using ggplot2 </a></li>
+<li>Part 6: <a href = "#/146"> Data visualization using ggplot2 </a></li>
 </ul>
 
 </section>
@@ -2444,9 +2444,9 @@ library(ggplot2)
 <section class='' data-state='' id='slide-150'>
   <h2>Why <code>ggplot2</code>?</h2>
   <ul>
-<li>More elegant and compact code than base graphics </li>
-<li>More aesthetically pleasing than base graphics </li>
-<li>Powerful for exploratory analysis </li>
+<li>The way you write code in <code>ggplot2</code> makes a lot more sense compared to base graphics</li>
+<li>Easier to create visually appealing figures </li>
+<li>Useful for exploring trends in your data</li>
 </ul>
 
 </section>
@@ -2467,13 +2467,13 @@ ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_b
 <section class='' data-state='noborder' id='slide-152'>
   <h2>Why gg?</h2>
   <ul>
-<li><p><code>gg</code> is for &quot;grammar of graphics&quot;</p></li>
-<li><p>Uses a set of terms that defines the basic components of a plot</p></li>
-<li><p>Used to produce figures using coherent, consistant syntax</p>
+<li><p><code>gg</code> stands for &quot;grammar of graphics&quot;</p></li>
+<li><p>Uses a set of terms that defines the basic components of (every) plot</p></li>
+<li><p>Produce figures using coherent, consistent syntax (very similar code for very different figures)</p>
 
 <ul>
 <li>However, this syntax does vary quite a bit from typical R syntax!</li>
-<li>If you are a little confused by the syntax at first, that probably just means that you are getting more comfortable with R</li>
+<li>If you are a little confused by the syntax at first, that probably just means that you are getting more comfortable with the R language</li>
 </ul></li>
 </ul>
 
@@ -2484,10 +2484,9 @@ ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_b
 <li>A basic <code>ggplot2</code> plot consists of:
 
 <ul>
-<li><code>data</code>: Must be a data frame </li>
+<li><code>data</code>: Must be a <b>data frame</b></li>
 <li><code>aes</code>(thetics): How your data are represented visually <i>(x, y, color, size, shape, etc.)</i></li>
-<li><code>geom</code>(etry): Geometries of plotted objects <i>(points, lines, boxplots, polygons, etc. </i></li>
-<li>and more... </li>
+<li><code>geom</code>(etry): What type of geometric objects you want to display <i>(points, lines, polygons, etc.)</i></li>
 </ul></li>
 </ul>
 
@@ -2508,7 +2507,7 @@ ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 <li><p>I&#39;ll be using variables from the <code>state.x77</code> and <code>state.region</code> datasets (US state data from 1977)</p></li>
 </ul>
 
-<pre><code class="r">state &lt;- data.frame(state.x77, state.region)
+<pre><code class="r">state &lt;- data.frame(state.x77, state.region, state.abb)
 stateplot &lt;- ggplot(data = state, aes(x = Population, y = Area))
 stateplot + geom_point()
 </code></pre>
@@ -2517,7 +2516,7 @@ stateplot + geom_point()
 
 </section>
 <section class='' data-state='noborder' id='slide-156'>
-  <h2>Changing aesthetics</h2>
+  <h2>Aesthetics</h2>
   <p>Increase the size of points</p>
 
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
@@ -2527,9 +2526,9 @@ stateplot + geom_point()
 
 </section>
 <section class='' data-state='noborder' id='slide-157'>
-  <h2>Changing aesthetics</h2>
+  <h2>Aesthetics</h2>
   <ul>
-<li>Differentiate <b>state region</b> by color</li>
+<li>Differentiate state region by <b>color</b></li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + geom_point(size = 2)
@@ -2539,9 +2538,9 @@ stateplot + geom_point()
 
 </section>
 <section class='' data-state='noborder' id='slide-158'>
-  <h2>Changing aesthetics</h2>
+  <h2>Aesthetics</h2>
   <ul>
-<li>Differentiate <b>state region</b> by color and shape</li>
+<li>Differentiate state region by <b>color</b> and <b>shape</b></li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2)
@@ -2550,7 +2549,7 @@ stateplot + geom_point()
 <p><img src="assets/fig/unnamed-chunk-99-1.png" alt="plot of chunk unnamed-chunk-99"> </p>
 
 </section>
-<section class='' data-state='soothe' id='slide-159'>
+<section class='noborder' data-state='soothe' id='slide-159'>
   <h2>Try It!</h2>
   <ul>
 <li>Take a sample of the <code>diamonds</code> dataset</li>
@@ -2573,7 +2572,7 @@ stateplot + geom_point()
 </section>
 <section class='' data-state='noborder' id='slide-161'>
   <h2>Other geometric objects</h2>
-  <p>Boxplot</p>
+  <h4>Boxplot</h4>
 
 <pre><code class="r">ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 </code></pre>
@@ -2581,57 +2580,101 @@ stateplot + geom_point()
 <p><img src="assets/fig/unnamed-chunk-102-1.png" alt="plot of chunk unnamed-chunk-102"> </p>
 
 </section>
-<section class='' data-state='soothe' id='slide-162'>
-  <h2>Try It!</h2>
-  <ol>
-<li><p>Look up <code>geom_histogram</code>. What does it do?</p></li>
-<li><p>Make  a histogram of <code>Sepal.Length</code> from the <code>iris</code> data set. What did it do with the different species?</p></li>
-</ol>
+<section class='' data-state='noborder' id='slide-162'>
+  <h2>Other geometric objects</h2>
+  <h4>Histograms</h4>
 
-</section>
-<section class='' data-state='noborder' id='slide-163'>
-  <h2>Facets</h2>
-  <p>Plots can also have <b>facets</b> to make lattice plots. </p>
+<ul>
+<li>Change some of the aesthetics - <code>binwidth</code>, <code>fill</code></li>
+</ul>
 
-<pre><code class="r">ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
+<pre><code class="r">ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = &quot;black&quot;, fill = &quot;paleturquoise&quot;)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-103-1.png" alt="plot of chunk unnamed-chunk-103"> </p>
 
 </section>
+<section class='' data-state='noborder' id='slide-163'>
+  <h2>Other geometric objects</h2>
+  <h4>Bar plots</h4>
+
+<pre><code class="r">ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = &quot;identity&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-104-1.png" alt="plot of chunk unnamed-chunk-104"> </p>
+
+</section>
 <section class='' data-state='noborder' id='slide-164'>
+  <h2>Other geometric objects</h2>
+  <h4>Line plots</h4>
+
+<pre><code class="r">ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-105-1.png" alt="plot of chunk unnamed-chunk-105"> </p>
+
+</section>
+<section class='' data-state='noborder' id='slide-165'>
+  <h2>Other geometric objects</h2>
+  <h4>Density plots</h4>
+
+<pre><code class="r">ggplot(faithful, aes(waiting)) + geom_density(fill = &quot;thistle&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-106-1.png" alt="plot of chunk unnamed-chunk-106"> </p>
+
+</section>
+<section class='' data-state='soothe' id='slide-166'>
+  <h2>Try It!</h2>
+  <ol>
+<li><p>Look up <code>geom_histogram</code>. What does it do?</p></li>
+<li><p>Make a histogram of <code>Sepal.Length</code> from the <code>iris</code> data set. What did it do with the different species?</p></li>
+</ol>
+
+</section>
+<section class='' data-state='noborder' id='slide-167'>
+  <h2>Facets</h2>
+  <p>Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). </p>
+
+<pre><code class="r">ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-107-1.png" alt="plot of chunk unnamed-chunk-107"> </p>
+
+</section>
+<section class='' data-state='noborder' id='slide-168'>
   <h2>Facets</h2>
   <p>Change to <code>facet_grid(. ~ Species)</code> and get one row, three columns.</p>
 
 <pre><code class="r">ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(. ~ Species)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-104-1.png" alt="plot of chunk unnamed-chunk-104"> </p>
+<p><img src="assets/fig/unnamed-chunk-108-1.png" alt="plot of chunk unnamed-chunk-108"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-165'>
-  <h2>Adding stats</h2>
+<section class='' data-state='noborder' id='slide-169'>
+  <h2>Stats</h2>
   <p>Type <code>stat_</code> and hit tab to see them all. Then, use <code>?stat_nameofstat</code> to see the help screen.</p>
 
 </section>
-<section class='' data-state='noborder' id='slide-166'>
-  <h2>Adding stats</h2>
+<section class='' data-state='noborder' id='slide-170'>
+  <h2>Stats</h2>
   <p>Use <code>stat_smooth</code> to add a linear fit</p>
 
 <pre><code class="r">ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point() + stat_smooth(method = &quot;lm&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-105-1.png" alt="plot of chunk unnamed-chunk-105"> </p>
+<p><img src="assets/fig/unnamed-chunk-109-1.png" alt="plot of chunk unnamed-chunk-109"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-167'>
+<section class='' data-state='noborder' id='slide-171'>
   <h2>Scales</h2>
   <ul>
 <li><p><code>scales</code> are used to modify axes and colors </p></li>
 <li><p>For example: </p>
 
 <ul>
-<li><code>scale_y_continuous()</code> Set name, breaks, labels, limits of y-axis<br></li>
+<li><code>scale_y_continuous()</code> Set name, breaks, labels, limits of y-axis </li>
 <li><code>scale_x_log10()</code> log transform the x-axis </li>
 <li><code>scale_colour_manual()</code> Specify colors for geoms </li>
 <li><code>scale_fill_discrete()</code> Specify colors for geoms </li>
@@ -2639,7 +2682,7 @@ stateplot + geom_point()
 </ul>
 
 </section>
-<section class='' data-state='noborder' id='slide-168'>
+<section class='' data-state='noborder' id='slide-172'>
   <h2>Scales</h2>
   <ul>
 <li>log x and log y axes</li>
@@ -2648,10 +2691,10 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-106-1.png" alt="plot of chunk unnamed-chunk-106"> </p>
+<p><img src="assets/fig/unnamed-chunk-110-1.png" alt="plot of chunk unnamed-chunk-110"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-169'>
+<section class='' data-state='noborder' id='slide-173'>
   <h2>Scales</h2>
   <ul>
 <li>Add color manually</li>
@@ -2660,79 +2703,48 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c(&quot;palegreen3&quot;,&quot;palevioletred3&quot;,&quot;peachpuff3&quot;, &quot;paleturquoise3&quot;))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-107-1.png" alt="plot of chunk unnamed-chunk-107"> </p>
-
-</section>
-<section class='' data-state='noborder' id='slide-170'>
-  <h3>More examples: Histograms</h3>
-  <pre><code class="r">ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 30, colour=&quot;black&quot;)
-</code></pre>
-
-<p><img src="assets/fig/unnamed-chunk-108-1.png" alt="plot of chunk unnamed-chunk-108"> </p>
-
-</section>
-<section class='' data-state='noborder' id='slide-171'>
-  <h3>More examples: Histograms</h3>
-  <ul>
-<li>Change some of the aesthetics</li>
-</ul>
-
-<pre><code class="r">ggplot(faithful, aes(x=waiting)) + geom_histogram(binwidth = 8, colour=&quot;black&quot;, fill=&quot;paleturquoise&quot;)
-</code></pre>
-
-<p><img src="assets/fig/unnamed-chunk-109-1.png" alt="plot of chunk unnamed-chunk-109"> </p>
-
-</section>
-<section class='' data-state='noborder' id='slide-172'>
-  <h3>More examples: Bar plots</h3>
-  <pre><code class="r">ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = &quot;identity&quot;)
-</code></pre>
-
-<p><img src="assets/fig/unnamed-chunk-110-1.png" alt="plot of chunk unnamed-chunk-110"> </p>
-
-</section>
-<section class='' data-state='noborder' id='slide-173'>
-  <h3>More examples: Line plots</h3>
-  <pre><code class="r">ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
-</code></pre>
-
 <p><img src="assets/fig/unnamed-chunk-111-1.png" alt="plot of chunk unnamed-chunk-111"> </p>
 
 </section>
 <section class='' data-state='noborder' id='slide-174'>
-  <h3>More examples: Density plots</h3>
-  <pre><code class="r">ggplot(faithful, aes(waiting)) + geom_density()
+  <h2>Labels</h2>
+  <ul>
+<li>Add labels, including a title and axes labels, using <code>+ labs()</code></li>
+</ul>
+
+<pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = &quot;US States, 1977&quot;, x = &quot;Life expectancy (in years)&quot;, y = &quot;High school graduation rate (percent)&quot;)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-112-1.png" alt="plot of chunk unnamed-chunk-112"> </p>
 
 </section>
 <section class='' data-state='noborder' id='slide-175'>
-  <h3>More examples: Density plots</h3>
-  <p>Add a fill</p>
+  <h2>Labels</h2>
+  <ul>
+<li>Add labels inside the figure using <code>+ geom_text()</code></li>
+</ul>
 
-<pre><code class="r">ggplot(faithful, aes(waiting)) + geom_density(fill = &quot;thistle&quot;)
+<pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = &quot;US States, 1977&quot;, x = &quot;Life expectancy (in years)&quot;, y = &quot;High school graduation rate (percent)&quot;) + geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-113-1.png" alt="plot of chunk unnamed-chunk-113"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-176'>
+<section class='ninety' data-state='noborder' id='slide-176'>
   <h2>Themes</h2>
-  <p>Even more precise control can be done with <b>themes</b>. See <code>?theme</code> for all of the options </p>
+  <ul>
+<li><p>Control over the figure as a whole can be done by modifying <b>themes</b>. See <code>?theme</code> for all of the options </p></li>
+<li><p>I prefer <code>+ theme_bw()</code> (white background with gridlines) or <code>+ theme_classic()</code> (white background without gridlines)</p></li>
+<li><p>You can also change the overall font family and font size</p></li>
+</ul>
 
-</section>
-<section class='' data-state='noborder' id='slide-177'>
-  <h2>Themes</h2>
-  <p>I prefer <code>+ theme_bw()</code> (white background rather than the default gray).</p>
-
-<pre><code class="r">ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_bw()
+<pre><code class="r">ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_bw(base_family = &quot;Times&quot;, base_size = 14)
 </code></pre>
 
 <p><img src="assets/fig/unnamed-chunk-114-1.png" alt="plot of chunk unnamed-chunk-114"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-178'>
+<section class='' data-state='noborder' id='slide-177'>
   <h2>Saving plots</h2>
   <pre><code class="r">my_plot &lt;- ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_bw()
 
@@ -2744,18 +2756,7 @@ ggsave(&quot;my_plot.jpg&quot;, my_plot, height = 4, width = 4, units = &quot;in
 <p><b>Note:</b> Saved in your current working directory (unless specified).</p>
 
 </section>
-<section class='' data-state='noborder' id='slide-179'>
-  <h2>Remember!</h2>
-  <p><b>Data must be a data frame to plot with ggplot2</b></p>
-
-<pre><code class="r"># This won&#39;t work!
-xvar &lt;- rnorm(100)
-yvar &lt;- rnorm(100)
-ggplot(aes(xvar, yvar)) + geom_point()
-</code></pre>
-
-</section>
-<section class='' data-state='noborder' id='slide-180'>
+<section class='' data-state='noborder' id='slide-178'>
   <h2>Remember!</h2>
   <p><b>Data must be a data frame to plot with ggplot2</b></p>
 
@@ -2765,12 +2766,14 @@ df &lt;- data.frame(xvar, yvar) # coerce to data frame
 ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-117-1.png" alt="plot of chunk unnamed-chunk-117"> </p>
+<p><img src="assets/fig/unnamed-chunk-116-1.png" alt="plot of chunk unnamed-chunk-116"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-181'>
+<section class='' data-state='noborder' id='slide-179'>
   <h2>Proper data formatting</h2>
-  <p>Often our data looks like this (&quot;<b>wide</b>&quot;)</p>
+  <ul>
+<li>Often our data looks like this (&quot;<b>wide</b>&quot;), where multiple observations can be found in each row</li>
+</ul>
 
 <pre><code class="r">head(df)
 </code></pre>
@@ -2791,9 +2794,11 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-182'>
+<section class='' data-state='noborder' id='slide-180'>
   <h2>Proper data formatting</h2>
-  <p>But our data should look like this (&quot;<b>long</b>&quot;)</p>
+  <ul>
+<li>Data is much easier to analyze visually and statisically if it looks like this (&quot;<b>long</b>&quot;), where there is one row per observation</li>
+</ul>
 
 <pre><code class="r">head(df2)
 </code></pre>
@@ -2814,7 +2819,7 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-183'>
+<section class='' data-state='noborder' id='slide-181'>
   <h3>Melting: from wide to long</h3>
   <pre><code class="r"># make some fake &quot;wide&quot; data
 df &lt;- data.frame(A = rnorm(100, 50, 6),
@@ -2834,9 +2839,11 @@ head(df)
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-184'>
+<section class='' data-state='noborder' id='slide-182'>
   <h3>Melting: from wide to long</h3>
-  <p>Use the <code>melt()</code> function in <code>reshape2</code> package</p>
+  <ul>
+<li>Use the <code>melt()</code> function in <code>reshape2</code> package</li>
+</ul>
 
 <pre><code class="r">library(reshape2)
 df2 &lt;- melt(data = df)
@@ -2864,9 +2871,13 @@ df2 &lt;- melt(data = df)
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-185'>
-  <h2>Now we can plot</h2>
-  <pre><code class="r">ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
+<section class='' data-state='noborder' id='slide-183'>
+  <h2>Melting: from wide to long</h2>
+  <ul>
+<li>Melting the data makes it easier to plot</li>
+</ul>
+
+<pre><code class="r">ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
 </code></pre>
 
 <pre><code>FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
@@ -2875,39 +2886,56 @@ FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to ad
 FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-124-1.png" alt="plot of chunk unnamed-chunk-124"> </p>
+<p><img src="assets/fig/unnamed-chunk-123-1.png" alt="plot of chunk unnamed-chunk-123"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-186'>
-  <h2>Plotting means &amp; error bars</h2>
-  <ul>
-<li><a href = "http://rpubs.com/mccannecology/47829">Example by Mike McCann</a><br></li>
-<li><a href = "http://www.cookbook-r.com/Graphs/">R Cookbook: Graphs</a></li>
-</ul>
-
-</section>
-<section class='' data-state='' id='slide-187'>
-  <h2>More helpful links</h2>
+<section class='' data-state='noborder' id='slide-184'>
+  <h2>Helpful links</h2>
   <p><a href = "http://docs.ggplot2.org/current/">ggplot2 documentation</a></p>
 
 <p><a href = "http://ggplot2.org/resources/2007-vanderbilt.pdf">Presentation by Hadley Wickham about ggplot2</a></p>
 
-<p><a href = "http://sharpstatistics.co.uk/r/ggplot2-guide">ggplot2 guide</a></p>
+<p><a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot Cheat Sheet</a></p>
 
 <p><a href = "http://colorbrewer2.org">R ColorBrewer</a></p>
 
+<p><a href = "http://rpubs.com/mccannecology/47829">Plotting means and error bars</a></p>
+
+<p><a href = "http://www.cookbook-r.com/Graphs/">R Cookbook: Graphs</a></p>
+
 </section>
-<section class='' data-state='' id='slide-188'>
+<section class='' data-state='' id='slide-185'>
   <h2>Practice</h2>
   <p><a href = "https://rpubs.com/mccannecology/53357">Worksheet</a></p>
 
 <p><a href = "https://rpubs.com/mccannecology/53363">Answers</a></p>
 
 <ol>
-<li><p>Type in <code>data(package=&quot;datasets&quot;)</code> to see all of the datasets pre-installed with R. </p></li>
+<li><p>Type in <code>data(package = &quot;datasets&quot;)</code> to see all of the datasets pre-installed with R. </p></li>
 <li><p>Find some data that interests you (or use your own) and examine its structure. Are they vectors, data frames, other? How many observations are there? </p></li>
-<li><p>Use <code>ggplot2</code> to make a one plot of some attribute of the data. </p></li>
+<li><p>Use <code>ggplot2</code> to make a plot of some attribute of the data. </p></li>
 </ol>
+
+</section>
+<section class='ninety' data-state='' id='slide-186'>
+  <h2>Additional topics and links</h2>
+  <ul>
+<li>When you get a bit more comfortable with R, I recommend taking a look at the additional material on Mike McCann&#39;s website.</li>
+</ul>
+
+<p><a href = "http://rpubs.com/mccannecology/53465">Reproducible Research with RMarkdown</a></p>
+
+<p><a href = "http://rpubs.com/mccannecology/53465">Advanced Data Manipulation with dplyr</a></p>
+
+<ul>
+<li>I also recommend creating a GitHub account (where I&#39;ve uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)</li>
+</ul>
+
+<p><a href = "http://www.github.com">GitHub</a></p>
+
+<p><a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/">Basic tutorial on using GitHub (with RStudio)</a></p>
+
+<p><a href = "https://try.github.io">GitHub tutorial (using command line)</a></p>
 
 </section>
     </div>
