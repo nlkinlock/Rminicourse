@@ -88,7 +88,7 @@ github      :
 
 ## Running R with RStudio
 
-- Type directly into the console (best when you don't want to save the code) or type into the script - then run `(CTRL + ENTER)` (Windows) or `(CMD + ENTER)` (Mac)
+- Type directly into the console (best when you don't want to save the code) or type into the script - then type `(CTRL + ENTER)` (Windows) or `(CMD + ENTER)` (Mac)
 
 - A <b>script</b> is a plain text file with R commands in it. This will be where you save the code that you are writing - the file will end in the extension <b>.R</b>
 
