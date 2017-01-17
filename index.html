@@ -24,7 +24,7 @@
 
 <h4><i>Nicole Kinlock</i></h4>
 
-<h5>January 21st and 22nd, 2016</h5>
+<h5>January 19th and 20th, 2017</h5>
 
 </section>
 <section class='seventy' data-state='' id='slide-2'>
@@ -178,7 +178,7 @@
 <pre><code>## [1] TRUE
 </code></pre>
 
-<pre><code class="r">7!=4
+<pre><code class="r">7 != 4
 </code></pre>
 
 <pre><code>## [1] TRUE
@@ -188,9 +188,9 @@
 <section class='' data-state='soothe' id='slide-13'>
   <h2>Try It!</h2>
   <ol>
-<li><p>What is 17 multiplied by 365?</p></li>
-<li><p>What is 13 cubed?</p></li>
-<li><p>Is 9 to the fourth equal to the sum of 2000 and 187 multiplied by 3?</p></li>
+<li><p>What is 21 multiplied by 342?</p></li>
+<li><p>What is 15 to the fourth power?</p></li>
+<li><p>Is 8 to the fifth power equal to the sum of 692 and 7500 multiplied by 4?</p></li>
 </ol>
 
 </section>
@@ -220,16 +220,16 @@ a
 <li><p>This may seem arbitrary, but it is helpful when you are reading someone else&#39;s code.</p></li>
 </ul>
 
-<p><a href = "https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"> Google&#39;s R Style Guide  </a></p>
+<p><a href = "https://google.github.io/styleguide/Rguide.xml" target = "_blank"> Google&#39;s R Style Guide  </a></p>
 
-<p><a href = "http://adv-r.had.co.nz/Style.html"> Advanced R: Style Guide </a></p>
+<p><a href = "http://adv-r.had.co.nz/Style.html" target = "_blank"> Advanced R: Style Guide </a></p>
 
 </section>
 <section class='' data-state='alert' id='slide-16'>
   <h2>R Tip: Comment on your code</h2>
   <p><b>Use <code>#</code> signs to comment on your script.</b> Anything to the right of a <code>#</code> is ignored. Good scripts (and homework) have comments before every major block of code. It&#39;s surprisingly hard to remember what you did when reviewing older code without comments, and it&#39;s particularly important when other people are reading your code.  </p>
 
-<pre><code class="r">5 + 5 # This adds five and five 
+<pre><code class="r">5 + 5  # this adds five and five 
 </code></pre>
 
 <pre><code>## [1] 10
@@ -361,9 +361,9 @@ x
 <section class='' data-state='soothe' id='slide-24'>
   <h2>Try It!</h2>
   <ol>
-<li>Create a vector that includes all integers between 2 and 22. Name this vector <code>x</code>.</li>
+<li>Create a vector that includes all integers between 5 and 25. Name this vector <code>x</code>.</li>
 <li>Create a vector that includes all even integers between 2 and 22. Name this vector <code>y</code>.</li>
-<li>Create a vector that combines object x and object y. Name this vector <code>z</code>.</li>
+<li>Create a single vector that <b>combines</b> object x and object y. Name this vector <code>z</code>.</li>
 </ol>
 
 </section>
@@ -375,7 +375,7 @@ x
 <li>You can access any element in the vector by putting its position in square brackets <code>[ ]</code></li>
 </ul>
 
-<pre><code class="r"># Create a vector 
+<pre><code class="r"># create a vector 
 height &lt;- c(76, 72, 74, 74, 78)
 height
 </code></pre>
@@ -383,13 +383,13 @@ height
 <pre><code>## [1] 76 72 74 74 78
 </code></pre>
 
-<pre><code class="r">height[1] # extract the 1st element in the vector 
+<pre><code class="r">height[1]  # extract the 1st element in the vector 
 </code></pre>
 
 <pre><code>## [1] 76
 </code></pre>
 
-<pre><code class="r">height[5] # extract the 5th element
+<pre><code class="r">height[5]  # extract the 5th element
 </code></pre>
 
 <pre><code>## [1] 78
@@ -461,13 +461,13 @@ y
 ## [24] 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
 </code></pre>
 
-<pre><code class="r">y[y &lt;= 10]  # extract all elements less than or equal to 10
+<pre><code class="r">y[y &lt;= 10]   # extract all elements less than or equal to 10
 </code></pre>
 
 <pre><code>## [1]  5  6  7  8  9 10
 </code></pre>
 
-<pre><code class="r">y[y &lt; 10 &amp; y != 5]  # extract all elements less than 10 that are not equal to 5
+<pre><code class="r">y[y &lt; 10 &amp; y != 5]   # extract all elements less than 10 that are not equal to 5
 </code></pre>
 
 <pre><code>## [1] 6 7 8 9
@@ -479,7 +479,7 @@ y
   <ol>
 <li><p>What are the 9th and 12th positions of the vector <code>seq(1, 27, 0.5)</code>? </p></li>
 <li><p><b>Bonus!</b> Can you find those positions simultaneously?</p></li>
-<li><p>Create the vector <code>c(3:33)</code> and name it <code>a</code>. Extract all elements of <code>a</code> that are greater than or equal to 17.</p></li>
+<li><p>Create the vector <code>c(5:40)</code> and name it <code>m</code>. Extract all elements of <code>m</code> that are greater than or equal to 22.</p></li>
 </ol>
 
 </section>
@@ -487,9 +487,9 @@ y
   <h2>Functions</h2>
   <ul>
 <li><p>A <b>function</b> is a stored object that performs a task given some inputs (called <i>arguments</i>). R has many functions already available, but you can also write your own functions.</p></li>
-<li><p>Try using the tab key while entering arguments in any function to discover a useful feature of RStudio.</p></li>
-<li><p>Functions are used in the format: <code>name_of_function(inputs)</code>   </p></li>
-<li><p>The output of a function can be saved to an object: <code>output &lt;- name_of_function(inputs)</code></p></li>
+<li><p>Try using the tab key while entering arguments in any function to discover a useful feature of RStudio. (Try now with the <code>seq()</code> function.)</p></li>
+<li><p>Functions are called in the format: <code>NameOfFunction(inputs)</code>   </p></li>
+<li><p>The output of a function can be saved to an object: <code>output &lt;- NameOfFunction(inputs)</code></p></li>
 </ul>
 
 </section>
@@ -564,7 +564,7 @@ mean(x)
 <li>You can also use <code>?</code> before a function name to view the help file </li>
 </ul>
 
-<pre><code class="r">?mean  # Same as help(mean) 
+<pre><code class="r">?mean   # Same as help(mean) 
 </code></pre>
 
 <ul>
@@ -578,7 +578,7 @@ mean(x)
 <section class='' data-state='soothe' id='slide-35'>
   <h2>Try It!</h2>
   <ol>
-<li><p>What is the median of 34, 16, 105, and 27?<br>
+<li><p>What is the median of 26, 24, 8, 17, and 42?<br>
 <i>Remember:</i> functions are often named intuitively.</p></li>
 <li><p>What does the function <code>range()</code> do, and what is the sample example in the help file?</p></li>
 <li><p>Is <code>mean(4, 5)</code> different than <code>mean(c(4, 5))</code>?</p></li>
@@ -597,7 +597,7 @@ mean(x)
   <h2>Packages</h2>
   <ul>
 <li><p>There are many, many R packages - currently 7742!</p></li>
-<li><p>Check the <a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html"> List of R Packages</a> and search with your favorite keyword, e.g. <i>ecology, paleo, dispersal, population, time series, phylogeny, community, Bayes</i></p></li>
+<li><p>Check the <a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html" target = "_blank"> List of R Packages</a> and search with your favorite keyword, e.g. <i>ecology, paleo, dispersal, population, time series, phylogeny, community, Bayes</i></p></li>
 </ul>
 
 </section>
@@ -608,28 +608,28 @@ mean(x)
 </ul>
 
 <pre><code class="r"># Install a new package
-install.packages(&quot;picante&quot;) 
+install.packages(&quot;igraph&quot;) 
 </code></pre>
 
 <ul>
-<li>Remember to surround the package name in quotation marks.</li>
+<li>Remember to surround the package name in quotation marks for the <code>install.packages()</code> function.</li>
 </ul>
 
 </section>
 <section class='' data-state='' id='slide-39'>
   <h2>Loading Packages</h2>
   <ul>
-<li><p>Installing a package downloads it to your computer. You need to download packages before using them.</p></li>
-<li><p>Additionally, you have to load packages before you use them every time you restart R. This lets R know what packages to load in, and not waste memory by loading all potential functions.    </p></li>
+<li><p>Installing a package downloads it to your computer. You need to download packages before loading them.</p></li>
+<li><p>Additionally, you have to load packages before you use them every time you restart R. This lets R know what packages to load and not waste memory by loading all potential functions.    </p></li>
 </ul>
 
-<pre><code class="r"># Two ways to load packages:
+<pre><code class="r"># two ways to load packages:
 library(ggplot2)
 require(ggplot2)
 </code></pre>
 
 <ul>
-<li><b>Note:</b> no quotation marks needed</li>
+<li><b>Note:</b> no quotation marks are needed for <code>library()</code> or <code>require()</code></li>
 </ul>
 
 </section>
@@ -648,27 +648,25 @@ require(ggplot2)
 <li><p>Install the package to your computer. </p></li>
 </ol>
 
-<p><a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html"> List of R Packages</a></p>
+<p><a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html" target = "_blank"> List of R Packages</a></p>
 
 </section>
 <section class='' data-state='' id='slide-42'>
   <h2>The R User Community</h2>
-  <p><a href = "http://stackoverflow.com/questions/tagged/r">Stack Overflow</a> </p>
+  <p><a href = "http://stackoverflow.com/questions/tagged/r" target = "_blank">Stack Overflow</a> </p>
 
-<p><a href = "http://www.r-bloggers.com/">R-Bloggers</a> </p>
+<p><a href = "http://www.r-bloggers.com/" target = "_blank">R-Bloggers</a> </p>
 
-<p><a href = "http://www.r-project.org/mail.html">R Mailing Lists</a></p>
-
-<p><a href = "http://rforcats.net/">R for cats</a></p>
+<p><a href = "http://www.r-project.org/mail.html" target = "_blank">R Mailing Lists</a></p>
 
 </section>
 <section class='' data-state='' id='slide-43'>
   <h2>Practice</h2>
   <p>Worksheets created by Mike McCann and hosted on his Rpubs site</p>
 
-<p><a href = "https://rpubs.com/mccannecology/53351">Worksheet</a></p>
+<p><a href = "https://rpubs.com/mccannecology/53351" target = "_blank">Worksheet</a></p>
 
-<p><a href = "https://rpubs.com/mccannecology/53358">Answers</a></p>
+<p><a href = "https://rpubs.com/mccannecology/53358" target = "_blank">Answers</a></p>
 
 </section>
 <section class='' data-state='' id='slide-44'>
@@ -688,29 +686,28 @@ require(ggplot2)
 <section class='' data-state='noborder' id='slide-46'>
   <h2>Distributions</h2>
   <ul>
-<li>It is often  useful to generate a sample from a specific statisical distribution. To generate a sample of size 1000 from a standard normal distribution (mean 0 and standard deviation 1) we use the <b><code>rnorm()</code></b> function. </li>
+<li>It is often  useful to generate a sample from a specific statisical distribution. To generate a sample of 1000 elements from a standard normal distribution (mean 0 and standard deviation 1) we can use the <b><code>rnorm()</code></b> function. </li>
 </ul>
 
-<pre><code class="r">norm &lt;- rnorm(n = 1000, mean = 0, sd = 1)
-head(norm)
+<pre><code class="r">norm &lt;- rnorm(n = 1000, mean = 0, sd = 1)  # create a vector of samples from a standard normal dist.
+head(norm)  # view the first six elements of the vector
 </code></pre>
 
-<pre><code>## [1] -2.0902195660 -0.5281914723 -0.1530587059 -0.4630696300  0.3055771295
-## [6]  0.0002270506
+<pre><code>## [1]  0.9330206 -0.2581407 -0.3036996 -0.3874593 -2.0576031 -1.0316611
 </code></pre>
 
-<pre><code class="r">hist(norm, col = &quot;palevioletred&quot;, main = &quot;&quot;, xlab = &quot;&quot;, ylab = &quot;Frequency&quot;)
+<pre><code class="r">hist(norm, col = &quot;palevioletred&quot;, main = &quot;&quot;, xlab = &quot;&quot;, ylab = &quot;Frequency&quot;)  # plot the vector of samples as a histogram
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-24-1.png" alt="plot of chunk unnamed-chunk-24"> </p>
+<p><img src="assets/fig/unnamed-chunk-24-1.png" alt="plot of chunk unnamed-chunk-24"></p>
 
 </section>
 <section class='' data-state='soothe' id='slide-47'>
   <h2>Try It!</h2>
   <ol>
 <li><p>Look up the <code>rnorm()</code> function in help screen. Locate the three arguments we used.</p></li>
-<li><p>Draw 100 random numbers from a normal distribution with a mean of 3 and an sd of 2, assign it to an object <code>a</code>.</p></li>
-<li><p>Find the mean of your sample. How close was it to the true mean?</p></li>
+<li><p>Draw 100 random numbers from a normal distribution with a mean of 3 and a std. dev. of 2, assign it to an object <code>a</code>.</p></li>
+<li><p>Find the mean of your sample. How close was it to the true mean (that you set in <code>rnorm()</code>?</p></li>
 <li><p>What is the 13th element in your vector <code>a</code>?</p></li>
 </ol>
 
@@ -718,20 +715,19 @@ head(norm)
 <section class='' data-state='' id='slide-48'>
   <h3>Generating random samples from other distributions</h3>
   <ul>
-<li>R has many distributions in the base package, including all those commonly used in biological analysis.<br></li>
+<li>R has many distributions in the base package, including all those commonly used in biological analyses.<br></li>
 <li>Depending on the distribution, each function has its own set of parameter arguments. </li>
-<li>For example, the <b><code>rpois()</code></b> function is the random number generator for the Poisson distribution and it has only the parameter <i>lambda</i> (\(\lambda\)). </li>
+<li>For example, the <b><code>rpois()</code></b> function is the random number generator for the Poisson distribution and it has only the parameter <i>lambda</i> (\(\lambda\)).</li>
+<li>Statistical distributions will be covered in much more detail in Biometry.</li>
 </ul>
-
-<p><b>BEE552 Students:</b> Heather will pick up from here.</p>
 
 </section>
 <section class='' data-state='soothe' id='slide-49'>
   <h2>Try It!</h2>
   <ol>
-<li><p>Draw 100 random variates from a Poisson distribution with a <code>lambda = 3</code>, assign it to an object <code>a</code>.</p></li>
-<li><p>Draw 1000 random variates from a Poisson distribution with a <code>lambda = 3</code>, assign it to an object <code>b</code>.</p></li>
-<li><p>Find the means of both draws. What is the difference in means?</p></li>
+<li><p>Draw 100 random samples from a Poisson distribution with <code>lambda = 3</code>, assign it to an object <code>w</code>.</p></li>
+<li><p>Draw 1000 random samples from a Poisson distribution with <code>lambda = 3</code>, assign it to an object <code>y</code>.</p></li>
+<li><p>Calculate the means of both vectors. What is the difference in means?</p></li>
 </ol>
 
 </section>
@@ -742,11 +738,11 @@ head(norm)
 
 <ul>
 <li><b><code>rnorm()</code></b> a random sample from a normal distribution.<br></li>
-<li><b><code>dnorm()</code></b> the density for a specific value for a normal distribution.<br></li>
-<li><b><code>pnorm()</code></b> the distribution function<br></li>
-<li><b><code>qnorm()</code></b> the quantile function<br></li>
+<li><b><code>dnorm()</code></b> the probability density (or densities) for a specific value (or values) for a normal distribution.<br></li>
+<li><b><code>pnorm()</code></b> the cumulative distribution function (area under the curve)<br></li>
+<li><b><code>qnorm()</code></b> the quantile function (value x at which the CDF of the distribution is equal to p)<br></li>
 </ul></li>
-<li><p><code>pnorm()</code>, and <code>qnorm()</code> will be covered during Biometry. They are less commonly used.</p></li>
+<li><p>All will be covered during Biometry. See <a href = "http://user.mendelu.cz/drapela/Forest_Biometry/Lecture%20notes/R%20-%20tutorials%20and%20commands/R%20Probability%20Functions.pdf" target = _blank">this</a> website for a bit more information.</p></li>
 </ul>
 
 </section>
@@ -758,7 +754,7 @@ head(norm)
 <li>Barplots are a basic type of univariate plot. The R function to create a barplot is <code>barplot()</code>.</li>
 </ul>
 
-<pre><code class="r"># Use the R dataset of the length of rivers in the United States (a univariate data set)
+<pre><code class="r"># use the R dataset of the length of rivers in the United States (a univariate data set)
 head(rivers)
 </code></pre>
 
@@ -768,7 +764,7 @@ head(rivers)
 <pre><code class="r">barplot(height = rivers[1:10], col = &quot;paleturquoise&quot;, main = &quot;Lengths of rivers in the United States&quot;, ylab = &quot;Length (in miles)&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-25-1.png" alt="plot of chunk unnamed-chunk-25"> </p>
+<p><img src="assets/fig/unnamed-chunk-25-1.png" alt="plot of chunk unnamed-chunk-25"></p>
 
 </section>
 <section class='' data-state='' id='slide-52'>
@@ -787,12 +783,12 @@ head(rivers)
 
 <p>Histograms are an effective way of visualizing distributions</p>
 
-<pre><code class="r"># Generate and visualize 100 random points from a standard normal distribution
+<pre><code class="r"># generate and visualize 100 random samples from a standard normal distribution
 sample &lt;- rnorm(1000)
 hist(sample, col = &quot;palevioletred&quot;, main = &quot;&quot;, xlab = &quot;&quot;, ylab = &quot;Frequency&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-26-1.png" alt="plot of chunk unnamed-chunk-26"> </p>
+<p><img src="assets/fig/unnamed-chunk-26-1.png" alt="plot of chunk unnamed-chunk-26"></p>
 
 </section>
 <section class='ninety' data-state='soothe' id='slide-54'>
@@ -813,23 +809,23 @@ hist(sample, col = &quot;palevioletred&quot;, main = &quot;&quot;, xlab = &quot;
 </ul>
 
 <pre><code class="r">x &lt;- 1:100
-sample(x, size = 20) # Sample without replacement
+sample(x, size = 20)  # sample without replacement
 </code></pre>
 
-<pre><code>##  [1] 96 56 10 30  4 99 93 60 49 36 85 65 28 88  2 32 48 64 94 76
+<pre><code>##  [1] 77 88 84 25 71 99 57 53  6 66 38 10 91 34 48 68 78 98 18 90
 </code></pre>
 
-<pre><code class="r">sample(x, size = 20, replace = TRUE) # Sample with replacement
+<pre><code class="r">sample(x, size = 20, replace = TRUE)  # sample with replacement
 </code></pre>
 
-<pre><code>##  [1] 24 59 59 97  7 78 81 10 68 31 42 50 46 32 87 42 84 57 46  5
+<pre><code>##  [1] 15 20 91 33 57 47 25 99 46 71 99 22 48 89 88 56 97 60 75 13
 </code></pre>
 
 </section>
 <section class='' data-state='soothe' id='slide-56'>
   <h2>Try It!</h2>
   <ol>
-<li><p>Sample 14 elements from a vector of integers between 100 and 200 without replacement.</p></li>
+<li><p>Sample 9 elements from a vector of integers between 125 and 325 without replacement.</p></li>
 <li><p>Sample 5 letters (using the pre-installed vector <code>letters</code>) from the alphabet with replacement.</p></li>
 <li><p>Sample 0 or 1 twelve times, with and without replacement. What happens?</p></li>
 </ol>
@@ -843,12 +839,12 @@ sample(x, size = 20) # Sample without replacement
 <li>Scatterplots are useful for showing the relationship between two variables </li>
 </ul>
 
-<pre><code class="r">sample1 &lt;- rnorm(n = 40, mean = 4, sd = 2)
-sample2 &lt;- rnorm(n = 40, mean = 2, sd = 1)
+<pre><code class="r">sample1 &lt;- rnorm(n = 40, mean = 4, sd = 2)  # random sample from a normal dist.
+sample2 &lt;- rnorm(n = 40, mean = 2, sd = 1)  # random sample from a different normal dist.
 plot(formula = sample2 ~ sample1, pch = 20)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-28-1.png" alt="plot of chunk unnamed-chunk-28"> </p>
+<p><img src="assets/fig/unnamed-chunk-28-1.png" alt="plot of chunk unnamed-chunk-28"></p>
 
 </section>
 <section class='' data-state='noborder' id='slide-58'>
@@ -873,11 +869,11 @@ plot(formula = sample2 ~ sample1, pch = 20)
 <li>You can add straight lines to a plot with <code>abline()</code>. <b>a</b> specifies the intercept and <b>b</b> the slope.</li>
 </ul>
 
-<pre><code class="r">plot(sample1, sample2)
+<pre><code class="r">plot(sample1, sample2, pch = 20)
 abline(a = -0.1, b = 1, col=&quot;royalblue4&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-30-1.png" alt="plot of chunk unnamed-chunk-30"> </p>
+<p><img src="assets/fig/unnamed-chunk-30-1.png" alt="plot of chunk unnamed-chunk-30"></p>
 
 </section>
 <section class='' data-state='noborder' id='slide-60'>
@@ -890,32 +886,32 @@ abline(a = -0.1, b = 1, col=&quot;royalblue4&quot;)
 </ul>
 
 <pre><code class="r">plot(sample1, sample2)
-abline(lm(sample2 ~ sample1), col=&quot;royalblue4&quot;)
+abline(lm(sample2 ~ sample1), col=&quot;royalblue&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-31-1.png" alt="plot of chunk unnamed-chunk-31"> </p>
+<p><img src="assets/fig/unnamed-chunk-31-1.png" alt="plot of chunk unnamed-chunk-31"></p>
 
 </section>
 <section class='' data-state='' id='slide-61'>
   <h2>Lots of useful links for plotting</h2>
-  <p><a href = "http://rpubs.com/SusanEJohnston/7953">R Base Graphics: An Idiot&#39;s Guide</a></p>
+  <p><a href = "http://rpubs.com/SusanEJohnston/7953" target = "_blank">R Base Graphics: An Idiot&#39;s Guide</a></p>
 
-<p><a href = "https://leemendelowitz.github.io/blog/r-base-graphics-plotting.html">R Base Graphics Plotting</a></p>
+<p><a href = "https://leemendelowitz.github.io/blog/r-base-graphics-plotting.html" target = "_blank">R Base Graphics Plotting</a></p>
 
-<p><a href = "http://www.statmethods.net/graphs/">Quick-R: Basic Graphs</a></p>
+<p><a href = "http://www.statmethods.net/graphs/" target = "_blank">Quick-R: Basic Graphs</a></p>
 
-<p><a href = "http://www.harding.edu/fmccown/r/">Producing Simple Graphs with R</a></p>
+<p><a href = "http://www.harding.edu/fmccown/r/" target = "_blank">Producing Simple Graphs with R</a></p>
 
-<p><a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Colors</a></p>
+<p><a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R Colors</a></p>
 
-<p>More on plotting later (i.e. making plots that are visually appealing!)</p>
+<p>More on plotting later (making plots that are much more visually appealing!)</p>
 
 </section>
 <section class='' data-state='' id='slide-62'>
   <h2>Practice</h2>
-  <p><a href = "https://rpubs.com/mccannecology/53352">Worksheet</a></p>
+  <p><a href = "https://rpubs.com/mccannecology/53352" target = "_blank">Worksheet</a></p>
 
-<p><a href = "https://rpubs.com/mccannecology/53359">Answers</a></p>
+<p><a href = "https://rpubs.com/mccannecology/53359" target = "_blank">Answers</a></p>
 
 </section>
 <section class='' data-state='' id='slide-63'>
@@ -927,7 +923,7 @@ abline(lm(sample2 ~ sample1), col=&quot;royalblue4&quot;)
   
   <p>Download the file for this section</p>
 
-<p><a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0">seedlings.csv</a></p>
+<p><a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0" target = "_blank">seedlings.csv</a></p>
 
 </section>
 <section class='' data-state='' id='slide-65'>
@@ -936,7 +932,7 @@ abline(lm(sample2 ~ sample1), col=&quot;royalblue4&quot;)
 <li>Most data you&#39;ve worked with probably isn&#39;t in vector form. More likely, it includes multiple rows and columns. Thus, a <b>data frame</b> is a very important data type in R and what you&#39;ll be working with much of the time. </li>
 </ul>
 
-<pre><code class="r">head(trees)  # Pre-loaded dataset in R - measurements of black cherry trees
+<pre><code class="r">head(trees)  # pre-loaded dataset in R - measurements of black cherry trees
 </code></pre>
 
 <pre><code>##   Girth Height Volume
@@ -952,7 +948,7 @@ abline(lm(sample2 ~ sample1), col=&quot;royalblue4&quot;)
 <section class='eighty' data-state='noborder' id='slide-66'>
   <h3>Data structures: 2. Data frames</h3>
   <p>Data frames are usually read in from a file, but R comes with many practice datasets. 
-We will use the <code>iris</code> dataset, famously used by <a href = "http://en.wikipedia.org/wiki/Iris_flower_data_set">R.A. Fisher in 1936</a></p>
+We will use the <code>iris</code> dataset, <a href = "http://en.wikipedia.org/wiki/Iris_flower_data_set" target = "_blank">famously used by R.A. Fisher in 1936</a></p>
 
 <p><a href="https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg#/media/File:Iris_versicolor_3.jpg" title = "Iris versicolor"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/800px-Iris_versicolor_3.jpg" height = "175" width = "275"></a></p>
 
@@ -974,12 +970,12 @@ We will use the <code>iris</code> dataset, famously used by <a href = "http://en
   <h4>Useful functions for data frames</h4>
 
 <ul>
-<li><code>head()</code> - see first 5 rows</li>
-<li><code>tail()</code> - see last 5 rows</li>
+<li><code>head()</code> - see first 6 rows</li>
+<li><code>tail()</code> - see last 6 rows</li>
 <li><code>dim()</code> - dimensions (# rows, # columns)</li>
 <li><code>nrow()</code> - number of rows</li>
 <li><code>ncol()</code> - number of columns</li>
-<li><code>str()</code> - structure of any object</li>
+<li><code>str()</code> - structure of any object <i>(very useful!)</i></li>
 <li><code>class()</code> - class of any object</li>
 <li><code>rownames()</code> - row names </li>
 <li><code>colnames()</code> - column names</li>
@@ -992,7 +988,7 @@ We will use the <code>iris</code> dataset, famously used by <a href = "http://en
 <li><p>How many rows does the <code>iris</code> data frame have?</p></li>
 <li><p>How many columns? What are the column names?</p></li>
 <li><p>Using the <code>str()</code> function, how many species are in the data?</p></li>
-<li><p>What classes are each of the columns?</p></li>
+<li><p>What are the classes of each of the columns?</p></li>
 </ol>
 
 </section>
@@ -1044,7 +1040,7 @@ We will use the <code>iris</code> dataset, famously used by <a href = "http://en
   <h4>Data frame indexing: positional</h4>
 
 <ul>
-<li>Index entire rows or columns</li>
+<li>Index entire rows or columns by leaving one of the positions blank, i.e. <code>nameofdf[, column#]</code> or <code>nameofdf[row#, ]</code></li>
 </ul>
 
 <pre><code class="r">iris[2, ]  # subset the entire second row 
@@ -1100,7 +1096,7 @@ We will use the <code>iris</code> dataset, famously used by <a href = "http://en
 </code></pre>
 
 <ul>
-<li>Or, use the dollar sign <code>$</code> to call a column by name</li>
+<li>Or, use the dollar sign <code>$</code> notation to call a column by name</li>
 </ul>
 
 <pre><code class="r">iris$Sepal.Length
@@ -1110,11 +1106,11 @@ We will use the <code>iris</code> dataset, famously used by <a href = "http://en
 <section class='' data-state='soothe' id='slide-74'>
   <h2>Try It!</h2>
   <ol>
-<li><p>What is the 9th entry of the <code>Sepal.Width</code> column? Call it <code>x</code>.</p></li>
+<li><p>What is the 9th entry of the <code>Sepal.Width</code> column? Save it as object <code>x</code>.</p></li>
 <li><p>Subset the 17th row of the data frame <code>iris</code>.</p></li>
 <li><p>Return an object with the 1st, 4th and 7th rows of the <code>iris</code> dataframe.</p></li>
 <li><p>Use the <code>seq()</code> function to subset all odd rows in the <code>iris</code> dataset.</p></li>
-<li><p>What happens when you use negative numbers to index the <code>iris</code> dataframe? <b>Hint:</b> Use <code>dim()</code> on the original and final objects.</p></li>
+<li><p>What happens when you use negative numbers to index the <code>iris</code> dataframe? <b>Hint:</b> Use the function <code>dim()</code> on the original and final objects.</p></li>
 </ol>
 
 </section>
@@ -1126,27 +1122,30 @@ We will use the <code>iris</code> dataset, famously used by <a href = "http://en
 <li>An extremely helpful tool is to subset your data using logic rather than an index.<br></li>
 </ul>
 
-<pre><code class="r">petal &lt;- iris$Petal.Width  # Subset of the column petal width
+<pre><code class="r">petal &lt;- iris$Petal.Width  # subset of the column petal width
 
-hist(petal, col = &quot;darkseagreen1&quot;, main = &quot;Petal width of Iris&quot;, xlab = &quot;&quot;, ylab = &quot;Frequency&quot;) # Make a histogram of petal width frequency
+hist(petal, col = &quot;darkseagreen1&quot;, main = &quot;Petal width of Iris&quot;, xlab = &quot;&quot;, ylab = &quot;Frequency&quot;)  # make a histogram of petal width frequency
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-40-1.png" alt="plot of chunk unnamed-chunk-40"> </p>
+<p><img src="assets/fig/unnamed-chunk-40-1.png" alt="plot of chunk unnamed-chunk-40"></p>
+
+<ul>
+<li>Continued on next slide</li>
+</ul>
 
 </section>
 <section class='' data-state='' id='slide-76'>
   <h3>Data structures: 2. Data frames</h3>
   <h4>Data frame indexing: logical</h4>
 
-<pre><code class="r">logi &lt;- petal &gt; 1 # Which petal widths are greater than 1?
+<pre><code class="r">logi &lt;- petal &gt; 1  # which petal widths are greater than 1?
 head(logi)
 </code></pre>
 
 <pre><code>## [1] FALSE FALSE FALSE FALSE FALSE FALSE
 </code></pre>
 
-<pre><code class="r">iris.subset &lt;- iris[logi, ] # Subset of iris only including individuals
-# where petal width is greater than 1
+<pre><code class="r">iris.subset &lt;- iris[logi, ]  # subset of iris only including individuals where petal width is greater than 1
 
 head(iris.subset)
 </code></pre>
@@ -1182,7 +1181,7 @@ head(iris.subset)
   <h4>Data frame indexing: logical</h4>
 
 <ul>
-<li>For all types of data, if we want to subset a specific value/character/factor we use <code>==</code></li>
+<li>For all types of data, if we want to subset a specific value/character/factor we use the logical operator &quot;<code>==</code>&quot;</li>
 </ul>
 
 <pre><code class="r">iris.subset &lt;- iris[iris$Petal.Length == 4,]
@@ -1203,11 +1202,12 @@ head(iris.subset)
   <h4>Data frame indexing: logical</h4>
 
 <ul>
-<li>Subset only records from the species <i>I. versicolor</i></li>
+<li><p>Subset only records from the species <i>I. versicolor</i></p></li>
+<li><p>Note that quotation marks are needed when dealing with characters and factors</p></li>
 </ul>
 
-<pre><code class="r">versicolor_only &lt;- iris[iris$Species == &quot;versicolor&quot;, ]
-head(versicolor_only)
+<pre><code class="r">versicolor.only &lt;- iris[iris$Species == &quot;versicolor&quot;, ]
+head(versicolor.only)
 </code></pre>
 
 <pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
@@ -1288,7 +1288,7 @@ df
 <li>Use the <code>data.frame</code> function (again).</li>
 </ul>
 
-<pre><code class="r">df &lt;- data.frame(df, z = 41:45)
+<pre><code class="r">df &lt;- data.frame(df, z = 41:45)  # adding new column z to previous df
 df
 </code></pre>
 
@@ -1301,7 +1301,7 @@ df
 </code></pre>
 
 <ul>
-<li>Or, use the assignment operator <code>&lt;-</code></li>
+<li>Or, use the assignment operator <code>&lt;-</code> with the <code>$</code> notation</li>
 </ul>
 
 <pre><code class="r">df$z &lt;- 41:45
@@ -1338,7 +1338,7 @@ df.subset
 </code></pre>
 
 <ul>
-<li>Or, assign <code>NULL</code> to the column</li>
+<li>Or, assign <code>NULL</code> to the column (using assignment operator <code>&lt;-</code> and the <code>$</code> notation)</li>
 </ul>
 
 <pre><code class="r">df$z &lt;- NULL
@@ -1357,8 +1357,8 @@ df
 <section class='' data-state='' id='slide-85'>
   <h3>Data structures: 3. Matrices</h3>
   <ul>
-<li><p>Similar to data frames. Matrices are two-dimensional and only consist of numbers.</p></li>
-<li><p>Why do you need them? Some functions require a <b>matrix</b> as an input. </p></li>
+<li><p>Similar to data frames, matrices are two-dimensional. However, they can only consist of numbers (not characters or factors).</p></li>
+<li><p>Why do you need them? Some functions (e.g. matrix algebra) require a <b>matrix</b> as an input. </p></li>
 </ul>
 
 <pre><code class="r">a &lt;- matrix(1:9, ncol = 3, nrow = 3)
@@ -1369,6 +1369,20 @@ a
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9
+</code></pre>
+
+<pre><code class="r">b &lt;- as.data.frame(a)  # convert matrix to df
+
+diag(b)  # function fails with df
+</code></pre>
+
+<pre><code>## Error in diag(b): (list) object cannot be coerced to type &#39;double&#39;
+</code></pre>
+
+<pre><code class="r">diag(a)  # works with matrix
+</code></pre>
+
+<pre><code>## [1] 1 5 9
 </code></pre>
 
 </section>
@@ -1406,7 +1420,7 @@ a
   <ul>
 <li><p>R is not a spreadsheet program, so it&#39;s not great for direct data entry. It&#39;s best to start with spreadsheets for data entry and storage, and to import spreadhseets into R for data visualization and analysis.</p></li>
 <li><p><b>.csv</b> (comma separated values) files are often the preferred format to import into R. </p></li>
-<li><p>Before we do that, we will need to look at concept of your <b>working directory</b>.</p></li>
+<li><p>Before we do that, we will need to consider <b>working directories</b>.</p></li>
 </ul>
 
 </section>
@@ -1433,14 +1447,14 @@ a
 <li>Set your working directory </li>
 </ul>
 
-<pre><code class="r">setwd(&quot;/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/slides/&quot;)
+<pre><code class="r">setwd(&quot;/Users/nicolekinlock/Documents/Biometry TA/&quot;)
 </code></pre>
 
 </section>
 <section class='' data-state='' id='slide-90'>
   <h2>Importing your own data</h2>
   <ul>
-<li>Store the downloaded seedling data in your environment</li>
+<li>Load the downloaded seedling data to your environment</li>
 </ul>
 
 <pre><code class="r">seedlings &lt;- read.csv(&quot;/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/data/seedlings.csv&quot;)
@@ -1460,18 +1474,19 @@ head(seedlings)
 </ul></li>
 </ul>
 
-<pre><code class="r">Average Height # BAD - this won&#39;t work
-Average.Height # OK - this will work but isn&#39;t best practice (See style guide) 
-average.height # BETTER - this will work, but will be slow to type repeatedly
-avg.height     # GOOD!  
+<pre><code class="r">Average Height  # BAD - this won&#39;t work
+Average.Height  # OK - this will work but isn&#39;t best practice (see Google&#39;s R style guide) 
+average.height  # BETTER - this will work, but will be slow to type repeatedly
+avg.height  # GOOD!  
 </code></pre>
 
 </section>
 <section class='' data-state='soothe' id='slide-92'>
   <h2>Try It!</h2>
   <ol>
-<li>Import the data frame <a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0">seedlings.csv</a> and store it.</li>
+<li>Import the data frame <a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0" target = "_blank">seedlings.csv</a> and load it to your environment. Store it as an object, <code>seedlings</code>.</li>
 <li>What is the mean height for all seedlings? What about the mean height for all seedlings except <i>Rhus typhina</i>?</li>
+<li>What is the difference in the mean height for <i>Rosa multiflora</i> seedlings and <i>Rubus occidentalis</i> seedlings?</li>
 </ol>
 
 </section>
@@ -1481,24 +1496,24 @@ avg.height     # GOOD!
 <li>After you&#39;ve made changes (done subsetting, etc.), you may want to export the altered data frame.</li>
 </ul>
 
-<pre><code class="r"># Write the file 
+<pre><code class="r"># write the file 
 write.csv(iris, file = &quot;iris.csv&quot;, row.names = FALSE)
 
-# Check in your working directory for the new file
+# check in your working directory for the new file
 list.files()
 </code></pre>
 
 </section>
 <section class='' data-state='' id='slide-94'>
-  <h2>Helpful links</h2>
-  <p><a href = "http://adv-r.had.co.nz/Data-structures.html">Data structures</a></p>
+  <h2>Helpful link</h2>
+  <p><a href = "http://adv-r.had.co.nz/Data-structures.html" target = "_blank">Data structures</a></p>
 
 </section>
 <section class='' data-state='' id='slide-95'>
   <h2>Practice</h2>
-  <p><a href = "https://rpubs.com/mccannecology/53354">Worksheet</a></p>
+  <p><a href = "https://rpubs.com/mccannecology/53354" target = "_blank">Worksheet</a></p>
 
-<p><a href = "https://rpubs.com/mccannecology/53360">Answers</a></p>
+<p><a href = "https://rpubs.com/mccannecology/53360" target = "_blank">Answers</a></p>
 
 </section>
 <section class='' data-state='' id='slide-96'>
@@ -1550,7 +1565,7 @@ list.files()
   <h2>For loops</h2>
   <h3>Our first loop</h3>
 
-<pre><code class="r">for (i in 1:5){
+<pre><code class="r">for (i in 1:5) {
     print(i)
 }
 </code></pre>
@@ -1572,7 +1587,7 @@ list.files()
 <ul>
 <li>curly braces { } </li>
 <li>parentheses ( )<br></li>
-<li>square brackets [ ]. </li>
+<li>square brackets [ ]</li>
 </ul>
 
 </section>
@@ -1580,20 +1595,32 @@ list.files()
   <h2>For loops</h2>
   <h3>Syntax</h3>
 
-<p>Brackets [ ] are used to access <i>elements</i> of vectors, matrices, and dataframes. </p>
+<p>Brackets [ ] are used to access <i>elements</i> of vectors, matrices, and data frames. The number of dimensions in the data structure is very important.</p>
 
-<pre><code class="r">x &lt;- 1:10
-
-x[6]
+<pre><code class="r">x &lt;- 1:10  # vector
+x[6]   # vectors have one dimension
 </code></pre>
 
 <pre><code>## [1] 6
 </code></pre>
 
-<pre><code class="r">x[6:9]
+<pre><code class="r">x[c(2, 6, 9)] 
 </code></pre>
 
-<pre><code>## [1] 6 7 8 9
+<pre><code>## [1] 2 6 9
+</code></pre>
+
+<pre><code class="r">m &lt;- matrix(data = seq(0.1, 10, .1), nrow = 10, ncol = 10)  # matrix
+m[6, 6]  # matrices have two dimensions
+</code></pre>
+
+<pre><code>## [1] 5.6
+</code></pre>
+
+<pre><code class="r">m[6, ]
+</code></pre>
+
+<pre><code>##  [1] 0.6 1.6 2.6 3.6 4.6 5.6 6.6 7.6 8.6 9.6
 </code></pre>
 
 </section>
@@ -1641,7 +1668,7 @@ sum(x)
 
 <p>You can perform operations on <b>i</b>.</p>
 
-<pre><code class="r">for (i in 1:4){
+<pre><code class="r">for (i in 1:4) {
     print(i^2)
 }
 </code></pre>
@@ -1661,7 +1688,7 @@ sum(x)
 
 <pre><code class="r">x &lt;- 2
 
-for (i in 1:4){
+for (i in 1:4) {
     x &lt;- x^2
     print(x)
 }
@@ -1673,7 +1700,7 @@ for (i in 1:4){
 ## [1] 65536
 </code></pre>
 
-<p><b>Note:</b> <code>i</code> is not directly called in the equation. </p>
+<p><b>Note:</b> <code>i</code> is not directly called in this loop, unlike in the previous ones. </p>
 
 <p>The operation <code>x &lt;- x^2</code> will be done four times. <code>x</code> changes with each iteration because of the re-assignment in the loop.</p>
 
@@ -1685,11 +1712,11 @@ for (i in 1:4){
 <li><p>Create a for loop that prints numbers 100 to 1.</p></li>
 <li><p>Create a for loop that adds 1 to numbers 1:5.</p></li>
 <li><p>Create a for loop that divides all even numbers from 0 to 20 by 10 (consider using <code>seq()</code>).</p></li>
-<li><p><b>Bonus!</b> What would be the final value here (witout trying it)? Why?</p></li>
+<li><p><b>Bonus!</b> What would be the final value here (without trying it)? Why?</p></li>
 </ol>
 
 <pre><code class="r">dogs &lt;- 10
-for (i in 1:5){
+for (i in 1:5) {
     dogs &lt;- dogs + 1
 }
 </code></pre>
@@ -1703,8 +1730,8 @@ for (i in 1:5){
 
 <pre><code class="r">nameVector &lt;- c(&quot;Harry&quot;, &quot;Hermione&quot;, &quot;Ron&quot;)
 
-for (i in 1:length(nameVector)){
-    print(paste(&quot;Hi,&quot;, nameVector[i], sep=&quot; &quot;))
+for (i in 1:length(nameVector)) {
+    print(paste(&quot;Hi,&quot;, nameVector[i], sep = &quot; &quot;))
 }
 </code></pre>
 
@@ -1719,23 +1746,23 @@ for (i in 1:length(nameVector)){
   <h3>What did that really do?</h3>
 
 <ul>
-<li>Consider the loop in pieces</li>
+<li>Consider the loop in pieces, here just for <code>i = 1</code></li>
 </ul>
 
-<pre><code class="r">length(nameVector) # The # of positions in nameVector
+<pre><code class="r">length(nameVector)  # the # of positions in nameVector
 </code></pre>
 
 <pre><code>## [1] 3
 </code></pre>
 
-<pre><code class="r">nameVector[1] # The 1st position in nameVector
+<pre><code class="r">nameVector[1]  # the 1st position in nameVector
 </code></pre>
 
 <pre><code>## [1] &quot;Harry&quot;
 </code></pre>
 
-<pre><code class="r"># Combine text and index of a vector
-paste(&quot;Hi,&quot;, nameVector[1], sep=&quot; &quot;) 
+<pre><code class="r"># combine text and index of a vector
+paste(&quot;Hi,&quot;, nameVector[1], sep = &quot; &quot;) 
 </code></pre>
 
 <pre><code>## [1] &quot;Hi, Harry&quot;
@@ -1746,12 +1773,12 @@ paste(&quot;Hi,&quot;, nameVector[1], sep=&quot; &quot;)
   <h2>For loops</h2>
   <h3>What did that really do?</h3>
 
-<p>Loops are their own little environment, so use <code>print()</code> to view them on your console so you can see the output of each iteration. </p>
+<p>Loops exist in their own enclosed environment, so use <code>print()</code> to view them on your console so you can see the output of each iteration. </p>
 
 <pre><code class="r">nameVector &lt;- c(&quot;Harry&quot;, &quot;Hermione&quot;, &quot;Ron&quot;)
 
-for (i in 1:length(nameVector)){
-    print(paste(&quot;Hi,&quot;, nameVector[i], sep=&quot; &quot;))
+for (i in 1:length(nameVector)) {
+    print(paste(&quot;Hi,&quot;, nameVector[i], sep = &quot; &quot;))
 }
 </code></pre>
 
@@ -1764,8 +1791,8 @@ for (i in 1:length(nameVector)){
 
 <pre><code class="r">nameVector &lt;- c(&quot;Harry&quot;, &quot;Hermione&quot;, &quot;Ron&quot;)
 
-for (i in 1:length(nameVector)){
-    paste(&quot;Hi,&quot;, nameVector[i], sep=&quot; &quot;)
+for (i in 1:length(nameVector)) {
+    paste(&quot;Hi,&quot;, nameVector[i], sep = &quot; &quot;)
 }
 </code></pre>
 
@@ -1773,7 +1800,7 @@ for (i in 1:length(nameVector)){
 <section class='' data-state='soothe' id='slide-111'>
   <h2>Try It!</h2>
   <ol>
-<li><p>Create a vector of names of people in your row, write them a nice message using a loop.   </p></li>
+<li><p>Create a vector of names of three people in the room and write them a nice message using a loop.   </p></li>
 <li><p>Explain why the following code is wrong:  </p></li>
 </ol>
 
@@ -1786,8 +1813,8 @@ for (i in 1:length(nameVector)){
 <section class='ninety' data-state='' id='slide-112'>
   <h3>Data structures: 4. Lists</h3>
   <ul>
-<li><p><b>Lists</b> are another of the 5 basic data structures in R. Lists, like vectors, are 1 dimensional. </p></li>
-<li><p>The elements of a vector must all b the same type. In this example, 1 and 2 are converted to characters because &quot;blue&quot; is included.</p></li>
+<li><p><b>Lists</b> are another of the 5 basic data structures in R. Lists, like vectors, are one dimensional. </p></li>
+<li><p>The elements of a vector must all be the same type. In this example, 1 and 2 are converted to characters because &quot;blue&quot; is included.</p></li>
 </ul>
 
 <pre><code class="r">x &lt;- c(1, 2, &quot;blue&quot;)
@@ -1828,26 +1855,30 @@ a
 ## [1] &quot;open&quot;   &quot;closed&quot; &quot;closed&quot; &quot;open&quot;
 </code></pre>
 
+<ul>
+<li>It may seem multidimensional, but it does behave as a one dimensional data structure.</li>
+</ul>
+
 </section>
 <section class='seventy' data-state='' id='slide-114'>
   <h3>Data structures: 4. Lists</h3>
   <h4>Constructing lists and list syntax</h4>
 
 <ul>
-<li>You can construct a list with <code>list()</code> (instead of <code>c()</code> for vectors) </li>
+<li>You can construct a list with <code>list()</code> (compare with <code>c()</code> for vectors) </li>
 </ul>
 
 <pre><code class="r">x &lt;- c(1, 2, 3, 4, 5)
 y &lt;- c(3, 6, 8, 10)
 
-v &lt;- c(x, y)  # Create a vector
+v &lt;- c(x, y)  # create a vector
 str(v)
 </code></pre>
 
 <pre><code>##  num [1:9] 1 2 3 4 5 3 6 8 10
 </code></pre>
 
-<pre><code class="r">l &lt;- list(x, y)  # Create a list
+<pre><code class="r">l &lt;- list(x, y)  # create a list
 str(l)
 </code></pre>
 
@@ -1856,13 +1887,13 @@ str(l)
 ##  $ : num [1:4] 3 6 8 10
 </code></pre>
 
-<pre><code class="r">v[2]  # Index a vector 
+<pre><code class="r">v[2]  # index a vector 
 </code></pre>
 
 <pre><code>## [1] 2
 </code></pre>
 
-<pre><code class="r">l[[2]]  # Index a list 
+<pre><code class="r">l[[2]]  # index a list 
 </code></pre>
 
 <pre><code>## [1]  3  6  8 10
@@ -1926,13 +1957,13 @@ b[2]  # returns a list
 <li>In order to reference a single list element directly, we have to use the double square bracket <code>[[ ]]</code> operator and the single bracket <code>[]</code> operator. </li>
 </ul>
 
-<pre><code class="r">b[[2]] # 2nd element of list 
+<pre><code class="r">b[[2]]  # 2nd element of list 
 </code></pre>
 
 <pre><code>## [1] 3.250 6.750 8.175 4.500
 </code></pre>
 
-<pre><code class="r">b[[2]][2] # 2nd element of 2nd element of list 
+<pre><code class="r">b[[2]][2]  # 2nd element of 2nd element of list 
 </code></pre>
 
 <pre><code>## [1] 6.75
@@ -1946,9 +1977,9 @@ b[2]  # returns a list
 <li>To do this, you need to create a blank vector or list before the loop</li>
 </ul>
 
-<pre><code class="r">outputs &lt;- c()  # Create a blank vector
+<pre><code class="r">outputs &lt;- c()  # create a blank vector
 
-x &lt;- rnorm(n = 10, mean = 1, sd = 0.5)  # Vector that we will use in the loop
+x &lt;- rnorm(n = 10, mean = 1, sd = 0.5)  # vector that we will use in the loop
 
 for (i in 1:length(x)) {
   outputs[i] &lt;- x[i] * 10
@@ -1963,12 +1994,12 @@ outputs
 </section>
 <section class='seventy' data-state='soothe' id='slide-118'>
   <h2>Try It!</h2>
-  <p>First, create a vector, y, with 10 draws from a standard normal distribution (mean = 0, sd = 1).</p>
+  <p>First, create a vector, y, with 10 random samples from a standard normal distribution (mean = 0, sd = 1).</p>
 
 <ol>
-<li><p>Compute <code>y * 2</code> for 10 iterations (the length of vector y) using a for loop. Place the output in a <b>vector</b>.  </p></li>
-<li><p>Compute <code>y * 2</code> for 10 iterations using a for loop. Place the output in a <b>list</b>.</p></li>
-<li><p>Find the the 47th element in the output vector from question 1 and the output list from question 2.</p></li>
+<li><p>Compute <code>y[i] * 2</code> for 10 iterations (the length of vector y) using a for loop with index i. Place the output in a <b>vector</b>.  </p></li>
+<li><p>Compute <code>y[i] * 2</code> for 10 iterations using a for loop. Place the output in a <b>list</b>.</p></li>
+<li><p>Find the the 4th element in the output vector from question 1 and the output list from question 2.</p></li>
 <li><p>What do each of these loops do?  </p></li>
 </ol>
 
@@ -2098,7 +2129,7 @@ for (i in 1:length(x)) {
 <section class='' data-state='' id='slide-125'>
   <h2>apply()</h2>
   <ul>
-<li><code>apply(matrix_name, margin = c(1,2), function = function_name)</code></li>
+<li><code>apply(matrixname, margin = c(1,2), function = FunctionName)</code></li>
 <li><code>margin = 1</code> apply function to rows of matrix; <code>margin = 2</code> apply to columns of matrix; <code>margin = c(1,2)</code> apply to rows and columns of matrix</li>
 <li><b><code>apply(M, 2, fun)</code></b> = apply <i>fun</i> to the columns of <i>M</i></li>
 </ul>
@@ -2120,13 +2151,13 @@ M
 ## [3,] -1.8166418 -0.4964814  0.06765827
 </code></pre>
 
-<pre><code class="r">apply(M, 1, median) # median of rows 
+<pre><code class="r">apply(M, 1, median)  # median of rows 
 </code></pre>
 
 <pre><code>## [1]  0.2542209 -0.8206744 -0.4964814
 </code></pre>
 
-<pre><code class="r">apply(M, 2, median) # median of columns 
+<pre><code class="r">apply(M, 2, median)  # median of columns 
 </code></pre>
 
 <pre><code>## [1] -0.82067442  0.87799633  0.06765827
@@ -2155,7 +2186,7 @@ med.M
 <section class='' data-state='' id='slide-128'>
   <h2>The apply family</h2>
   <ul>
-<li><p>Other versions of <code>apply()</code> for other data types:</p>
+<li>Other versions of <code>apply()</code> for other data types:
 
 <ul>
 <li><code>lapply()</code></li>
@@ -2164,7 +2195,6 @@ med.M
 <li><code>vapply()</code></li>
 <li><code>mapply()</code></li>
 </ul></li>
-<li><p>Read more <a href = "http://www.ats.ucla.edu/stat/r/library/advanced_function_r.htm">here</a> and <a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/">here</a>.</p></li>
 </ul>
 
 </section>
@@ -2174,7 +2204,7 @@ med.M
 <li>Other versions of <code>apply()</code> are used for other data types. For example <code>lapply()</code> uses lists as input.</li>
 </ul>
 
-<pre><code class="r">mylist &lt;- list(1:3, c(1.4, 4.6, 4.2, 2.1), rnorm(4)) # make a list 
+<pre><code class="r">mylist &lt;- list(1:3, c(1.4, 4.6, 4.2, 2.1), rnorm(4))  # make a list 
 mylist
 sum(mylist)  # returns an error 
 
@@ -2184,18 +2214,18 @@ lapply(mylist, sum)  # applies function to each element in the list
 </section>
 <section class='' data-state='' id='slide-130'>
   <h2>Useful links</h2>
-  <p><a href = "http://adv-r.had.co.nz/Subsetting.html">Subsetting tutorial</a></p>
+  <p><a href = "http://adv-r.had.co.nz/Subsetting.html" target = "_blank">Subsetting tutorial</a></p>
 
-<p><a href = "http://blog.datacamp.com/tutorial-on-loops-in-r/">Loops in R</a></p>
+<p><a href = "http://blog.datacamp.com/tutorial-on-loops-in-r/" target = "_blank">Loops in R</a></p>
 
-<p><a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/">Apply family in R</a></p>
+<p><a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/" target = "_blank">Apply family in R</a></p>
 
 </section>
 <section class='' data-state='' id='slide-131'>
   <h2>Practice</h2>
-  <p><a href = "https://rpubs.com/mccannecology/53355">Worksheet</a></p>
+  <p><a href = "https://rpubs.com/mccannecology/53355" target = "_blank">Worksheet</a></p>
 
-<p><a href = "https://rpubs.com/mccannecology/53361">Answers</a></p>
+<p><a href = "https://rpubs.com/mccannecology/53361" target = "_blank">Answers</a></p>
 
 </section>
 <section class='' data-state='' id='slide-132'>
@@ -2224,13 +2254,13 @@ colnames(iris)
 <li>We have also seen functions that are loaded from packages. </li>
 </ul>
 
-<pre><code class="r"># This will not run. tree is not loaded 
+<pre><code class="r"># this will not run. tree is not loaded 
 tree(formula = Species ~ . -Species, data = iris) 
 
-install.packages(&quot;tree&quot;) # Install package 
-library(tree) # Load package 
+install.packages(&quot;tree&quot;)  # install package 
+library(tree)  # load package 
 
-# Now it should work 
+# now it should work 
 tree(formula = Species ~ . -Species, data = iris)
 </code></pre>
 
@@ -2258,10 +2288,10 @@ tree(formula = Species ~ . -Species, data = iris)
 </section>
 <section class='' data-state='' id='slide-137'>
   <h2>Writing functions</h2>
-  <p><code>function_name &lt;- function(arguments) {body}</code></p>
+  <p><code>FunctionName &lt;- function(arguments) {body}</code></p>
 
 <pre><code class="r"># define a function, f
-f &lt;- function(x, y){
+f &lt;- function(x, y) {
   x + y
 }
 
@@ -2284,11 +2314,11 @@ f(x = 1, y = 3)
 <pre><code class="r">x &lt;- 2  # variable defined outside the function
 
 g &lt;- function() {
-    y &lt;- 1 # variable defined inside the function 
+    y &lt;- 1  # variable defined inside the function 
     c(x, y) 
 }
 
-g()
+g()  # function g looks for x one level above (in global environment)
 </code></pre>
 
 <pre><code>## [1] 2 1
@@ -2345,7 +2375,7 @@ params
 <pre><code>## [1]  5 25
 </code></pre>
 
-<pre><code class="r">f3 &lt;- function(p){
+<pre><code class="r">f3 &lt;- function(p) {
     alpha &lt;- p[1]
     beta &lt;- p[2]
     alpha * beta
@@ -2360,7 +2390,7 @@ f3(params)
 </section>
 <section class='' data-state='' id='slide-142'>
   <h3>Functions with pre-defined values</h3>
-  <pre><code class="r">subtract &lt;- function(a = 5, b = 2){
+  <pre><code class="r">subtract &lt;- function(a = 5, b = 2) {
     return(a - b)
 }
 
@@ -2370,10 +2400,10 @@ subtract()
 <pre><code>## [1] 3
 </code></pre>
 
-<pre><code class="r">subtract(5, 6)
+<pre><code class="r">subtract(3, 6)
 </code></pre>
 
-<pre><code>## [1] -1
+<pre><code>## [1] -3
 </code></pre>
 
 </section>
@@ -2409,16 +2439,16 @@ f4(iris)
 </section>
 <section class='' data-state='' id='slide-145'>
   <h2>Helpful links</h2>
-  <p><a href = "http://blog.datacamp.com/functions-in-r-a-tutorial/">Tutorial on using functions in R</a></p>
+  <p><a href = "http://blog.datacamp.com/functions-in-r-a-tutorial/" target = "_blank">Tutorial on using functions in R</a></p>
 
-<p><a href = "http://adv-r.had.co.nz/Functions.html">Advanced R - Functions</a></p>
+<p><a href = "http://adv-r.had.co.nz/Functions.html" target = "_blank">Advanced R - Functions</a></p>
 
 </section>
 <section class='' data-state='' id='slide-146'>
   <h2>Practice</h2>
-  <p><a href = "https://rpubs.com/mccannecology/53356">Worksheet</a></p>
+  <p><a href = "https://rpubs.com/mccannecology/53356" target = "_blank">Worksheet</a></p>
 
-<p><a href = "https://rpubs.com/mccannecology/53362">Answers</a></p>
+<p><a href = "https://rpubs.com/mccannecology/53362" target = "_blank">Answers</a></p>
 
 </section>
 <section class='' data-state='' id='slide-147'>
@@ -2457,13 +2487,13 @@ library(ggplot2)
   <pre><code class="r">plot(x = iris$Species, y = iris$Sepal.Length)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-94-1.png" alt="plot of chunk unnamed-chunk-94"> </p>
+<p><img src="assets/fig/unnamed-chunk-94-1.png" alt="plot of chunk unnamed-chunk-94"></p>
 
 <pre><code class="r">library(ggplot2)
-ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_bw()
+ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_classic()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-94-2.png" alt="plot of chunk unnamed-chunk-94"> </p>
+<p><img src="assets/fig/unnamed-chunk-94-2.png" alt="plot of chunk unnamed-chunk-94"></p>
 
 </section>
 <section class='' data-state='noborder' id='slide-152'>
@@ -2519,7 +2549,7 @@ stateplot + geom_point()
 </section>
 <section class='' data-state='noborder' id='slide-156'>
   <h2>Aesthetics</h2>
-  <p>Increase the size of points</p>
+  <p>Increase the size of points (<code>size</code> argument within <code>geom_point()</code>)</p>
 
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 </code></pre>
@@ -2530,7 +2560,7 @@ stateplot + geom_point()
 <section class='' data-state='noborder' id='slide-157'>
   <h2>Aesthetics</h2>
   <ul>
-<li>Differentiate state region by <b>color</b></li>
+<li>Differentiate state region by <b>color</b> (<code>color</code> argument within <code>aes()</code>)</li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + geom_point(size = 2)
@@ -2542,7 +2572,7 @@ stateplot + geom_point()
 <section class='' data-state='noborder' id='slide-158'>
   <h2>Aesthetics</h2>
   <ul>
-<li>Differentiate state region by <b>color</b> and <b>shape</b></li>
+<li>Differentiate state region by <b>color</b> and <b>shape</b> (<code>shape</code> argument within <code>aes()</code>)</li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2)
@@ -2551,10 +2581,10 @@ stateplot + geom_point()
 <p><img src="assets/fig/unnamed-chunk-99-1.png" alt="plot of chunk unnamed-chunk-99"> </p>
 
 </section>
-<section class='noborder' data-state='soothe' id='slide-159'>
+<section class='' data-state='soothe' id='slide-159'>
   <h2>Try It!</h2>
   <ul>
-<li>Take a sample of the <code>diamonds</code> dataset</li>
+<li>Take a sample from the <code>diamonds</code> dataset</li>
 </ul>
 
 <pre><code class="r">d2 &lt;- diamonds[sample(1:nrow(diamonds), 1000), ]
@@ -2564,7 +2594,7 @@ stateplot + geom_point()
 <li>Then generate this plot:</li>
 </ul>
 
-<p><img src="assets/fig/unnamed-chunk-101-1.png" alt="plot of chunk unnamed-chunk-101"> </p>
+<p><img src="assets/fig/unnamed-chunk-101-1.png" alt="plot of chunk unnamed-chunk-101"></p>
 
 </section>
 <section class='' data-state='noborder' id='slide-160'>
@@ -2636,7 +2666,7 @@ stateplot + geom_point()
 </section>
 <section class='' data-state='noborder' id='slide-167'>
   <h2>Facets</h2>
-  <p>Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). </p>
+  <p>Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). Syntax is <code>facet_grid(Species ~ .)</code>, where there are as many rows as species and there is only one column (represented by the period).</p>
 
 <pre><code class="r">ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
 </code></pre>
@@ -2740,10 +2770,10 @@ stateplot + geom_point()
 <li><p>You can also change the overall font family and font size</p></li>
 </ul>
 
-<pre><code class="r">ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_bw(base_family = &quot;Times&quot;, base_size = 14)
+<pre><code class="r">ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_classic(base_family = &quot;Helvetica&quot;, base_size = 14)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-114-1.png" alt="plot of chunk unnamed-chunk-114"> </p>
+<p><img src="assets/fig/unnamed-chunk-114-1.png" alt="plot of chunk unnamed-chunk-114"></p>
 
 </section>
 <section class='' data-state='noborder' id='slide-177'>
@@ -2758,9 +2788,9 @@ ggsave(&quot;my_plot.jpg&quot;, my_plot, height = 4, width = 4, units = &quot;in
 <p><b>Note:</b> Saved in your current working directory (unless specified).</p>
 
 </section>
-<section class='' data-state='noborder' id='slide-178'>
-  <h2>Remember!</h2>
-  <p><b>Data must be a data frame to plot with ggplot2</b></p>
+<section class='' data-state='alert' id='slide-178'>
+  <h2>R Tip: ggplot2 takes data frames only</h2>
+  <p><b>Data structure must be a data frame to plot with ggplot2</b></p>
 
 <pre><code class="r">xvar &lt;- rnorm(100)
 yvar &lt;- rnorm(100)
@@ -2771,7 +2801,16 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 <p><img src="assets/fig/unnamed-chunk-116-1.png" alt="plot of chunk unnamed-chunk-116"> </p>
 
 </section>
-<section class='' data-state='noborder' id='slide-179'>
+<section class='' data-state='soothe' id='slide-179'>
+  <h2>Try It!</h2>
+  <ol>
+<li><p>Type in <code>data(package = &quot;datasets&quot;)</code> to see all of the datasets pre-installed with R. </p></li>
+<li><p>Find some data that interests you (or use your own) and examine its structure. Are they vectors, data frames, other? How many observations are there? </p></li>
+<li><p>Use <code>ggplot2</code> to make a plot of some attribute of the data. </p></li>
+</ol>
+
+</section>
+<section class='' data-state='noborder' id='slide-180'>
   <h2>Proper data formatting</h2>
   <ul>
 <li>Often our data looks like this (&quot;<b>wide</b>&quot;), where multiple observations can be found in each row</li>
@@ -2796,7 +2835,7 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-180'>
+<section class='' data-state='noborder' id='slide-181'>
   <h2>Proper data formatting</h2>
   <ul>
 <li>Data is much easier to analyze visually and statisically if it looks like this (&quot;<b>long</b>&quot;), where there is one row per observation</li>
@@ -2821,13 +2860,10 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-181'>
+<section class='' data-state='noborder' id='slide-182'>
   <h3>Melting: from wide to long</h3>
   <pre><code class="r"># make some fake &quot;wide&quot; data
-df &lt;- data.frame(A = rnorm(100, 50, 6),
-           B = rnorm(100, 75, 5),
-           C = rnorm(100, 50, 4),
-           D = rnorm(100, 55, 3))
+df &lt;- data.frame(A = rnorm(100, 50, 6), B = rnorm(100, 75, 5), C = rnorm(100, 50, 4), D = rnorm(100, 55, 3))
 head(df)
 </code></pre>
 
@@ -2841,7 +2877,7 @@ head(df)
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-182'>
+<section class='' data-state='noborder' id='slide-183'>
   <h3>Melting: from wide to long</h3>
   <ul>
 <li>Use the <code>melt()</code> function in <code>reshape2</code> package</li>
@@ -2873,71 +2909,64 @@ df2 &lt;- melt(data = df)
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-183'>
+<section class='' data-state='noborder' id='slide-184'>
   <h2>Melting: from wide to long</h2>
   <ul>
 <li>Melting the data makes it easier to plot</li>
 </ul>
 
-<pre><code class="r">ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
+<pre><code class="r">ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(. ~ variable)
 </code></pre>
 
-<pre><code>FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use &#39;binwidth = x&#39; to adjust this.
+<pre><code>FALSE `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-123-1.png" alt="plot of chunk unnamed-chunk-123"> </p>
+<p><img src="assets/fig/unnamed-chunk-123-1.png" alt="plot of chunk unnamed-chunk-123"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-184'>
+<section class='' data-state='noborder' id='slide-185'>
   <h2>Helpful links</h2>
-  <p><a href = "http://docs.ggplot2.org/current/">ggplot2 documentation</a></p>
+  <p><a href = "http://docs.ggplot2.org/current/" target = "_blank">ggplot2 documentation</a></p>
 
-<p><a href = "http://ggplot2.org/resources/2007-vanderbilt.pdf">Presentation by Hadley Wickham about ggplot2</a></p>
+<p><a href = "http://ggplot2.org/resources/2007-vanderbilt.pdf" target = "_blank">Presentation by Hadley Wickham about ggplot2</a></p>
 
-<p><a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot Cheat Sheet</a></p>
+<p><a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" target = "_blank">ggplot Cheat Sheet</a></p>
 
-<p><a href = "http://colorbrewer2.org">R ColorBrewer</a></p>
+<p><a href = "http://colorbrewer2.org" target = "_blank">R ColorBrewer</a></p>
 
-<p><a href = "http://rpubs.com/mccannecology/47829">Plotting means and error bars</a></p>
+<p><a href = "http://rpubs.com/mccannecology/47829" target = "_blank">Plotting means and error bars</a></p>
 
-<p><a href = "http://www.cookbook-r.com/Graphs/">R Cookbook: Graphs</a></p>
+<p><a href = "http://www.cookbook-r.com/Graphs/" target = "_blank">R Cookbook: Graphs</a></p>
 
 </section>
-<section class='' data-state='' id='slide-185'>
+<section class='' data-state='' id='slide-186'>
   <h2>Practice</h2>
-  <p><a href = "https://rpubs.com/mccannecology/53357">Worksheet</a></p>
+  <p><a href = "https://rpubs.com/mccannecology/53357" target = "_blank">Worksheet</a></p>
 
-<p><a href = "https://rpubs.com/mccannecology/53363">Answers</a></p>
-
-<ol>
-<li><p>Type in <code>data(package = &quot;datasets&quot;)</code> to see all of the datasets pre-installed with R. </p></li>
-<li><p>Find some data that interests you (or use your own) and examine its structure. Are they vectors, data frames, other? How many observations are there? </p></li>
-<li><p>Use <code>ggplot2</code> to make a plot of some attribute of the data. </p></li>
-</ol>
+<p><a href = "https://rpubs.com/mccannecology/53363" target = "_blank">Answers</a></p>
 
 </section>
-<section class='ninety' data-state='' id='slide-186'>
+<section class='ninety' data-state='' id='slide-187'>
   <h2>Additional topics and links</h2>
   <ul>
 <li>When you get a bit more comfortable with R, I recommend taking a look at the additional material on Mike McCann&#39;s website.</li>
 </ul>
 
-<p><a href = "http://rpubs.com/mccannecology/53465">Reproducible Research with RMarkdown</a></p>
+<p><a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Reproducible Research with RMarkdown</a></p>
 
-<p><a href = "http://rpubs.com/mccannecology/53465">Advanced Data Manipulation with dplyr</a></p>
+<p><a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Advanced Data Manipulation with dplyr</a></p>
 
 <ul>
 <li>I also recommend creating a GitHub account (where I&#39;ve uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)</li>
 </ul>
 
-<p><a href = "http://www.github.com">GitHub</a></p>
+<p><a href = "http://www.github.com" target = "_blank">GitHub</a></p>
 
-<p><a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/">Basic tutorial on using GitHub (with RStudio)</a></p>
+<p><a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/" target = "_blank">Basic tutorial on using GitHub (with RStudio)</a></p>
 
-<p><a href = "https://try.github.io">GitHub tutorial (using command line)</a></p>
+<p><a href = "https://try.github.io" target = "_blank">GitHub tutorial (using command line)</a></p>
+
+<h5><a href = "#/1"> Back to the directory </a></h5>
 
 </section>
     </div>

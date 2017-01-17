@@ -22,7 +22,7 @@ github      :
 
 #### <i>Nicole Kinlock</i>
 
-##### January 21st and 22nd, 2016
+##### January 19th and 20th, 2017
 
 --- .seventy
 
@@ -177,7 +177,7 @@ Examples
 ```
 
 ```r
-7!=4
+7 != 4
 ```
 
 ```
@@ -188,11 +188,11 @@ Examples
 
 ## Try It!
 
-1. What is 17 multiplied by 365?
+1. What is 21 multiplied by 342?
 
-2. What is 13 cubed?
+2. What is 15 to the fourth power?
 
-3. Is 9 to the fourth equal to the sum of 2000 and 187 multiplied by 3?
+3. Is 8 to the fifth power equal to the sum of 692 and 7500 multiplied by 4?
 
 ---
 
@@ -222,9 +222,9 @@ a
 
 - This may seem arbitrary, but it is helpful when you are reading someone else's code.
 
-<a href = "https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"> Google's R Style Guide  </a>
+<a href = "https://google.github.io/styleguide/Rguide.xml" target = "_blank"> Google's R Style Guide  </a>
 
-<a href = "http://adv-r.had.co.nz/Style.html"> Advanced R: Style Guide </a>
+<a href = "http://adv-r.had.co.nz/Style.html" target = "_blank"> Advanced R: Style Guide </a>
 
 --- ds:alert
 
@@ -234,7 +234,7 @@ a
 
 
 ```r
-5 + 5 # This adds five and five 
+5 + 5  # this adds five and five 
 ```
 
 ```
@@ -385,9 +385,9 @@ x
 
 ## Try It!
 
-1. Create a vector that includes all integers between 2 and 22. Name this vector `x`.
+1. Create a vector that includes all integers between 5 and 25. Name this vector `x`.
 2. Create a vector that includes all even integers between 2 and 22. Name this vector `y`.
-3. Create a vector that combines object x and object y. Name this vector `z`.
+3. Create a single vector that <b>combines</b> object x and object y. Name this vector `z`.
 
 ---
 
@@ -399,7 +399,7 @@ x
 
 
 ```r
-# Create a vector 
+# create a vector 
 height <- c(76, 72, 74, 74, 78)
 height
 ```
@@ -409,7 +409,7 @@ height
 ```
 
 ```r
-height[1] # extract the 1st element in the vector 
+height[1]  # extract the 1st element in the vector 
 ```
 
 ```
@@ -417,7 +417,7 @@ height[1] # extract the 1st element in the vector
 ```
 
 ```r
-height[5] # extract the 5th element
+height[5]  # extract the 5th element
 ```
 
 ```
@@ -501,7 +501,7 @@ y
 ```
 
 ```r
-y[y <= 10]  # extract all elements less than or equal to 10
+y[y <= 10]   # extract all elements less than or equal to 10
 ```
 
 ```
@@ -509,7 +509,7 @@ y[y <= 10]  # extract all elements less than or equal to 10
 ```
 
 ```r
-y[y < 10 & y != 5]  # extract all elements less than 10 that are not equal to 5
+y[y < 10 & y != 5]   # extract all elements less than 10 that are not equal to 5
 ```
 
 ```
@@ -524,7 +524,7 @@ y[y < 10 & y != 5]  # extract all elements less than 10 that are not equal to 5
 
 2. <b>Bonus!</b> Can you find those positions simultaneously?
 
-3. Create the vector `c(3:33)` and name it `a`. Extract all elements of `a` that are greater than or equal to 17.
+3. Create the vector `c(5:40)` and name it `m`. Extract all elements of `m` that are greater than or equal to 22.
 
 ---
 
@@ -532,11 +532,11 @@ y[y < 10 & y != 5]  # extract all elements less than 10 that are not equal to 5
 
 - A <b>function</b> is a stored object that performs a task given some inputs (called <i>arguments</i>). R has many functions already available, but you can also write your own functions.
 
-- Try using the tab key while entering arguments in any function to discover a useful feature of RStudio.
+- Try using the tab key while entering arguments in any function to discover a useful feature of RStudio. (Try now with the `seq()` function.)
 
-- Functions are used in the format: `name_of_function(inputs)`   
+- Functions are called in the format: `NameOfFunction(inputs)`   
 
-- The output of a function can be saved to an object: `output <- name_of_function(inputs)`
+- The output of a function can be saved to an object: `output <- NameOfFunction(inputs)`
 
 ---
 
@@ -620,7 +620,7 @@ help(mean)
 
 
 ```r
-?mean  # Same as help(mean) 
+?mean   # Same as help(mean) 
 ```
 
 - Use `??` to search for functions; e.g. search for any function whose help files contain the word `"robust"`
@@ -634,7 +634,7 @@ help(mean)
 
 ## Try It!
 
-1. What is the median of 34, 16, 105, and 27?   
+1. What is the median of 26, 24, 8, 17, and 42?   
 <i>Remember:</i> functions are often named intuitively.
 
 2. What does the function `range()` do, and what is the sample example in the help file?
@@ -655,7 +655,7 @@ help(mean)
 
 - There are many, many R packages - currently 7742!
 
-- Check the <a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html"> List of R Packages</a> and search with your favorite keyword, e.g. <i>ecology, paleo, dispersal, population, time series, phylogeny, community, Bayes</i>
+- Check the <a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html" target = "_blank"> List of R Packages</a> and search with your favorite keyword, e.g. <i>ecology, paleo, dispersal, population, time series, phylogeny, community, Bayes</i>
 
 ---
 
@@ -666,27 +666,27 @@ help(mean)
 
 ```r
 # Install a new package
-install.packages("picante") 
+install.packages("igraph") 
 ```
 
-- Remember to surround the package name in quotation marks.
+- Remember to surround the package name in quotation marks for the `install.packages()` function.
 
 ---
 
 ## Loading Packages 
 
-- Installing a package downloads it to your computer. You need to download packages before using them.
+- Installing a package downloads it to your computer. You need to download packages before loading them.
 
-- Additionally, you have to load packages before you use them every time you restart R. This lets R know what packages to load in, and not waste memory by loading all potential functions.    
+- Additionally, you have to load packages before you use them every time you restart R. This lets R know what packages to load and not waste memory by loading all potential functions.    
 
 
 ```r
-# Two ways to load packages:
+# two ways to load packages:
 library(ggplot2)
 require(ggplot2)
 ```
 
-- <b>Note:</b> no quotation marks needed
+- <b>Note:</b> no quotation marks are needed for `library()` or `require()`
 
 --- ds:alert
 
@@ -704,19 +704,17 @@ require(ggplot2)
 
 2. Install the package to your computer. 
 
-<a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html"> List of R Packages</a>
+<a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html" target = "_blank"> List of R Packages</a>
 
 ---
 
 ## The R User Community
 
-<a href = "http://stackoverflow.com/questions/tagged/r">Stack Overflow</a> 
+<a href = "http://stackoverflow.com/questions/tagged/r" target = "_blank">Stack Overflow</a> 
 
-<a href = "http://www.r-bloggers.com/">R-Bloggers</a> 
+<a href = "http://www.r-bloggers.com/" target = "_blank">R-Bloggers</a> 
 
-<a href = "http://www.r-project.org/mail.html">R Mailing Lists</a>
-
-<a href = "http://rforcats.net/">R for cats</a>
+<a href = "http://www.r-project.org/mail.html" target = "_blank">R Mailing Lists</a>
 
 ---
 
@@ -724,9 +722,9 @@ require(ggplot2)
 
 Worksheets created by Mike McCann and hosted on his Rpubs site
 
-<a href = "https://rpubs.com/mccannecology/53351">Worksheet</a>
+<a href = "https://rpubs.com/mccannecology/53351" target = "_blank">Worksheet</a>
 
-<a href = "https://rpubs.com/mccannecology/53358">Answers</a>
+<a href = "https://rpubs.com/mccannecology/53358" target = "_blank">Answers</a>
 
 ---
 
@@ -749,24 +747,23 @@ Worksheets created by Mike McCann and hosted on his Rpubs site
 
 ## Distributions
 
-- It is often  useful to generate a sample from a specific statisical distribution. To generate a sample of size 1000 from a standard normal distribution (mean 0 and standard deviation 1) we use the <b>`rnorm()`</b> function. 
+- It is often  useful to generate a sample from a specific statisical distribution. To generate a sample of 1000 elements from a standard normal distribution (mean 0 and standard deviation 1) we can use the <b>`rnorm()`</b> function. 
 
 
 ```r
-norm <- rnorm(n = 1000, mean = 0, sd = 1)
-head(norm)
+norm <- rnorm(n = 1000, mean = 0, sd = 1)  # create a vector of samples from a standard normal dist.
+head(norm)  # view the first six elements of the vector
 ```
 
 ```
-## [1] -2.0902195660 -0.5281914723 -0.1530587059 -0.4630696300  0.3055771295
-## [6]  0.0002270506
+## [1]  0.9330206 -0.2581407 -0.3036996 -0.3874593 -2.0576031 -1.0316611
 ```
 
 ```r
-hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
+hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")  # plot the vector of samples as a histogram
 ```
 
-![plot of chunk unnamed-chunk-24](assets/fig/unnamed-chunk-24-1.png) 
+![plot of chunk unnamed-chunk-24](assets/fig/unnamed-chunk-24-1.png)
 
 --- ds:soothe
 
@@ -774,9 +771,9 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 1. Look up the `rnorm()` function in help screen. Locate the three arguments we used.
 
-2. Draw 100 random numbers from a normal distribution with a mean of 3 and an sd of 2, assign it to an object `a`.
+2. Draw 100 random numbers from a normal distribution with a mean of 3 and a std. dev. of 2, assign it to an object `a`.
 
-3. Find the mean of your sample. How close was it to the true mean?
+3. Find the mean of your sample. How close was it to the true mean (that you set in `rnorm()`?
 
 4. What is the 13th element in your vector `a`?
 
@@ -784,21 +781,20 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 ### Generating random samples from other distributions
 
-- R has many distributions in the base package, including all those commonly used in biological analysis.  
+- R has many distributions in the base package, including all those commonly used in biological analyses.  
 - Depending on the distribution, each function has its own set of parameter arguments. 
-- For example, the <b>`rpois()`</b> function is the random number generator for the Poisson distribution and it has only the parameter <i>lambda</i> ($\lambda$). 
-
-<b>BEE552 Students:</b> Heather will pick up from here.
+- For example, the <b>`rpois()`</b> function is the random number generator for the Poisson distribution and it has only the parameter <i>lambda</i> ($\lambda$).
+- Statistical distributions will be covered in much more detail in Biometry.
 
 --- ds:soothe
 
 ## Try It!
 
-1. Draw 100 random variates from a Poisson distribution with a `lambda = 3`, assign it to an object `a`.
+1. Draw 100 random samples from a Poisson distribution with `lambda = 3`, assign it to an object `w`.
 
-2. Draw 1000 random variates from a Poisson distribution with a `lambda = 3`, assign it to an object `b`.
+2. Draw 1000 random samples from a Poisson distribution with `lambda = 3`, assign it to an object `y`.
 
-3. Find the means of both draws. What is the difference in means?
+3. Calculate the means of both vectors. What is the difference in means?
 
 ---
 
@@ -806,11 +802,11 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 - For each distribution, there are <u>four functions</u> which will generate fundamental quantities of a distribution. Let's consider the normal distribution as an example. 
   - <b>`rnorm()`</b> a random sample from a normal distribution.  
-  - <b>`dnorm()`</b> the density for a specific value for a normal distribution.   
-  - <b>`pnorm()`</b> the distribution function   
-  - <b>`qnorm()`</b> the quantile function   
+  - <b>`dnorm()`</b> the probability density (or densities) for a specific value (or values) for a normal distribution.   
+  - <b>`pnorm()`</b> the cumulative distribution function (area under the curve)  
+  - <b>`qnorm()`</b> the quantile function (value x at which the CDF of the distribution is equal to p)   
 
-- `pnorm()`, and `qnorm()` will be covered during Biometry. They are less commonly used.
+- All will be covered during Biometry. See <a href = "http://user.mendelu.cz/drapela/Forest_Biometry/Lecture%20notes/R%20-%20tutorials%20and%20commands/R%20Probability%20Functions.pdf" target = _blank">this</a> website for a bit more information.
 
 --- .eighty ds:noborder
 
@@ -822,7 +818,7 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 
 ```r
-# Use the R dataset of the length of rivers in the United States (a univariate data set)
+# use the R dataset of the length of rivers in the United States (a univariate data set)
 head(rivers)
 ```
 
@@ -834,7 +830,7 @@ head(rivers)
 barplot(height = rivers[1:10], col = "paleturquoise", main = "Lengths of rivers in the United States", ylab = "Length (in miles)")
 ```
 
-![plot of chunk unnamed-chunk-25](assets/fig/unnamed-chunk-25-1.png) 
+![plot of chunk unnamed-chunk-25](assets/fig/unnamed-chunk-25-1.png)
 
 ---
 
@@ -856,12 +852,12 @@ Histograms are an effective way of visualizing distributions
 
 
 ```r
-# Generate and visualize 100 random points from a standard normal distribution
+# generate and visualize 100 random samples from a standard normal distribution
 sample <- rnorm(1000)
 hist(sample, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 ```
 
-![plot of chunk unnamed-chunk-26](assets/fig/unnamed-chunk-26-1.png) 
+![plot of chunk unnamed-chunk-26](assets/fig/unnamed-chunk-26-1.png)
 
 --- ds:soothe .ninety
 
@@ -886,26 +882,26 @@ hist(sample, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 ```r
 x <- 1:100
-sample(x, size = 20) # Sample without replacement
+sample(x, size = 20)  # sample without replacement
 ```
 
 ```
-##  [1] 96 56 10 30  4 99 93 60 49 36 85 65 28 88  2 32 48 64 94 76
+##  [1] 77 88 84 25 71 99 57 53  6 66 38 10 91 34 48 68 78 98 18 90
 ```
 
 ```r
-sample(x, size = 20, replace = TRUE) # Sample with replacement
+sample(x, size = 20, replace = TRUE)  # sample with replacement
 ```
 
 ```
-##  [1] 24 59 59 97  7 78 81 10 68 31 42 50 46 32 87 42 84 57 46  5
+##  [1] 15 20 91 33 57 47 25 99 46 71 99 22 48 89 88 56 97 60 75 13
 ```
 
 --- ds:soothe
 
 ## Try It!
 
-1. Sample 14 elements from a vector of integers between 100 and 200 without replacement.
+1. Sample 9 elements from a vector of integers between 125 and 325 without replacement.
 
 2. Sample 5 letters (using the pre-installed vector `letters`) from the alphabet with replacement.
 
@@ -920,12 +916,12 @@ sample(x, size = 20, replace = TRUE) # Sample with replacement
  
 
 ```r
-sample1 <- rnorm(n = 40, mean = 4, sd = 2)
-sample2 <- rnorm(n = 40, mean = 2, sd = 1)
+sample1 <- rnorm(n = 40, mean = 4, sd = 2)  # random sample from a normal dist.
+sample2 <- rnorm(n = 40, mean = 2, sd = 1)  # random sample from a different normal dist.
 plot(formula = sample2 ~ sample1, pch = 20)
 ```
 
-![plot of chunk unnamed-chunk-28](assets/fig/unnamed-chunk-28-1.png) 
+![plot of chunk unnamed-chunk-28](assets/fig/unnamed-chunk-28-1.png)
 
 --- ds:noborder
 
@@ -950,11 +946,11 @@ plot(x = sample1, y = sample2, pch = 20)
 
 
 ```r
-plot(sample1, sample2)
+plot(sample1, sample2, pch = 20)
 abline(a = -0.1, b = 1, col="royalblue4")
 ```
 
-![plot of chunk unnamed-chunk-30](assets/fig/unnamed-chunk-30-1.png) 
+![plot of chunk unnamed-chunk-30](assets/fig/unnamed-chunk-30-1.png)
 
 --- ds:noborder
 
@@ -968,34 +964,34 @@ abline(a = -0.1, b = 1, col="royalblue4")
 
 ```r
 plot(sample1, sample2)
-abline(lm(sample2 ~ sample1), col="royalblue4")
+abline(lm(sample2 ~ sample1), col="royalblue")
 ```
 
-![plot of chunk unnamed-chunk-31](assets/fig/unnamed-chunk-31-1.png) 
+![plot of chunk unnamed-chunk-31](assets/fig/unnamed-chunk-31-1.png)
 
 ---
 
 ## Lots of useful links for plotting 
 
-<a href = "http://rpubs.com/SusanEJohnston/7953">R Base Graphics: An Idiot's Guide</a>
+<a href = "http://rpubs.com/SusanEJohnston/7953" target = "_blank">R Base Graphics: An Idiot's Guide</a>
 
-<a href = "https://leemendelowitz.github.io/blog/r-base-graphics-plotting.html">R Base Graphics Plotting</a>
+<a href = "https://leemendelowitz.github.io/blog/r-base-graphics-plotting.html" target = "_blank">R Base Graphics Plotting</a>
 
-<a href = "http://www.statmethods.net/graphs/">Quick-R: Basic Graphs</a>
+<a href = "http://www.statmethods.net/graphs/" target = "_blank">Quick-R: Basic Graphs</a>
 
-<a href = "http://www.harding.edu/fmccown/r/">Producing Simple Graphs with R</a>
+<a href = "http://www.harding.edu/fmccown/r/" target = "_blank">Producing Simple Graphs with R</a>
 
-<a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">R Colors</a>
+<a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R Colors</a>
 
-More on plotting later (i.e. making plots that are visually appealing!)
+More on plotting later (making plots that are much more visually appealing!)
 
 ---
 
 ## Practice
 
-<a href = "https://rpubs.com/mccannecology/53352">Worksheet</a>
+<a href = "https://rpubs.com/mccannecology/53352" target = "_blank">Worksheet</a>
 
-<a href = "https://rpubs.com/mccannecology/53359">Answers</a>
+<a href = "https://rpubs.com/mccannecology/53359" target = "_blank">Answers</a>
 
 ---
 
@@ -1007,7 +1003,7 @@ More on plotting later (i.e. making plots that are visually appealing!)
 
 Download the file for this section
 
-<a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0">seedlings.csv</a>
+<a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0" target = "_blank">seedlings.csv</a>
 
 ---
 
@@ -1017,7 +1013,7 @@ Download the file for this section
 
 
 ```r
-head(trees)  # Pre-loaded dataset in R - measurements of black cherry trees
+head(trees)  # pre-loaded dataset in R - measurements of black cherry trees
 ```
 
 ```
@@ -1035,7 +1031,7 @@ head(trees)  # Pre-loaded dataset in R - measurements of black cherry trees
 ### Data structures: 2. Data frames
 
 Data frames are usually read in from a file, but R comes with many practice datasets. 
-We will use the `iris` dataset, famously used by <a href = "http://en.wikipedia.org/wiki/Iris_flower_data_set">R.A. Fisher in 1936</a>
+We will use the `iris` dataset, <a href = "http://en.wikipedia.org/wiki/Iris_flower_data_set" target = "_blank">famously used by R.A. Fisher in 1936</a>
 
 <a href="https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg#/media/File:Iris_versicolor_3.jpg" title = "Iris versicolor"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Iris_versicolor_3.jpg/800px-Iris_versicolor_3.jpg" height = "175" width = "275"></a>
 
@@ -1060,12 +1056,12 @@ head(iris)
 
 #### Useful functions for data frames 
 
-- `head()` - see first 5 rows
-- `tail()` - see last 5 rows
+- `head()` - see first 6 rows
+- `tail()` - see last 6 rows
 - `dim()` - dimensions (# rows, # columns)
 - `nrow()` - number of rows
 - `ncol()` - number of columns
-- `str()` - structure of any object
+- `str()` - structure of any object <i>(very useful!)</i>
 - `class()` - class of any object
 - `rownames()` - row names 
 - `colnames()` - column names
@@ -1080,7 +1076,7 @@ head(iris)
 
 3. Using the `str()` function, how many species are in the data?
 
-4. What classes are each of the columns?
+4. What are the classes of each of the columns?
 
 --- .ninety
 
@@ -1138,7 +1134,7 @@ iris[3, 3]  # third row, third column
 
 #### Data frame indexing: positional
 
-- Index entire rows or columns
+- Index entire rows or columns by leaving one of the positions blank, i.e. `nameofdf[, column#]` or `nameofdf[row#, ]`
 
 
 ```r
@@ -1201,7 +1197,7 @@ iris[c(5, 7, 9), 1:2]
 iris[, "Sepal.Length"]
 ```
 
-- Or, use the dollar sign `$` to call a column by name
+- Or, use the dollar sign `$` notation to call a column by name
 
 
 ```r
@@ -1212,7 +1208,7 @@ iris$Sepal.Length
 
 ## Try It!
 
-1. What is the 9th entry of the `Sepal.Width` column? Call it `x`.
+1. What is the 9th entry of the `Sepal.Width` column? Save it as object `x`.
 
 2. Subset the 17th row of the data frame `iris`.
 
@@ -1220,7 +1216,7 @@ iris$Sepal.Length
 
 4. Use the `seq()` function to subset all odd rows in the `iris` dataset.
 
-5. What happens when you use negative numbers to index the `iris` dataframe? <b>Hint:</b> Use `dim()` on the original and final objects.
+5. What happens when you use negative numbers to index the `iris` dataframe? <b>Hint:</b> Use the function `dim()` on the original and final objects.
 
 --- .ninety ds:noborder
 
@@ -1232,12 +1228,14 @@ iris$Sepal.Length
 
 
 ```r
-petal <- iris$Petal.Width  # Subset of the column petal width
+petal <- iris$Petal.Width  # subset of the column petal width
 
-hist(petal, col = "darkseagreen1", main = "Petal width of Iris", xlab = "", ylab = "Frequency") # Make a histogram of petal width frequency
+hist(petal, col = "darkseagreen1", main = "Petal width of Iris", xlab = "", ylab = "Frequency")  # make a histogram of petal width frequency
 ```
 
-![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png) 
+![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png)
+
+- Continued on next slide
 
 ---
 
@@ -1247,7 +1245,7 @@ hist(petal, col = "darkseagreen1", main = "Petal width of Iris", xlab = "", ylab
 
 
 ```r
-logi <- petal > 1 # Which petal widths are greater than 1?
+logi <- petal > 1  # which petal widths are greater than 1?
 head(logi)
 ```
 
@@ -1256,8 +1254,7 @@ head(logi)
 ```
 
 ```r
-iris.subset <- iris[logi, ] # Subset of iris only including individuals
-# where petal width is greater than 1
+iris.subset <- iris[logi, ]  # subset of iris only including individuals where petal width is greater than 1
 
 head(iris.subset)
 ```
@@ -1299,7 +1296,7 @@ iris[iris$Petal.Width > 1, ]
 
 #### Data frame indexing: logical
 
-- For all types of data, if we want to subset a specific value/character/factor we use `==`
+- For all types of data, if we want to subset a specific value/character/factor we use the logical operator "`==`"
 
 
 ```r
@@ -1324,10 +1321,12 @@ head(iris.subset)
 
 - Subset only records from the species <i>I. versicolor</i>
 
+- Note that quotation marks are needed when dealing with characters and factors
+
 
 ```r
-versicolor_only <- iris[iris$Species == "versicolor", ]
-head(versicolor_only)
+versicolor.only <- iris[iris$Species == "versicolor", ]
+head(versicolor.only)
 ```
 
 ```
@@ -1413,7 +1412,7 @@ df
 
 
 ```r
-df <- data.frame(df, z = 41:45)
+df <- data.frame(df, z = 41:45)  # adding new column z to previous df
 df
 ```
 
@@ -1426,7 +1425,7 @@ df
 ## 5 5 2 45
 ```
 
-- Or, use the assignment operator `<-`
+- Or, use the assignment operator `<-` with the `$` notation
 
 
 ```r
@@ -1466,7 +1465,7 @@ df.subset
 ## 5 5 2
 ```
 
-- Or, assign `NULL` to the column
+- Or, assign `NULL` to the column (using assignment operator `<-` and the `$` notation)
 
 
 ```r
@@ -1487,9 +1486,9 @@ df
 
 ### Data structures: 3. Matrices
 
-- Similar to data frames. Matrices are two-dimensional and only consist of numbers.
+- Similar to data frames, matrices are two-dimensional. However, they can only consist of numbers (not characters or factors).
 
-- Why do you need them? Some functions require a <b>matrix</b> as an input. 
+- Why do you need them? Some functions (e.g. matrix algebra) require a <b>matrix</b> as an input. 
 
 
 ```r
@@ -1502,6 +1501,24 @@ a
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9
+```
+
+```r
+b <- as.data.frame(a)  # convert matrix to df
+
+diag(b)  # function fails with df
+```
+
+```
+## Error in diag(b): (list) object cannot be coerced to type 'double'
+```
+
+```r
+diag(a)  # works with matrix
+```
+
+```
+## [1] 1 5 9
 ```
 
 ---
@@ -1547,7 +1564,7 @@ a[2, ]
 
 - <b>.csv</b> (comma separated values) files are often the preferred format to import into R. 
 
-- Before we do that, we will need to look at concept of your <b>working directory</b>.
+- Before we do that, we will need to consider <b>working directories</b>.
 
 ---
 
@@ -1574,14 +1591,14 @@ getwd()
 
 
 ```r
-setwd("/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/slides/")
+setwd("/Users/nicolekinlock/Documents/Biometry TA/")
 ```
 
 ---
 
 ## Importing your own data
 
-- Store the downloaded seedling data in your environment
+- Load the downloaded seedling data to your environment
 
 
 ```r
@@ -1600,18 +1617,19 @@ head(seedlings)
 
 
 ```r
-Average Height # BAD - this won't work
-Average.Height # OK - this will work but isn't best practice (See style guide) 
-average.height # BETTER - this will work, but will be slow to type repeatedly
-avg.height     # GOOD!  
+Average Height  # BAD - this won't work
+Average.Height  # OK - this will work but isn't best practice (see Google's R style guide) 
+average.height  # BETTER - this will work, but will be slow to type repeatedly
+avg.height  # GOOD!  
 ```
 
 --- ds:soothe
 
 ## Try It!
 
-1. Import the data frame <a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0">seedlings.csv</a> and store it.
+1. Import the data frame <a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0" target = "_blank">seedlings.csv</a> and load it to your environment. Store it as an object, `seedlings`.
 2. What is the mean height for all seedlings? What about the mean height for all seedlings except <i>Rhus typhina</i>?
+3. What is the difference in the mean height for <i>Rosa multiflora</i> seedlings and <i>Rubus occidentalis</i> seedlings?
 
 ---
 
@@ -1621,26 +1639,26 @@ avg.height     # GOOD!
 
 
 ```r
-# Write the file 
+# write the file 
 write.csv(iris, file = "iris.csv", row.names = FALSE)
 
-# Check in your working directory for the new file
+# check in your working directory for the new file
 list.files()
 ```
 
 ---
 
-## Helpful links
+## Helpful link
 
-<a href = "http://adv-r.had.co.nz/Data-structures.html">Data structures</a>
+<a href = "http://adv-r.had.co.nz/Data-structures.html" target = "_blank">Data structures</a>
 
 ---
 
 ## Practice
 
-<a href = "https://rpubs.com/mccannecology/53354">Worksheet</a>
+<a href = "https://rpubs.com/mccannecology/53354" target = "_blank">Worksheet</a>
 
-<a href = "https://rpubs.com/mccannecology/53360">Answers</a>
+<a href = "https://rpubs.com/mccannecology/53360" target = "_blank">Answers</a>
 
 ---
 
@@ -1697,7 +1715,7 @@ list.files()
 
 
 ```r
-for (i in 1:5){
+for (i in 1:5) {
     print(i)
 }
 ```
@@ -1719,7 +1737,7 @@ for (i in 1:5){
 <b>Be sure you distinguish between:</b>
 - curly braces { } 
 - parentheses ( )  
-- square brackets [ ]. 
+- square brackets [ ]
 
 ---
 
@@ -1727,12 +1745,11 @@ for (i in 1:5){
 
 ### Syntax 
 
-Brackets [ ] are used to access <i>elements</i> of vectors, matrices, and dataframes. 
+Brackets [ ] are used to access <i>elements</i> of vectors, matrices, and data frames. The number of dimensions in the data structure is very important.
 
 ```r
-x <- 1:10
-
-x[6]
+x <- 1:10  # vector
+x[6]   # vectors have one dimension
 ```
 
 ```
@@ -1740,11 +1757,28 @@ x[6]
 ```
 
 ```r
-x[6:9]
+x[c(2, 6, 9)] 
 ```
 
 ```
-## [1] 6 7 8 9
+## [1] 2 6 9
+```
+
+```r
+m <- matrix(data = seq(0.1, 10, .1), nrow = 10, ncol = 10)  # matrix
+m[6, 6]  # matrices have two dimensions
+```
+
+```
+## [1] 5.6
+```
+
+```r
+m[6, ]
+```
+
+```
+##  [1] 0.6 1.6 2.6 3.6 4.6 5.6 6.6 7.6 8.6 9.6
 ```
 
 ---
@@ -1802,7 +1836,7 @@ for (i in 1:3) {
 You can perform operations on <b>i</b>.
 
 ```r
-for (i in 1:4){
+for (i in 1:4) {
     print(i^2)
 }
 ```
@@ -1824,7 +1858,7 @@ Assignments can occur in a loop.
 ```r
 x <- 2
 
-for (i in 1:4){
+for (i in 1:4) {
     x <- x^2
     print(x)
 }
@@ -1836,7 +1870,7 @@ for (i in 1:4){
 ## [1] 256
 ## [1] 65536
 ```
-<b>Note:</b> `i` is not directly called in the equation. 
+<b>Note:</b> `i` is not directly called in this loop, unlike in the previous ones. 
 
 The operation `x <- x^2` will be done four times. `x` changes with each iteration because of the re-assignment in the loop.
 
@@ -1852,12 +1886,12 @@ The operation `x <- x^2` will be done four times. `x` changes with each iteratio
 
 4. Create a for loop that divides all even numbers from 0 to 20 by 10 (consider using `seq()`).
 
-5. <b>Bonus!</b> What would be the final value here (witout trying it)? Why?
+5. <b>Bonus!</b> What would be the final value here (without trying it)? Why?
 
 
 ```r
 dogs <- 10
-for (i in 1:5){
+for (i in 1:5) {
     dogs <- dogs + 1
 }
 ```
@@ -1874,8 +1908,8 @@ In the above examples, we used <b>i</b> directly in mathematical operations. It 
 ```r
 nameVector <- c("Harry", "Hermione", "Ron")
 
-for (i in 1:length(nameVector)){
-    print(paste("Hi,", nameVector[i], sep=" "))
+for (i in 1:length(nameVector)) {
+    print(paste("Hi,", nameVector[i], sep = " "))
 }
 ```
 
@@ -1892,11 +1926,11 @@ for (i in 1:length(nameVector)){
 
 ### What did that really do?
 
-- Consider the loop in pieces
+- Consider the loop in pieces, here just for `i = 1`
 
 
 ```r
-length(nameVector) # The # of positions in nameVector
+length(nameVector)  # the # of positions in nameVector
 ```
 
 ```
@@ -1904,7 +1938,7 @@ length(nameVector) # The # of positions in nameVector
 ```
 
 ```r
-nameVector[1] # The 1st position in nameVector
+nameVector[1]  # the 1st position in nameVector
 ```
 
 ```
@@ -1912,8 +1946,8 @@ nameVector[1] # The 1st position in nameVector
 ```
 
 ```r
-# Combine text and index of a vector
-paste("Hi,", nameVector[1], sep=" ") 
+# combine text and index of a vector
+paste("Hi,", nameVector[1], sep = " ") 
 ```
 
 ```
@@ -1926,13 +1960,13 @@ paste("Hi,", nameVector[1], sep=" ")
 
 ### What did that really do?
 
-Loops are their own little environment, so use `print()` to view them on your console so you can see the output of each iteration. 
+Loops exist in their own enclosed environment, so use `print()` to view them on your console so you can see the output of each iteration. 
 
 ```r
 nameVector <- c("Harry", "Hermione", "Ron")
 
-for (i in 1:length(nameVector)){
-    print(paste("Hi,", nameVector[i], sep=" "))
+for (i in 1:length(nameVector)) {
+    print(paste("Hi,", nameVector[i], sep = " "))
 }
 ```
 
@@ -1947,8 +1981,8 @@ Without `print()` or an assignment `<-` results are not returned.
 ```r
 nameVector <- c("Harry", "Hermione", "Ron")
 
-for (i in 1:length(nameVector)){
-    paste("Hi,", nameVector[i], sep=" ")
+for (i in 1:length(nameVector)) {
+    paste("Hi,", nameVector[i], sep = " ")
 }
 ```
 
@@ -1956,7 +1990,7 @@ for (i in 1:length(nameVector)){
 
 ## Try It!
 
-1. Create a vector of names of people in your row, write them a nice message using a loop.   
+1. Create a vector of names of three people in the room and write them a nice message using a loop.   
 
 2. Explain why the following code is wrong:  
 
@@ -1970,9 +2004,9 @@ for (x in 1:10) {
 
 ### Data structures: 4. Lists 
 
-- <b>Lists</b> are another of the 5 basic data structures in R. Lists, like vectors, are 1 dimensional. 
+- <b>Lists</b> are another of the 5 basic data structures in R. Lists, like vectors, are one dimensional. 
 
-- The elements of a vector must all b the same type. In this example, 1 and 2 are converted to characters because "blue" is included.
+- The elements of a vector must all be the same type. In this example, 1 and 2 are converted to characters because "blue" is included.
 
 ```r
 x <- c(1, 2, "blue")
@@ -2018,19 +2052,21 @@ a
 ## [1] "open"   "closed" "closed" "open"
 ```
 
+- It may seem multidimensional, but it does behave as a one dimensional data structure.
+
 --- .seventy
 
 ### Data structures: 4. Lists 
 #### Constructing lists and list syntax
 
-- You can construct a list with `list()` (instead of `c()` for vectors) 
+- You can construct a list with `list()` (compare with `c()` for vectors) 
 
 
 ```r
 x <- c(1, 2, 3, 4, 5)
 y <- c(3, 6, 8, 10)
 
-v <- c(x, y)  # Create a vector
+v <- c(x, y)  # create a vector
 str(v)
 ```
 
@@ -2039,7 +2075,7 @@ str(v)
 ```
 
 ```r
-l <- list(x, y)  # Create a list
+l <- list(x, y)  # create a list
 str(l)
 ```
 
@@ -2050,7 +2086,7 @@ str(l)
 ```
 
 ```r
-v[2]  # Index a vector 
+v[2]  # index a vector 
 ```
 
 ```
@@ -2058,7 +2094,7 @@ v[2]  # Index a vector
 ```
 
 ```r
-l[[2]]  # Index a list 
+l[[2]]  # index a list 
 ```
 
 ```
@@ -2136,7 +2172,7 @@ b[[1]] * b[[2]]  # can do arithmatic on numbers
 
 
 ```r
-b[[2]] # 2nd element of list 
+b[[2]]  # 2nd element of list 
 ```
 
 ```
@@ -2144,7 +2180,7 @@ b[[2]] # 2nd element of list
 ```
 
 ```r
-b[[2]][2] # 2nd element of 2nd element of list 
+b[[2]][2]  # 2nd element of 2nd element of list 
 ```
 
 ```
@@ -2160,9 +2196,9 @@ b[[2]][2] # 2nd element of 2nd element of list
 
 
 ```r
-outputs <- c()  # Create a blank vector
+outputs <- c()  # create a blank vector
 
-x <- rnorm(n = 10, mean = 1, sd = 0.5)  # Vector that we will use in the loop
+x <- rnorm(n = 10, mean = 1, sd = 0.5)  # vector that we will use in the loop
 
 for (i in 1:length(x)) {
   outputs[i] <- x[i] * 10
@@ -2179,13 +2215,13 @@ outputs
 
 ## Try It!
 
-First, create a vector, y, with 10 draws from a standard normal distribution (mean = 0, sd = 1).
+First, create a vector, y, with 10 random samples from a standard normal distribution (mean = 0, sd = 1).
 
-1. Compute `y * 2` for 10 iterations (the length of vector y) using a for loop. Place the output in a <b>vector</b>.  
+1. Compute `y[i] * 2` for 10 iterations (the length of vector y) using a for loop with index i. Place the output in a <b>vector</b>.  
 
-2. Compute `y * 2` for 10 iterations using a for loop. Place the output in a <b>list</b>.
+2. Compute `y[i] * 2` for 10 iterations using a for loop. Place the output in a <b>list</b>.
 
-3. Find the the 47th element in the output vector from question 1 and the output list from question 2.
+3. Find the the 4th element in the output vector from question 1 and the output list from question 2.
 
 4. What do each of these loops do?  
 
@@ -2325,7 +2361,7 @@ The <i>apply</i> family of functions allows you to process whole rows, columns, 
 
 ## apply()
 
-- `apply(matrix_name, margin = c(1,2), function = function_name)`
+- `apply(matrixname, margin = c(1,2), function = FunctionName)`
 - `margin = 1` apply function to rows of matrix; `margin = 2` apply to columns of matrix; `margin = c(1,2)` apply to rows and columns of matrix
 - <b>`apply(M, 2, fun)`</b> = apply <i>fun</i> to the columns of <i>M</i>
 
@@ -2348,7 +2384,7 @@ M
 ```
 
 ```r
-apply(M, 1, median) # median of rows 
+apply(M, 1, median)  # median of rows 
 ```
 
 ```
@@ -2356,7 +2392,7 @@ apply(M, 1, median) # median of rows
 ```
 
 ```r
-apply(M, 2, median) # median of columns 
+apply(M, 2, median)  # median of columns 
 ```
 
 ```
@@ -2394,7 +2430,6 @@ med.M
   - `vapply()`
   - `mapply()`
 
-- Read more <a href = "http://www.ats.ucla.edu/stat/r/library/advanced_function_r.htm">here</a> and <a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/">here</a>.
 
 ---
 
@@ -2403,7 +2438,7 @@ med.M
 - Other versions of `apply()` are used for other data types. For example `lapply()` uses lists as input.
 
 ```r
-mylist <- list(1:3, c(1.4, 4.6, 4.2, 2.1), rnorm(4)) # make a list 
+mylist <- list(1:3, c(1.4, 4.6, 4.2, 2.1), rnorm(4))  # make a list 
 mylist
 sum(mylist)  # returns an error 
 
@@ -2414,19 +2449,19 @@ lapply(mylist, sum)  # applies function to each element in the list
 
 ## Useful links
 
-<a href = "http://adv-r.had.co.nz/Subsetting.html">Subsetting tutorial</a>
+<a href = "http://adv-r.had.co.nz/Subsetting.html" target = "_blank">Subsetting tutorial</a>
 
-<a href = "http://blog.datacamp.com/tutorial-on-loops-in-r/">Loops in R</a>
+<a href = "http://blog.datacamp.com/tutorial-on-loops-in-r/" target = "_blank">Loops in R</a>
 
-<a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/">Apply family in R</a>
+<a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/" target = "_blank">Apply family in R</a>
 
 ---
 
 ## Practice
 
-<a href = "https://rpubs.com/mccannecology/53355">Worksheet</a>
+<a href = "https://rpubs.com/mccannecology/53355" target = "_blank">Worksheet</a>
 
-<a href = "https://rpubs.com/mccannecology/53361">Answers</a>
+<a href = "https://rpubs.com/mccannecology/53361" target = "_blank">Answers</a>
 
 ---
 
@@ -2459,13 +2494,13 @@ colnames(iris)
 
 
 ```r
-# This will not run. tree is not loaded 
+# this will not run. tree is not loaded 
 tree(formula = Species ~ . -Species, data = iris) 
 
-install.packages("tree") # Install package 
-library(tree) # Load package 
+install.packages("tree")  # install package 
+library(tree)  # load package 
 
-# Now it should work 
+# now it should work 
 tree(formula = Species ~ . -Species, data = iris)
 ```
 
@@ -2492,12 +2527,12 @@ It is also possible to <i>define your own functions</i>. This is especially impo
 
 ## Writing functions
 
-`function_name <- function(arguments) {body}`
+`FunctionName <- function(arguments) {body}`
 
 
 ```r
 # define a function, f
-f <- function(x, y){
+f <- function(x, y) {
   x + y
 }
 
@@ -2525,11 +2560,11 @@ f(x = 1, y = 3)
 x <- 2  # variable defined outside the function
 
 g <- function() {
-    y <- 1 # variable defined inside the function 
+    y <- 1  # variable defined inside the function 
     c(x, y) 
 }
 
-g()
+g()  # function g looks for x one level above (in global environment)
 ```
 
 ```
@@ -2593,7 +2628,7 @@ params
 ```
 
 ```r
-f3 <- function(p){
+f3 <- function(p) {
     alpha <- p[1]
     beta <- p[2]
     alpha * beta
@@ -2612,7 +2647,7 @@ f3(params)
 
 
 ```r
-subtract <- function(a = 5, b = 2){
+subtract <- function(a = 5, b = 2) {
     return(a - b)
 }
 
@@ -2624,11 +2659,11 @@ subtract()
 ```
 
 ```r
-subtract(5, 6)
+subtract(3, 6)
 ```
 
 ```
-## [1] -1
+## [1] -3
 ```
 
 --- ds:soothe
@@ -2669,17 +2704,17 @@ f4(iris)
 
 ## Helpful links
 
-<a href = "http://blog.datacamp.com/functions-in-r-a-tutorial/">Tutorial on using functions in R</a>
+<a href = "http://blog.datacamp.com/functions-in-r-a-tutorial/" target = "_blank">Tutorial on using functions in R</a>
 
-<a href = "http://adv-r.had.co.nz/Functions.html">Advanced R - Functions</a>
+<a href = "http://adv-r.had.co.nz/Functions.html" target = "_blank">Advanced R - Functions</a>
 
 ---
 
 ## Practice
 
-<a href = "https://rpubs.com/mccannecology/53356">Worksheet</a>
+<a href = "https://rpubs.com/mccannecology/53356" target = "_blank">Worksheet</a>
 
-<a href = "https://rpubs.com/mccannecology/53362">Answers</a>
+<a href = "https://rpubs.com/mccannecology/53362" target = "_blank">Answers</a>
 
 ---
 
@@ -2724,14 +2759,14 @@ library(ggplot2)
 plot(x = iris$Species, y = iris$Sepal.Length)
 ```
 
-![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-1.png) 
+![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-1.png)
 
 ```r
 library(ggplot2)
-ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_bw()
+ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_classic()
 ```
 
-![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-2.png) 
+![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-2.png)
 
 --- ds:noborder
 
@@ -2787,7 +2822,7 @@ stateplot + geom_point()
 
 ## Aesthetics
 
-Increase the size of points
+Increase the size of points (`size` argument within `geom_point()`)
 
 
 ```r
@@ -2800,7 +2835,7 @@ ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 
 ## Aesthetics
 
-- Differentiate state region by <b>color</b>
+- Differentiate state region by <b>color</b> (`color` argument within `aes()`)
 
 
 ```r
@@ -2813,7 +2848,7 @@ ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + ge
 
 ## Aesthetics
 
-- Differentiate state region by <b>color</b> and <b>shape</b>
+- Differentiate state region by <b>color</b> and <b>shape</b> (`shape` argument within `aes()`)
 
 
 ```r
@@ -2822,11 +2857,11 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 
 ![plot of chunk unnamed-chunk-99](assets/fig/unnamed-chunk-99-1.png) 
 
---- ds:soothe .noborder
+--- ds:soothe ds:noborder
 
 ## Try It!
 
-- Take a sample of the `diamonds` dataset
+- Take a sample from the `diamonds` dataset
 
 
 ```r
@@ -2835,7 +2870,7 @@ d2 <- diamonds[sample(1:nrow(diamonds), 1000), ]
 
 - Then generate this plot:
 
-![plot of chunk unnamed-chunk-101](assets/fig/unnamed-chunk-101-1.png) 
+![plot of chunk unnamed-chunk-101](assets/fig/unnamed-chunk-101-1.png)
 
 --- ds:noborder
 
@@ -2917,7 +2952,7 @@ ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 
 ## Facets
 
-Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). 
+Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). Syntax is `facet_grid(Species ~ .)`, where there are as many rows as species and there is only one column (represented by the period).
 
 
 ```r
@@ -3033,10 +3068,10 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 
 
 ```r
-ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_bw(base_family = "Times", base_size = 14)
+ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_classic(base_family = "Helvetica", base_size = 14)
 ```
 
-![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png) 
+![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png)
 
 --- ds:noborder
 
@@ -3053,11 +3088,11 @@ You can specify the file name, dimensions, resolution, etc.
 
 <b>Note:</b> Saved in your current working directory (unless specified).
 
---- ds:noborder
+--- ds:alert  ds:noborder
 
-## Remember!
+## R Tip: ggplot2 takes data frames only
 
-<b>Data must be a data frame to plot with ggplot2</b>
+<b>Data structure must be a data frame to plot with ggplot2</b>
 
 
 ```r
@@ -3068,6 +3103,16 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
 ![plot of chunk unnamed-chunk-116](assets/fig/unnamed-chunk-116-1.png) 
+
+--- ds:soothe
+
+## Try It!
+
+1. Type in `data(package = "datasets")` to see all of the datasets pre-installed with R. 
+
+2. Find some data that interests you (or use your own) and examine its structure. Are they vectors, data frames, other? How many observations are there? 
+
+3. Use `ggplot2` to make a plot of some attribute of the data. 
 
 --- ds:noborder
 
@@ -3136,10 +3181,7 @@ dim(df2)
 
 ```r
 # make some fake "wide" data
-df <- data.frame(A = rnorm(100, 50, 6),
-           B = rnorm(100, 75, 5),
-           C = rnorm(100, 50, 4),
-           D = rnorm(100, 55, 3))
+df <- data.frame(A = rnorm(100, 50, 6), B = rnorm(100, 75, 5), C = rnorm(100, 50, 4), D = rnorm(100, 55, 3))
 head(df)
 ```
 
@@ -3199,33 +3241,30 @@ dim(df2)
 
 
 ```r
-ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
+ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(. ~ variable)
 ```
 
 ```
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
+FALSE `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![plot of chunk unnamed-chunk-123](assets/fig/unnamed-chunk-123-1.png) 
+![plot of chunk unnamed-chunk-123](assets/fig/unnamed-chunk-123-1.png)
 
 --- ds:noborder
 
 ## Helpful links
 
-<a href = "http://docs.ggplot2.org/current/">ggplot2 documentation</a>
+<a href = "http://docs.ggplot2.org/current/" target = "_blank">ggplot2 documentation</a>
 
-<a href = "http://ggplot2.org/resources/2007-vanderbilt.pdf">Presentation by Hadley Wickham about ggplot2</a>
+<a href = "http://ggplot2.org/resources/2007-vanderbilt.pdf" target = "_blank">Presentation by Hadley Wickham about ggplot2</a>
 
-<a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">ggplot Cheat Sheet</a>
+<a href = "https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" target = "_blank">ggplot Cheat Sheet</a>
 
-<a href = "http://colorbrewer2.org">R ColorBrewer</a>
+<a href = "http://colorbrewer2.org" target = "_blank">R ColorBrewer</a>
 
-<a href = "http://rpubs.com/mccannecology/47829">Plotting means and error bars</a>
+<a href = "http://rpubs.com/mccannecology/47829" target = "_blank">Plotting means and error bars</a>
 
-<a href = "http://www.cookbook-r.com/Graphs/">R Cookbook: Graphs</a>
+<a href = "http://www.cookbook-r.com/Graphs/" target = "_blank">R Cookbook: Graphs</a>
 
 
 ---
@@ -3233,15 +3272,9 @@ FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust thi
 ## Practice
 
 
-<a href = "https://rpubs.com/mccannecology/53357">Worksheet</a>
+<a href = "https://rpubs.com/mccannecology/53357" target = "_blank">Worksheet</a>
 
-<a href = "https://rpubs.com/mccannecology/53363">Answers</a>
-
-1. Type in `data(package = "datasets")` to see all of the datasets pre-installed with R. 
-
-2. Find some data that interests you (or use your own) and examine its structure. Are they vectors, data frames, other? How many observations are there? 
-
-3. Use `ggplot2` to make a plot of some attribute of the data. 
+<a href = "https://rpubs.com/mccannecology/53363" target = "_blank">Answers</a>
 
 --- .ninety
 
@@ -3249,16 +3282,18 @@ FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust thi
 
 - When you get a bit more comfortable with R, I recommend taking a look at the additional material on Mike McCann's website.
 
-<a href = "http://rpubs.com/mccannecology/53465">Reproducible Research with RMarkdown</a>
+<a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Reproducible Research with RMarkdown</a>
 
-<a href = "http://rpubs.com/mccannecology/53465">Advanced Data Manipulation with dplyr</a>
+<a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Advanced Data Manipulation with dplyr</a>
 
 - I also recommend creating a GitHub account (where I've uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)
 
-<a href = "http://www.github.com">GitHub</a>
+<a href = "http://www.github.com" target = "_blank">GitHub</a>
 
-<a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/">Basic tutorial on using GitHub (with RStudio)</a>
+<a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/" target = "_blank">Basic tutorial on using GitHub (with RStudio)</a>
 
-<a href = "https://try.github.io">GitHub tutorial (using command line)</a>
+<a href = "https://try.github.io" target = "_blank">GitHub tutorial (using command line)</a>
+
+##### <a href = "#/1"> Back to the directory </a>
 
  
