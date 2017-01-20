@@ -1103,7 +1103,7 @@ a[2, ]
 
 ## Importing your own data
 
-- R is not a spreadsheet program, so it's not great for direct data entry. It's best to start with spreadsheets for data entry and storage, and to import spreadhseets into R for data visualization and analysis.
+- R is not a spreadsheet program, so it's not great for direct data entry. It's best to start with spreadsheets for data entry and storage, and to import spreadsheets into R for data visualization and analysis.
 
 - <b>.csv</b> (comma separated values) files are often the preferred format to import into R. 
 
@@ -1146,16 +1146,14 @@ head(seedlings)
 
 ## R Tip: Variable names 
 
-- One of the largest sources of frustration with R can be importing data. Variable names often cause problems. 
+- One of the largest sources of frustration with R can be importing data. Variable names, e.g. column names in a spreadsheet, often cause problems. 
   - <b>Do not have spaces in variable names</b>  
-  - <b>Use lower case letters</b> 
   - <b>Abbreviate when appropriate</b>  
 
 ```{r, eval = FALSE}
 Average Height  # BAD - this won't work
-Average.Height  # OK - this will work but isn't best practice (see Google's R style guide) 
-average.height  # BETTER - this will work, but will be slow to type repeatedly
-avg.height  # GOOD!  
+Average.Height, Average_Height, average.height, average_height, averageHeight  # BETTER - these will work, but will be slow to type repeatedly
+avg.height, avg_height, avgHeight   # GOOD!  
 ```
 
 --- ds:soothe
@@ -1314,7 +1312,7 @@ for (i in 1:3) {
 
 ### Using a for loop
 
-You can perform operations on <b>i</b>.
+You can perform operations on <i>i</i>.
 ```{r}
 for (i in 1:4) {
     print(i^2)
@@ -1366,7 +1364,7 @@ for (i in 1:5) {
 
 ### For loops and vectors
 
-In the above examples, we used <b>i</b> directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.
+In the above examples, we used <i>i</i> directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.
 
 ```{r}
 nameVector <- c("Harry", "Hermione", "Ron")
@@ -1422,7 +1420,7 @@ for (i in 1:length(nameVector)) {
 
 ## Try It!
 
-1. Create a vector of names of three people in the room and write them a nice message using a loop.   
+1. Create a vector of the days of the week and generate a message that says "Today is x" using a loop. 
 
 2. Explain why the following code is wrong:  
 ```{r, eval = FALSE}
@@ -1478,7 +1476,7 @@ v[2]  # index a vector
 l[[2]]  # index a list 
 ```
 
---- .seventy
+--- .sixty
 
 ### Data structures: 4. Lists 
 #### List indexing
@@ -1486,6 +1484,8 @@ l[[2]]  # index a list
 - Using the single bracket indexing operator `[]` will return a list
 
 - Using a double bracket indexing operator `[[]]` will return contents within a list (integers, numbers, characters)
+
+- The main difference is in the class of the output
 
 ```{r}
 b <- list(1:4, c(3.25, 6.75, 8.175, 4.5), c("apples", "bananas", "oranges", "pears"))
@@ -1547,12 +1547,12 @@ First, create a vector, y, with 10 random samples from a standard normal distrib
 4. What do each of these loops do?  
 ```{r}
 output <- list()
-for(x in 1:10) {
-  output[1] <- sum(x + x^2)
+for (x in 1:10) {
+  output[x] <- sum(x + x^2)
 }
 
 output2 <- list()
-for(x in 1:11) {
+for (x in 1:11) {
   output2[x + 1] <- sum(x + x^2)
 }
 ```
@@ -1567,7 +1567,7 @@ if (3 > 2) {
 }
 ```
 
----
+--- .ninety
 
 ## Flow Statements
 ### if statements
@@ -1580,13 +1580,34 @@ if (3 > 2) {
 x <- 1:5
 
 for (i in 1:length(x)) {
-  if(x[i] > 3) {
+  if (x[i] > 3) {
     print(paste(x[i],"is greater than 3"))
   }
-  if(x[i] <= 3) {
+  if (x[i] <= 3) {
     print(paste(x[i],"is less than or equal to 3"))
   }
 }
+```
+
+---
+
+### Flow Statements
+#### Controlling flow: else statements
+
+- If statements are often paired with else statements, for when we want to run specific code in a given case, and the same code for every other possible case.  
+
+```{r}
+x <- rpois(100, lambda = 2)
+output <- c()
+
+for (i in 1:length(x)) {
+  if (x[i] == 0) {
+    next
+  } else {
+    output[i] <- x[i]^2
+  }
+}
+output
 ```
 
 ---
@@ -1598,10 +1619,10 @@ for (i in 1:length(x)) {
 
 ```{r}
 for (i in 1:length(x)) {
-  if(x[i] > 3){
+  if (x[i] > 3){
     break
     }
-  if(x[i] <= 3) {
+  if (x[i] <= 3) {
     print(paste(x[i],"is less than or equal to 3"))
     }
 }
@@ -1618,13 +1639,13 @@ for (i in 1:length(x)) {
 
 ```{r}
 for (i in 1:length(x)) {
-  if(x[i] == 4) {
+  if (x[i] == 4) {
     next
     }
-  if(x[i] > 3) {
+  if (x[i] > 3) {
     print(paste(x[i],"is greater than 3"))
     }
-  if(x[i] <= 3) {
+  if (x[i] <= 3) {
     print(paste(x[i],"is less than or equal to 3"))
     }
   }
@@ -1904,14 +1925,17 @@ subtract(3, 6)
 
 ```{r}
 f4 <- function(x) {
+  output <- c()
   for (i in 1:ncol(x)) {
     if(class(x[, i]) != "numeric") {
-      next
-      }
+      output[i] <- NA
+    }
     if(class(x[, i]) == "numeric") {
-      print(mean(x[, i]))
+      output[i] <- mean(x[, i])
     }
   }
+  names(output) <- colnames(x)
+  return(output)
 }
 f4(iris)
 ```
@@ -2178,7 +2202,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 
 ## Scales
 
-- log x and log y axes
+- log x and log y axes, `+ scale_x_log10()` and `+ scale_y_log10()`
 
 ```{r, fig.height = 5, fig.width = 6}
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
@@ -2188,7 +2212,7 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 
 ## Scales
 
-- Add color manually
+- Add color manually using `+ scale_colour_manual()`
 
 ```{r, fig.height = 5, fig.width = 6}
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
@@ -2198,7 +2222,7 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 
 ## Labels
 
-- Add labels, including a title and axes labels, using `+ labs()`
+- Add labels, including a title and x and y axes labels, using `+ labs()`
 
 ```{r, fig.height = 5, fig.width = 6}
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)")
@@ -2224,7 +2248,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 
 - You can also change the overall font family and font size
 
-```{r, fig.height=4, fig.width=6}
+```{r, fig.height = 4, fig.width = 6}
 ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_classic(base_family = "Helvetica", base_size = 14)
 ```
 
@@ -2251,7 +2275,7 @@ You can specify the file name, dimensions, resolution, etc.
 ```{r,  fig.height = 5, fig.width = 5}
 xvar <- rnorm(100)
 yvar <- rnorm(100)
-df <- data.frame(xvar, yvar) # coerce to data frame 
+df <- data.frame(xvar, yvar)  # coerce to data frame 
 ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
@@ -2363,7 +2387,7 @@ ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(. ~ variable)
 
 <a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Reproducible Research with RMarkdown</a>
 
-<a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Advanced Data Manipulation with dplyr</a>
+<a href = "https://rpubs.com/mccannecology/54011" target = "_blank">Advanced Data Manipulation with dplyr</a>
 
 - I also recommend creating a GitHub account (where I've uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)
 
