@@ -693,7 +693,7 @@ require(ggplot2)
 head(norm)  # view the first six elements of the vector
 </code></pre>
 
-<pre><code>## [1]  0.9330206 -0.2581407 -0.3036996 -0.3874593 -2.0576031 -1.0316611
+<pre><code>## [1]  0.76000848 -0.37924614  0.06295452  1.64946492  1.29218106  0.06953762
 </code></pre>
 
 <pre><code class="r">hist(norm, col = &quot;palevioletred&quot;, main = &quot;&quot;, xlab = &quot;&quot;, ylab = &quot;Frequency&quot;)  # plot the vector of samples as a histogram
@@ -812,13 +812,13 @@ hist(sample, col = &quot;palevioletred&quot;, main = &quot;&quot;, xlab = &quot;
 sample(x, size = 20)  # sample without replacement
 </code></pre>
 
-<pre><code>##  [1] 77 88 84 25 71 99 57 53  6 66 38 10 91 34 48 68 78 98 18 90
+<pre><code>##  [1] 97 18 41 92 46 27 55 36 89 37 90 44 76 14 29 39 21 20 74 98
 </code></pre>
 
 <pre><code class="r">sample(x, size = 20, replace = TRUE)  # sample with replacement
 </code></pre>
 
-<pre><code>##  [1] 15 20 91 33 57 47 25 99 46 71 99 22 48 89 88 56 97 60 75 13
+<pre><code>##  [1]  6 84 69 90 13 10 33  7 25 39 15 62 24 22 36 68 64 46 49 35
 </code></pre>
 
 </section>
@@ -1418,7 +1418,7 @@ a
 <section class='' data-state='' id='slide-87'>
   <h2>Importing your own data</h2>
   <ul>
-<li><p>R is not a spreadsheet program, so it&#39;s not great for direct data entry. It&#39;s best to start with spreadsheets for data entry and storage, and to import spreadhseets into R for data visualization and analysis.</p></li>
+<li><p>R is not a spreadsheet program, so it&#39;s not great for direct data entry. It&#39;s best to start with spreadsheets for data entry and storage, and to import spreadsheets into R for data visualization and analysis.</p></li>
 <li><p><b>.csv</b> (comma separated values) files are often the preferred format to import into R. </p></li>
 <li><p>Before we do that, we will need to consider <b>working directories</b>.</p></li>
 </ul>
@@ -1465,19 +1465,17 @@ head(seedlings)
 <section class='' data-state='alert' id='slide-91'>
   <h2>R Tip: Variable names</h2>
   <ul>
-<li>One of the largest sources of frustration with R can be importing data. Variable names often cause problems. 
+<li>One of the largest sources of frustration with R can be importing data. Variable names, e.g. column names in a spreadsheet, often cause problems. 
 
 <ul>
 <li><b>Do not have spaces in variable names</b><br></li>
-<li><b>Use lower case letters</b> </li>
 <li><b>Abbreviate when appropriate</b><br></li>
 </ul></li>
 </ul>
 
 <pre><code class="r">Average Height  # BAD - this won&#39;t work
-Average.Height  # OK - this will work but isn&#39;t best practice (see Google&#39;s R style guide) 
-average.height  # BETTER - this will work, but will be slow to type repeatedly
-avg.height  # GOOD!  
+Average.Height, Average_Height, average.height, average_height, averageHeight  # BETTER - these will work, but will be slow to type repeatedly
+avg.height, avg_height, avgHeight   # GOOD!  
 </code></pre>
 
 </section>
@@ -1666,7 +1664,7 @@ sum(x)
   <h2>For loops</h2>
   <h3>Using a for loop</h3>
 
-<p>You can perform operations on <b>i</b>.</p>
+<p>You can perform operations on <i>i</i>.</p>
 
 <pre><code class="r">for (i in 1:4) {
     print(i^2)
@@ -1726,7 +1724,7 @@ for (i in 1:5) {
   <h2>For loops</h2>
   <h3>For loops and vectors</h3>
 
-<p>In the above examples, we used <b>i</b> directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.</p>
+<p>In the above examples, we used <i>i</i> directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.</p>
 
 <pre><code class="r">nameVector &lt;- c(&quot;Harry&quot;, &quot;Hermione&quot;, &quot;Ron&quot;)
 
@@ -1800,7 +1798,7 @@ for (i in 1:length(nameVector)) {
 <section class='' data-state='soothe' id='slide-111'>
   <h2>Try It!</h2>
   <ol>
-<li><p>Create a vector of names of three people in the room and write them a nice message using a loop.   </p></li>
+<li><p>Create a vector of the days of the week and generate a message that says &quot;Today is x&quot; using a loop. </p></li>
 <li><p>Explain why the following code is wrong:  </p></li>
 </ol>
 
@@ -1900,13 +1898,14 @@ str(l)
 </code></pre>
 
 </section>
-<section class='seventy' data-state='' id='slide-115'>
+<section class='sixty' data-state='' id='slide-115'>
   <h3>Data structures: 4. Lists</h3>
   <h4>List indexing</h4>
 
 <ul>
 <li><p>Using the single bracket indexing operator <code>[]</code> will return a list</p></li>
 <li><p>Using a double bracket indexing operator <code>[[]]</code> will return contents within a list (integers, numbers, characters)</p></li>
+<li><p>The main difference is in the class of the output</p></li>
 </ul>
 
 <pre><code class="r">b &lt;- list(1:4, c(3.25, 6.75, 8.175, 4.5), c(&quot;apples&quot;, &quot;bananas&quot;, &quot;oranges&quot;, &quot;pears&quot;))
@@ -2004,12 +2003,12 @@ outputs
 </ol>
 
 <pre><code class="r">output &lt;- list()
-for(x in 1:10) {
-  output[1] &lt;- sum(x + x^2)
+for (x in 1:10) {
+  output[x] &lt;- sum(x + x^2)
 }
 
 output2 &lt;- list()
-for(x in 1:11) {
+for (x in 1:11) {
   output2[x + 1] &lt;- sum(x + x^2)
 }
 </code></pre>
@@ -2028,7 +2027,7 @@ for(x in 1:11) {
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-120'>
+<section class='ninety' data-state='' id='slide-120'>
   <h2>Flow Statements</h2>
   <h3>if statements</h3>
 
@@ -2040,10 +2039,10 @@ for(x in 1:11) {
 <pre><code class="r">x &lt;- 1:5
 
 for (i in 1:length(x)) {
-  if(x[i] &gt; 3) {
+  if (x[i] &gt; 3) {
     print(paste(x[i],&quot;is greater than 3&quot;))
   }
-  if(x[i] &lt;= 3) {
+  if (x[i] &lt;= 3) {
     print(paste(x[i],&quot;is less than or equal to 3&quot;))
   }
 }
@@ -2059,6 +2058,36 @@ for (i in 1:length(x)) {
 </section>
 <section class='' data-state='' id='slide-121'>
   <h3>Flow Statements</h3>
+  <h4>Controlling flow: else statements</h4>
+
+<ul>
+<li>If statements are often paired with else statements, for when we want to run specific code in a given case, and the same code for every other possible case.<br></li>
+</ul>
+
+<pre><code class="r">x &lt;- rpois(100, lambda = 2)
+output &lt;- c()
+
+for (i in 1:length(x)) {
+  if (x[i] == 0) {
+    next
+  } else {
+    output[i] &lt;- x[i]^2
+  }
+}
+output
+</code></pre>
+
+<pre><code>##   [1]   4   1   1   4  NA   4   9  49  16   4   1  16   4  NA   1  NA   4
+##  [18]   4  NA  NA   4   1   4   1  NA   4   1   4  49   1  16   9  NA  16
+##  [35]   4   9   4   4   9   9   4  25  NA   4   1   4   4   9   1   4   4
+##  [52]  16   1   4   4 100   1   1  NA  NA   4   1   4   4  16   1  36   1
+##  [69]   4   4  NA   4  NA   4  16  NA  36   4   9   4  NA   9   9   1   1
+##  [86]   1   9   1  NA   9  25   4   4   9  NA  16  NA   1   1   9
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-122'>
+  <h3>Flow Statements</h3>
   <h4>Controlling flow: break statements</h4>
 
 <ul>
@@ -2066,22 +2095,26 @@ for (i in 1:length(x)) {
 </ul>
 
 <pre><code class="r">for (i in 1:length(x)) {
-  if(x[i] &gt; 3){
+  if (x[i] &gt; 3){
     break
     }
-  if(x[i] &lt;= 3) {
+  if (x[i] &lt;= 3) {
     print(paste(x[i],&quot;is less than or equal to 3&quot;))
     }
 }
 </code></pre>
 
-<pre><code>## [1] &quot;1 is less than or equal to 3&quot;
+<pre><code>## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
 ## [1] &quot;2 is less than or equal to 3&quot;
 ## [1] &quot;3 is less than or equal to 3&quot;
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-122'>
+<section class='' data-state='' id='slide-123'>
   <h3>Flow Statements</h3>
   <h4>Controlling flow: next statements</h4>
 
@@ -2091,26 +2124,114 @@ for (i in 1:length(x)) {
 </ul>
 
 <pre><code class="r">for (i in 1:length(x)) {
-  if(x[i] == 4) {
+  if (x[i] == 4) {
     next
     }
-  if(x[i] &gt; 3) {
+  if (x[i] &gt; 3) {
     print(paste(x[i],&quot;is greater than 3&quot;))
     }
-  if(x[i] &lt;= 3) {
+  if (x[i] &lt;= 3) {
     print(paste(x[i],&quot;is less than or equal to 3&quot;))
     }
   }
 </code></pre>
 
-<pre><code>## [1] &quot;1 is less than or equal to 3&quot;
+<pre><code>## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
 ## [1] &quot;2 is less than or equal to 3&quot;
 ## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;7 is greater than 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;7 is greater than 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
 ## [1] &quot;5 is greater than 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;10 is greater than 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;6 is greater than 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;6 is greater than 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;5 is greater than 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;2 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;0 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;1 is less than or equal to 3&quot;
+## [1] &quot;3 is less than or equal to 3&quot;
 </code></pre>
 
 </section>
-<section class='' data-state='soothe' id='slide-123'>
+<section class='' data-state='soothe' id='slide-124'>
   <h2>Try It!</h2>
   <p>First, create a vector, <code>x</code>, with all integers between 1 and 100.</p>
 
@@ -2121,12 +2242,12 @@ for (i in 1:length(x)) {
 </ol>
 
 </section>
-<section class='' data-state='' id='slide-124'>
+<section class='' data-state='' id='slide-125'>
   <h2>Alternatives to for loops: the apply family</h2>
   <p>The <i>apply</i> family of functions allows you to process whole rows, columns, or lists. This is called <b>vectorization</b>. This can replace for loops (and is often faster).</p>
 
 </section>
-<section class='' data-state='' id='slide-125'>
+<section class='' data-state='' id='slide-126'>
   <h2>apply()</h2>
   <ul>
 <li><code>apply(matrixname, margin = c(1,2), function = FunctionName)</code></li>
@@ -2135,7 +2256,7 @@ for (i in 1:length(x)) {
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-126'>
+<section class='' data-state='' id='slide-127'>
   <h2>apply()</h2>
   <ul>
 <li>Use <code>apply()</code> to take the median of the rows/columns of matrix M.</li>
@@ -2145,26 +2266,26 @@ for (i in 1:length(x)) {
 M
 </code></pre>
 
-<pre><code>##            [,1]       [,2]        [,3]
-## [1,]  0.1494313  0.8779963  0.25422087
-## [2,] -0.8206744  1.4368966 -1.01193249
-## [3,] -1.8166418 -0.4964814  0.06765827
+<pre><code>##            [,1]         [,2]       [,3]
+## [1,] -0.9195574 -0.003817313 -0.5123387
+## [2,]  0.5537405  0.167823085 -0.3541061
+## [3,]  1.0229264 -0.103687892 -0.4194641
 </code></pre>
 
 <pre><code class="r">apply(M, 1, median)  # median of rows 
 </code></pre>
 
-<pre><code>## [1]  0.2542209 -0.8206744 -0.4964814
+<pre><code>## [1] -0.5123387  0.1678231 -0.1036879
 </code></pre>
 
 <pre><code class="r">apply(M, 2, median)  # median of columns 
 </code></pre>
 
-<pre><code>## [1] -0.82067442  0.87799633  0.06765827
+<pre><code>## [1]  0.553740512 -0.003817313 -0.419464060
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-127'>
+<section class='' data-state='' id='slide-128'>
   <h2>apply()</h2>
   <ul>
 <li>The same analysis, but using a for loop</li>
@@ -2179,11 +2300,11 @@ for (i in 1:3) {
 med.M
 </code></pre>
 
-<pre><code>## [1] -0.82067442  0.87799633  0.06765827
+<pre><code>## [1]  0.553740512 -0.003817313 -0.419464060
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-128'>
+<section class='' data-state='' id='slide-129'>
   <h2>The apply family</h2>
   <ul>
 <li>Other versions of <code>apply()</code> for other data types:
@@ -2198,7 +2319,7 @@ med.M
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-129'>
+<section class='' data-state='' id='slide-130'>
   <h2>The apply family</h2>
   <ul>
 <li>Other versions of <code>apply()</code> are used for other data types. For example <code>lapply()</code> uses lists as input.</li>
@@ -2212,7 +2333,7 @@ lapply(mylist, sum)  # applies function to each element in the list
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-130'>
+<section class='' data-state='' id='slide-131'>
   <h2>Useful links</h2>
   <p><a href = "http://adv-r.had.co.nz/Subsetting.html" target = "_blank">Subsetting tutorial</a></p>
 
@@ -2221,19 +2342,19 @@ lapply(mylist, sum)  # applies function to each element in the list
 <p><a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/" target = "_blank">Apply family in R</a></p>
 
 </section>
-<section class='' data-state='' id='slide-131'>
+<section class='' data-state='' id='slide-132'>
   <h2>Practice</h2>
   <p><a href = "https://rpubs.com/mccannecology/53355" target = "_blank">Worksheet</a></p>
 
 <p><a href = "https://rpubs.com/mccannecology/53361" target = "_blank">Answers</a></p>
 
 </section>
-<section class='' data-state='' id='slide-132'>
+<section class='' data-state='' id='slide-133'>
   <h2><b>Part 5:</b> Functions</h2>
   <h5><a href = "#/1"> Back to the directory </a></h5>
 
 </section>
-<section class='' data-state='' id='slide-133'>
+<section class='' data-state='' id='slide-134'>
   <h2>Functions in R: Base</h2>
   <ul>
 <li><p>Functions contain sets of instructions that we want to carry out repeatedly</p></li>
@@ -2248,7 +2369,7 @@ colnames(iris)
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-134'>
+<section class='' data-state='' id='slide-135'>
   <h2>Functions in R: Packages</h2>
   <ul>
 <li>We have also seen functions that are loaded from packages. </li>
@@ -2265,7 +2386,7 @@ tree(formula = Species ~ . -Species, data = iris)
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-135'>
+<section class='' data-state='' id='slide-136'>
   <h2>Functions in R: Make your own!</h2>
   <p>It is also possible to <i>define your own functions</i>. This is especially important if you are going to write the same lines of code over and over again. </p>
 
@@ -2276,7 +2397,7 @@ tree(formula = Species ~ . -Species, data = iris)
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-136'>
+<section class='' data-state='' id='slide-137'>
   <h2>Basic components of a function</h2>
   <ul>
 <li>The <i><code>body()</code></i>, the code inside the function.</li>
@@ -2286,7 +2407,7 @@ tree(formula = Species ~ . -Species, data = iris)
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-137'>
+<section class='' data-state='' id='slide-138'>
   <h2>Writing functions</h2>
   <p><code>FunctionName &lt;- function(arguments) {body}</code></p>
 
@@ -2303,7 +2424,7 @@ f(x = 1, y = 3)
 </code></pre>
 
 </section>
-<section class='seventy' data-state='' id='slide-138'>
+<section class='seventy' data-state='' id='slide-139'>
   <h3>Functions and the environment</h3>
   <ul>
 <li><p>Variables defined inside functions exist in a different <b>environment</b> than the global environment, i.e. they don&#39;t exist outside of the function.</p></li>
@@ -2325,7 +2446,7 @@ g()  # function g looks for x one level above (in global environment)
 </code></pre>
 
 </section>
-<section class='eighty' data-state='' id='slide-139'>
+<section class='eighty' data-state='' id='slide-140'>
   <h3>Function basics</h3>
   <ul>
 <li>Unless you use the function <code>return()</code> or write the output at the end of the function, you won&#39;t be able to access the output</li>
@@ -2353,7 +2474,7 @@ f2(1, 2)  # returns x, y, and z
 </code></pre>
 
 </section>
-<section class='' data-state='soothe' id='slide-140'>
+<section class='' data-state='soothe' id='slide-141'>
   <h2>Try It!</h2>
   <ol>
 <li><p>Create a function that takes in two arguments, <code>x</code> and <code>y</code>, and computes <code>x * 2 * y</code>.</p></li>
@@ -2362,7 +2483,7 @@ f2(1, 2)  # returns x, y, and z
 </ol>
 
 </section>
-<section class='' data-state='' id='slide-141'>
+<section class='' data-state='' id='slide-142'>
   <h3>Function basics</h3>
   <ul>
 <li>Arguments can be passed to a function as a vector or a list</li>
@@ -2388,7 +2509,7 @@ f3(params)
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-142'>
+<section class='' data-state='' id='slide-143'>
   <h3>Functions with pre-defined values</h3>
   <pre><code class="r">subtract &lt;- function(a = 5, b = 2) {
     return(a - b)
@@ -2407,7 +2528,7 @@ subtract()
 </code></pre>
 
 </section>
-<section class='' data-state='soothe' id='slide-143'>
+<section class='' data-state='soothe' id='slide-144'>
   <h2>Try It!</h2>
   <ol>
 <li><p>Write a function that takes a vector as an argument and multiplies the sum of the vector by 10. Return a logical statement based on whether the sum is under 1000.</p></li>
@@ -2415,48 +2536,49 @@ subtract()
 </ol>
 
 </section>
-<section class='' data-state='soothe' id='slide-144'>
+<section class='' data-state='soothe' id='slide-145'>
   <h2>Try It!</h2>
   <pre><code class="r">f4 &lt;- function(x) {
+  output &lt;- c()
   for (i in 1:ncol(x)) {
     if(class(x[, i]) != &quot;numeric&quot;) {
-      next
-      }
+      output[i] &lt;- NA
+    }
     if(class(x[, i]) == &quot;numeric&quot;) {
-      print(mean(x[, i]))
+      output[i] &lt;- mean(x[, i])
     }
   }
+  names(output) &lt;- colnames(x)
+  return(output)
 }
 f4(iris)
 </code></pre>
 
-<pre><code>## [1] 5.843333
-## [1] 3.057333
-## [1] 3.758
-## [1] 1.199333
+<pre><code>## Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+##     5.843333     3.057333     3.758000     1.199333           NA
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-145'>
+<section class='' data-state='' id='slide-146'>
   <h2>Helpful links</h2>
   <p><a href = "http://blog.datacamp.com/functions-in-r-a-tutorial/" target = "_blank">Tutorial on using functions in R</a></p>
 
 <p><a href = "http://adv-r.had.co.nz/Functions.html" target = "_blank">Advanced R - Functions</a></p>
 
 </section>
-<section class='' data-state='' id='slide-146'>
+<section class='' data-state='' id='slide-147'>
   <h2>Practice</h2>
   <p><a href = "https://rpubs.com/mccannecology/53356" target = "_blank">Worksheet</a></p>
 
 <p><a href = "https://rpubs.com/mccannecology/53362" target = "_blank">Answers</a></p>
 
 </section>
-<section class='' data-state='' id='slide-147'>
+<section class='' data-state='' id='slide-148'>
   <h2><b>Part 6:</b> Data visualization using <code>ggplot2</code></h2>
   <h5><a href = "#/1"> Back to the directory </a></h5>
 
 </section>
-<section class='' data-state='blackout' id='slide-148'>
+<section class='' data-state='blackout' id='slide-149'>
   <h2>Review</h2>
   <p><code>ggplot2</code> is not a base package, so we need to install it.</p>
 
@@ -2466,14 +2588,14 @@ f4(iris)
 </ol>
 
 </section>
-<section class='' data-state='' id='slide-149'>
+<section class='' data-state='' id='slide-150'>
   <h2>Install and load <code>ggplot2</code></h2>
   <pre><code class="r">install.packages(&quot;ggplot2&quot;)
 library(ggplot2)
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-150'>
+<section class='' data-state='' id='slide-151'>
   <h2>Why <code>ggplot2</code>?</h2>
   <ul>
 <li>The way you write code in <code>ggplot2</code> makes a lot more sense compared to base graphics</li>
@@ -2482,21 +2604,21 @@ library(ggplot2)
 </ul>
 
 </section>
-<section class='' data-state='noborder' id='slide-151'>
+<section class='' data-state='noborder' id='slide-152'>
   <h4>Why <code>ggplot2</code>?</h4>
   <pre><code class="r">plot(x = iris$Species, y = iris$Sepal.Length)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-94-1.png" alt="plot of chunk unnamed-chunk-94"></p>
+<p><img src="assets/fig/unnamed-chunk-95-1.png" alt="plot of chunk unnamed-chunk-95"></p>
 
 <pre><code class="r">library(ggplot2)
 ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_classic()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-94-2.png" alt="plot of chunk unnamed-chunk-94"></p>
+<p><img src="assets/fig/unnamed-chunk-95-2.png" alt="plot of chunk unnamed-chunk-95"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-152'>
+<section class='' data-state='noborder' id='slide-153'>
   <h2>Why gg?</h2>
   <ul>
 <li><p><code>gg</code> stands for &quot;grammar of graphics&quot;</p></li>
@@ -2510,7 +2632,7 @@ ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme
 </ul>
 
 </section>
-<section class='' data-state='' id='slide-153'>
+<section class='' data-state='' id='slide-154'>
   <h2>The grammar</h2>
   <ul>
 <li>A basic <code>ggplot2</code> plot consists of:
@@ -2523,16 +2645,16 @@ ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme
 </ul>
 
 </section>
-<section class='' data-state='noborder' id='slide-154'>
+<section class='' data-state='noborder' id='slide-155'>
   <h2>A basic plot</h2>
   <pre><code class="r">library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-95-1.png" alt="plot of chunk unnamed-chunk-95"> </p>
+<p><img src="assets/fig/unnamed-chunk-96-1.png" alt="plot of chunk unnamed-chunk-96"></p>
 
 </section>
-<section class='eighty' data-state='noborder' id='slide-155'>
+<section class='eighty' data-state='noborder' id='slide-156'>
   <h3>Plots can be assembled in pieces</h3>
   <ul>
 <li><p>Useful for exploring data in different ways</p></li>
@@ -2544,20 +2666,20 @@ stateplot &lt;- ggplot(data = state, aes(x = Population, y = Area))
 stateplot + geom_point()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-96-1.png" alt="plot of chunk unnamed-chunk-96"> </p>
+<p><img src="assets/fig/unnamed-chunk-97-1.png" alt="plot of chunk unnamed-chunk-97"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-156'>
+<section class='' data-state='noborder' id='slide-157'>
   <h2>Aesthetics</h2>
   <p>Increase the size of points (<code>size</code> argument within <code>geom_point()</code>)</p>
 
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-97-1.png" alt="plot of chunk unnamed-chunk-97"> </p>
+<p><img src="assets/fig/unnamed-chunk-98-1.png" alt="plot of chunk unnamed-chunk-98"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-157'>
+<section class='' data-state='noborder' id='slide-158'>
   <h2>Aesthetics</h2>
   <ul>
 <li>Differentiate state region by <b>color</b> (<code>color</code> argument within <code>aes()</code>)</li>
@@ -2566,10 +2688,10 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + geom_point(size = 2)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-98-1.png" alt="plot of chunk unnamed-chunk-98"> </p>
+<p><img src="assets/fig/unnamed-chunk-99-1.png" alt="plot of chunk unnamed-chunk-99"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-158'>
+<section class='' data-state='noborder' id='slide-159'>
   <h2>Aesthetics</h2>
   <ul>
 <li>Differentiate state region by <b>color</b> and <b>shape</b> (<code>shape</code> argument within <code>aes()</code>)</li>
@@ -2578,10 +2700,10 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-99-1.png" alt="plot of chunk unnamed-chunk-99"> </p>
+<p><img src="assets/fig/unnamed-chunk-100-1.png" alt="plot of chunk unnamed-chunk-100"></p>
 
 </section>
-<section class='' data-state='soothe' id='slide-159'>
+<section class='' data-state='soothe' id='slide-160'>
   <h2>Try It!</h2>
   <ul>
 <li>Take a sample from the <code>diamonds</code> dataset</li>
@@ -2594,25 +2716,25 @@ stateplot + geom_point()
 <li>Then generate this plot:</li>
 </ul>
 
-<p><img src="assets/fig/unnamed-chunk-101-1.png" alt="plot of chunk unnamed-chunk-101"></p>
+<p><img src="assets/fig/unnamed-chunk-102-1.png" alt="plot of chunk unnamed-chunk-102"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-160'>
+<section class='' data-state='noborder' id='slide-161'>
   <h2>Other geometric objects</h2>
   <p>Type <code>geom_</code> and hit tab to see them all. Then, use <code>?geom_nameofgeom</code> to see the help screen.</p>
 
 </section>
-<section class='' data-state='noborder' id='slide-161'>
+<section class='' data-state='noborder' id='slide-162'>
   <h2>Other geometric objects</h2>
   <h4>Boxplot</h4>
 
 <pre><code class="r">ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-102-1.png" alt="plot of chunk unnamed-chunk-102"> </p>
+<p><img src="assets/fig/unnamed-chunk-103-1.png" alt="plot of chunk unnamed-chunk-103"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-162'>
+<section class='' data-state='noborder' id='slide-163'>
   <h2>Other geometric objects</h2>
   <h4>Histograms</h4>
 
@@ -2623,40 +2745,40 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = &quot;black&quot;, fill = &quot;paleturquoise&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-103-1.png" alt="plot of chunk unnamed-chunk-103"> </p>
+<p><img src="assets/fig/unnamed-chunk-104-1.png" alt="plot of chunk unnamed-chunk-104"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-163'>
+<section class='' data-state='noborder' id='slide-164'>
   <h2>Other geometric objects</h2>
   <h4>Bar plots</h4>
 
 <pre><code class="r">ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = &quot;identity&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-104-1.png" alt="plot of chunk unnamed-chunk-104"> </p>
+<p><img src="assets/fig/unnamed-chunk-105-1.png" alt="plot of chunk unnamed-chunk-105"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-164'>
+<section class='' data-state='noborder' id='slide-165'>
   <h2>Other geometric objects</h2>
   <h4>Line plots</h4>
 
 <pre><code class="r">ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-105-1.png" alt="plot of chunk unnamed-chunk-105"> </p>
+<p><img src="assets/fig/unnamed-chunk-106-1.png" alt="plot of chunk unnamed-chunk-106"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-165'>
+<section class='' data-state='noborder' id='slide-166'>
   <h2>Other geometric objects</h2>
   <h4>Density plots</h4>
 
 <pre><code class="r">ggplot(faithful, aes(waiting)) + geom_density(fill = &quot;thistle&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-106-1.png" alt="plot of chunk unnamed-chunk-106"> </p>
+<p><img src="assets/fig/unnamed-chunk-107-1.png" alt="plot of chunk unnamed-chunk-107"></p>
 
 </section>
-<section class='' data-state='soothe' id='slide-166'>
+<section class='' data-state='soothe' id='slide-167'>
   <h2>Try It!</h2>
   <ol>
 <li><p>Look up <code>geom_histogram</code>. What does it do?</p></li>
@@ -2664,42 +2786,42 @@ stateplot + geom_point()
 </ol>
 
 </section>
-<section class='' data-state='noborder' id='slide-167'>
+<section class='' data-state='noborder' id='slide-168'>
   <h2>Facets</h2>
   <p>Plots can also have <b>facets</b>, which divide a plot into subplots based on some discrete variable (here, species). Syntax is <code>facet_grid(Species ~ .)</code>, where there are as many rows as species and there is only one column (represented by the period).</p>
 
 <pre><code class="r">ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-107-1.png" alt="plot of chunk unnamed-chunk-107"> </p>
+<p><img src="assets/fig/unnamed-chunk-108-1.png" alt="plot of chunk unnamed-chunk-108"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-168'>
+<section class='' data-state='noborder' id='slide-169'>
   <h2>Facets</h2>
   <p>Change to <code>facet_grid(. ~ Species)</code> and get one row, three columns.</p>
 
 <pre><code class="r">ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(. ~ Species)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-108-1.png" alt="plot of chunk unnamed-chunk-108"> </p>
+<p><img src="assets/fig/unnamed-chunk-109-1.png" alt="plot of chunk unnamed-chunk-109"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-169'>
+<section class='' data-state='noborder' id='slide-170'>
   <h2>Stats</h2>
   <p>Type <code>stat_</code> and hit tab to see them all. Then, use <code>?stat_nameofstat</code> to see the help screen.</p>
 
 </section>
-<section class='' data-state='noborder' id='slide-170'>
+<section class='' data-state='noborder' id='slide-171'>
   <h2>Stats</h2>
   <p>Use <code>stat_smooth</code> to add a linear fit</p>
 
 <pre><code class="r">ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point() + stat_smooth(method = &quot;lm&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-109-1.png" alt="plot of chunk unnamed-chunk-109"> </p>
+<p><img src="assets/fig/unnamed-chunk-110-1.png" alt="plot of chunk unnamed-chunk-110"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-171'>
+<section class='' data-state='noborder' id='slide-172'>
   <h2>Scales</h2>
   <ul>
 <li><p><code>scales</code> are used to modify axes and colors </p></li>
@@ -2714,43 +2836,43 @@ stateplot + geom_point()
 </ul>
 
 </section>
-<section class='' data-state='noborder' id='slide-172'>
+<section class='' data-state='noborder' id='slide-173'>
   <h2>Scales</h2>
   <ul>
-<li>log x and log y axes</li>
+<li>log x and log y axes, <code>+ scale_x_log10()</code> and <code>+ scale_y_log10()</code></li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-110-1.png" alt="plot of chunk unnamed-chunk-110"> </p>
+<p><img src="assets/fig/unnamed-chunk-111-1.png" alt="plot of chunk unnamed-chunk-111"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-173'>
+<section class='' data-state='noborder' id='slide-174'>
   <h2>Scales</h2>
   <ul>
-<li>Add color manually</li>
+<li>Add color manually using <code>+ scale_colour_manual()</code></li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c(&quot;palegreen3&quot;,&quot;palevioletred3&quot;,&quot;peachpuff3&quot;, &quot;paleturquoise3&quot;))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-111-1.png" alt="plot of chunk unnamed-chunk-111"> </p>
+<p><img src="assets/fig/unnamed-chunk-112-1.png" alt="plot of chunk unnamed-chunk-112"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-174'>
+<section class='' data-state='noborder' id='slide-175'>
   <h2>Labels</h2>
   <ul>
-<li>Add labels, including a title and axes labels, using <code>+ labs()</code></li>
+<li>Add labels, including a title and x and y axes labels, using <code>+ labs()</code></li>
 </ul>
 
 <pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = &quot;US States, 1977&quot;, x = &quot;Life expectancy (in years)&quot;, y = &quot;High school graduation rate (percent)&quot;)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-112-1.png" alt="plot of chunk unnamed-chunk-112"> </p>
+<p><img src="assets/fig/unnamed-chunk-113-1.png" alt="plot of chunk unnamed-chunk-113"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-175'>
+<section class='' data-state='noborder' id='slide-176'>
   <h2>Labels</h2>
   <ul>
 <li>Add labels inside the figure using <code>+ geom_text()</code></li>
@@ -2759,10 +2881,10 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = &quot;US States, 1977&quot;, x = &quot;Life expectancy (in years)&quot;, y = &quot;High school graduation rate (percent)&quot;) + geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-113-1.png" alt="plot of chunk unnamed-chunk-113"> </p>
+<p><img src="assets/fig/unnamed-chunk-114-1.png" alt="plot of chunk unnamed-chunk-114"></p>
 
 </section>
-<section class='ninety' data-state='noborder' id='slide-176'>
+<section class='ninety' data-state='noborder' id='slide-177'>
   <h2>Themes</h2>
   <ul>
 <li><p>Control over the figure as a whole can be done by modifying <b>themes</b>. See <code>?theme</code> for all of the options </p></li>
@@ -2773,10 +2895,10 @@ stateplot + geom_point()
 <pre><code class="r">ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_classic(base_family = &quot;Helvetica&quot;, base_size = 14)
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-114-1.png" alt="plot of chunk unnamed-chunk-114"></p>
+<p><img src="assets/fig/unnamed-chunk-115-1.png" alt="plot of chunk unnamed-chunk-115"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-177'>
+<section class='' data-state='noborder' id='slide-178'>
   <h2>Saving plots</h2>
   <pre><code class="r">my_plot &lt;- ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = &quot;identity&quot;) + theme_bw()
 
@@ -2788,20 +2910,20 @@ ggsave(&quot;my_plot.jpg&quot;, my_plot, height = 4, width = 4, units = &quot;in
 <p><b>Note:</b> Saved in your current working directory (unless specified).</p>
 
 </section>
-<section class='' data-state='alert' id='slide-178'>
+<section class='' data-state='alert' id='slide-179'>
   <h2>R Tip: ggplot2 takes data frames only</h2>
   <p><b>Data structure must be a data frame to plot with ggplot2</b></p>
 
 <pre><code class="r">xvar &lt;- rnorm(100)
 yvar &lt;- rnorm(100)
-df &lt;- data.frame(xvar, yvar) # coerce to data frame 
+df &lt;- data.frame(xvar, yvar)  # coerce to data frame 
 ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-116-1.png" alt="plot of chunk unnamed-chunk-116"> </p>
+<p><img src="assets/fig/unnamed-chunk-117-1.png" alt="plot of chunk unnamed-chunk-117"></p>
 
 </section>
-<section class='' data-state='soothe' id='slide-179'>
+<section class='' data-state='soothe' id='slide-180'>
   <h2>Try It!</h2>
   <ol>
 <li><p>Type in <code>data(package = &quot;datasets&quot;)</code> to see all of the datasets pre-installed with R. </p></li>
@@ -2810,7 +2932,7 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </ol>
 
 </section>
-<section class='' data-state='noborder' id='slide-180'>
+<section class='' data-state='noborder' id='slide-181'>
   <h2>Proper data formatting</h2>
   <ul>
 <li>Often our data looks like this (&quot;<b>wide</b>&quot;), where multiple observations can be found in each row</li>
@@ -2820,12 +2942,12 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 <pre><code>##        spA      spB      spC      spD
-## 1 49.34121 74.40059 20.37955 26.06133
-## 2 50.60630 71.14543 19.76659 24.60005
-## 3 51.64812 74.83155 20.13314 23.95641
-## 4 50.14279 72.44632 20.30388 24.67845
-## 5 49.71275 77.20734 19.72316 25.50121
-## 6 50.98186 70.64108 19.76133 25.74668
+## 1 49.10396 68.27981 20.60649 25.39428
+## 2 48.64058 74.72528 19.87461 25.42307
+## 3 50.51679 74.40623 20.62008 25.50169
+## 4 49.02538 77.22343 19.37961 24.08362
+## 5 51.44201 67.03794 19.71196 23.91932
+## 6 50.83038 74.95657 19.92310 25.78173
 </code></pre>
 
 <pre><code class="r">dim(df)
@@ -2835,7 +2957,7 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-181'>
+<section class='' data-state='noborder' id='slide-182'>
   <h2>Proper data formatting</h2>
   <ul>
 <li>Data is much easier to analyze visually and statisically if it looks like this (&quot;<b>long</b>&quot;), where there is one row per observation</li>
@@ -2845,12 +2967,12 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 <pre><code>##   species   weight
-## 1       A 69.88494
-## 2       B 80.01379
-## 3       C 69.72905
-## 4       D 71.29536
-## 5       A 74.90285
-## 6       B 78.33449
+## 1       A 76.16731
+## 2       B 72.32543
+## 3       C 77.33441
+## 4       D 76.44599
+## 5       A 82.26476
+## 6       B 73.12404
 </code></pre>
 
 <pre><code class="r">dim(df2)
@@ -2860,7 +2982,7 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-182'>
+<section class='' data-state='noborder' id='slide-183'>
   <h3>Melting: from wide to long</h3>
   <pre><code class="r"># make some fake &quot;wide&quot; data
 df &lt;- data.frame(A = rnorm(100, 50, 6), B = rnorm(100, 75, 5), C = rnorm(100, 50, 4), D = rnorm(100, 55, 3))
@@ -2868,16 +2990,16 @@ head(df)
 </code></pre>
 
 <pre><code>##          A        B        C        D
-## 1 54.17452 78.48894 55.80395 51.50745
-## 2 43.70823 72.42498 48.16747 61.41588
-## 3 50.39943 68.64509 49.51931 57.44466
-## 4 47.13530 76.49758 52.89501 52.00872
-## 5 49.12320 73.81613 47.81027 55.77323
-## 6 57.31162 77.10177 57.05018 56.08265
+## 1 50.73795 71.54831 56.72058 55.50035
+## 2 54.38796 76.96641 50.84828 54.08178
+## 3 38.34681 75.33919 51.58912 54.43482
+## 4 53.64221 75.24042 47.13779 55.63801
+## 5 46.89473 70.01894 44.45489 51.73413
+## 6 57.43555 68.72379 51.50239 53.52847
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-183'>
+<section class='' data-state='noborder' id='slide-184'>
   <h3>Melting: from wide to long</h3>
   <ul>
 <li>Use the <code>melt()</code> function in <code>reshape2</code> package</li>
@@ -2894,12 +3016,12 @@ df2 &lt;- melt(data = df)
 </code></pre>
 
 <pre><code>##   variable    value
-## 1        A 54.17452
-## 2        A 43.70823
-## 3        A 50.39943
-## 4        A 47.13530
-## 5        A 49.12320
-## 6        A 57.31162
+## 1        A 50.73795
+## 2        A 54.38796
+## 3        A 38.34681
+## 4        A 53.64221
+## 5        A 46.89473
+## 6        A 57.43555
 </code></pre>
 
 <pre><code class="r">dim(df2)
@@ -2909,7 +3031,7 @@ df2 &lt;- melt(data = df)
 </code></pre>
 
 </section>
-<section class='' data-state='noborder' id='slide-184'>
+<section class='' data-state='noborder' id='slide-185'>
   <h2>Melting: from wide to long</h2>
   <ul>
 <li>Melting the data makes it easier to plot</li>
@@ -2921,10 +3043,10 @@ df2 &lt;- melt(data = df)
 <pre><code>FALSE `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 </code></pre>
 
-<p><img src="assets/fig/unnamed-chunk-123-1.png" alt="plot of chunk unnamed-chunk-123"></p>
+<p><img src="assets/fig/unnamed-chunk-124-1.png" alt="plot of chunk unnamed-chunk-124"></p>
 
 </section>
-<section class='' data-state='noborder' id='slide-185'>
+<section class='' data-state='noborder' id='slide-186'>
   <h2>Helpful links</h2>
   <p><a href = "http://docs.ggplot2.org/current/" target = "_blank">ggplot2 documentation</a></p>
 
@@ -2939,14 +3061,14 @@ df2 &lt;- melt(data = df)
 <p><a href = "http://www.cookbook-r.com/Graphs/" target = "_blank">R Cookbook: Graphs</a></p>
 
 </section>
-<section class='' data-state='' id='slide-186'>
+<section class='' data-state='' id='slide-187'>
   <h2>Practice</h2>
   <p><a href = "https://rpubs.com/mccannecology/53357" target = "_blank">Worksheet</a></p>
 
 <p><a href = "https://rpubs.com/mccannecology/53363" target = "_blank">Answers</a></p>
 
 </section>
-<section class='ninety' data-state='' id='slide-187'>
+<section class='ninety' data-state='' id='slide-188'>
   <h2>Additional topics and links</h2>
   <ul>
 <li>When you get a bit more comfortable with R, I recommend taking a look at the additional material on Mike McCann&#39;s website.</li>
@@ -2954,7 +3076,7 @@ df2 &lt;- melt(data = df)
 
 <p><a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Reproducible Research with RMarkdown</a></p>
 
-<p><a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Advanced Data Manipulation with dplyr</a></p>
+<p><a href = "https://rpubs.com/mccannecology/54011" target = "_blank">Advanced Data Manipulation with dplyr</a></p>
 
 <ul>
 <li>I also recommend creating a GitHub account (where I&#39;ve uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)</li>

@@ -756,7 +756,7 @@ head(norm)  # view the first six elements of the vector
 ```
 
 ```
-## [1]  0.9330206 -0.2581407 -0.3036996 -0.3874593 -2.0576031 -1.0316611
+## [1]  0.76000848 -0.37924614  0.06295452  1.64946492  1.29218106  0.06953762
 ```
 
 ```r
@@ -886,7 +886,7 @@ sample(x, size = 20)  # sample without replacement
 ```
 
 ```
-##  [1] 77 88 84 25 71 99 57 53  6 66 38 10 91 34 48 68 78 98 18 90
+##  [1] 97 18 41 92 46 27 55 36 89 37 90 44 76 14 29 39 21 20 74 98
 ```
 
 ```r
@@ -894,7 +894,7 @@ sample(x, size = 20, replace = TRUE)  # sample with replacement
 ```
 
 ```
-##  [1] 15 20 91 33 57 47 25 99 46 71 99 22 48 89 88 56 97 60 75 13
+##  [1]  6 84 69 90 13 10 33  7 25 39 15 62 24 22 36 68 64 46 49 35
 ```
 
 --- ds:soothe
@@ -1560,7 +1560,7 @@ a[2, ]
 
 ## Importing your own data
 
-- R is not a spreadsheet program, so it's not great for direct data entry. It's best to start with spreadsheets for data entry and storage, and to import spreadhseets into R for data visualization and analysis.
+- R is not a spreadsheet program, so it's not great for direct data entry. It's best to start with spreadsheets for data entry and storage, and to import spreadsheets into R for data visualization and analysis.
 
 - <b>.csv</b> (comma separated values) files are often the preferred format to import into R. 
 
@@ -1610,17 +1610,15 @@ head(seedlings)
 
 ## R Tip: Variable names 
 
-- One of the largest sources of frustration with R can be importing data. Variable names often cause problems. 
+- One of the largest sources of frustration with R can be importing data. Variable names, e.g. column names in a spreadsheet, often cause problems. 
   - <b>Do not have spaces in variable names</b>  
-  - <b>Use lower case letters</b> 
   - <b>Abbreviate when appropriate</b>  
 
 
 ```r
 Average Height  # BAD - this won't work
-Average.Height  # OK - this will work but isn't best practice (see Google's R style guide) 
-average.height  # BETTER - this will work, but will be slow to type repeatedly
-avg.height  # GOOD!  
+Average.Height, Average_Height, average.height, average_height, averageHeight  # BETTER - these will work, but will be slow to type repeatedly
+avg.height, avg_height, avgHeight   # GOOD!  
 ```
 
 --- ds:soothe
@@ -1833,7 +1831,7 @@ for (i in 1:3) {
 
 ### Using a for loop
 
-You can perform operations on <b>i</b>.
+You can perform operations on <i>i</i>.
 
 ```r
 for (i in 1:4) {
@@ -1902,7 +1900,7 @@ for (i in 1:5) {
 
 ### For loops and vectors
 
-In the above examples, we used <b>i</b> directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.
+In the above examples, we used <i>i</i> directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.
 
 
 ```r
@@ -1990,7 +1988,7 @@ for (i in 1:length(nameVector)) {
 
 ## Try It!
 
-1. Create a vector of names of three people in the room and write them a nice message using a loop.   
+1. Create a vector of the days of the week and generate a message that says "Today is x" using a loop. 
 
 2. Explain why the following code is wrong:  
 
@@ -2101,7 +2099,7 @@ l[[2]]  # index a list
 ## [1]  3  6  8 10
 ```
 
---- .seventy
+--- .sixty
 
 ### Data structures: 4. Lists 
 #### List indexing
@@ -2109,6 +2107,8 @@ l[[2]]  # index a list
 - Using the single bracket indexing operator `[]` will return a list
 
 - Using a double bracket indexing operator `[[]]` will return contents within a list (integers, numbers, characters)
+
+- The main difference is in the class of the output
 
 
 ```r
@@ -2227,12 +2227,12 @@ First, create a vector, y, with 10 random samples from a standard normal distrib
 
 ```r
 output <- list()
-for(x in 1:10) {
-  output[1] <- sum(x + x^2)
+for (x in 1:10) {
+  output[x] <- sum(x + x^2)
 }
 
 output2 <- list()
-for(x in 1:11) {
+for (x in 1:11) {
   output2[x + 1] <- sum(x + x^2)
 }
 ```
@@ -2252,7 +2252,7 @@ if (3 > 2) {
 ## [1] "Yes"
 ```
 
----
+--- .ninety
 
 ## Flow Statements
 ### if statements
@@ -2266,10 +2266,10 @@ if (3 > 2) {
 x <- 1:5
 
 for (i in 1:length(x)) {
-  if(x[i] > 3) {
+  if (x[i] > 3) {
     print(paste(x[i],"is greater than 3"))
   }
-  if(x[i] <= 3) {
+  if (x[i] <= 3) {
     print(paste(x[i],"is less than or equal to 3"))
   }
 }
@@ -2286,6 +2286,37 @@ for (i in 1:length(x)) {
 ---
 
 ### Flow Statements
+#### Controlling flow: else statements
+
+- If statements are often paired with else statements, for when we want to run specific code in a given case, and the same code for every other possible case.  
+
+
+```r
+x <- rpois(100, lambda = 2)
+output <- c()
+
+for (i in 1:length(x)) {
+  if (x[i] == 0) {
+    next
+  } else {
+    output[i] <- x[i]^2
+  }
+}
+output
+```
+
+```
+##   [1]   4   1   1   4  NA   4   9  49  16   4   1  16   4  NA   1  NA   4
+##  [18]   4  NA  NA   4   1   4   1  NA   4   1   4  49   1  16   9  NA  16
+##  [35]   4   9   4   4   9   9   4  25  NA   4   1   4   4   9   1   4   4
+##  [52]  16   1   4   4 100   1   1  NA  NA   4   1   4   4  16   1  36   1
+##  [69]   4   4  NA   4  NA   4  16  NA  36   4   9   4  NA   9   9   1   1
+##  [86]   1   9   1  NA   9  25   4   4   9  NA  16  NA   1   1   9
+```
+
+---
+
+### Flow Statements
 #### Controlling flow: break statements
 
 - Sometimes we want the loop to end if certain logical criteria are met. We can end a loop running based on an <b>if</b> and <b>break</b> statement
@@ -2293,17 +2324,21 @@ for (i in 1:length(x)) {
 
 ```r
 for (i in 1:length(x)) {
-  if(x[i] > 3){
+  if (x[i] > 3){
     break
     }
-  if(x[i] <= 3) {
+  if (x[i] <= 3) {
     print(paste(x[i],"is less than or equal to 3"))
     }
 }
 ```
 
 ```
+## [1] "2 is less than or equal to 3"
 ## [1] "1 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
 ## [1] "2 is less than or equal to 3"
 ## [1] "3 is less than or equal to 3"
 ```
@@ -2320,23 +2355,111 @@ for (i in 1:length(x)) {
 
 ```r
 for (i in 1:length(x)) {
-  if(x[i] == 4) {
+  if (x[i] == 4) {
     next
     }
-  if(x[i] > 3) {
+  if (x[i] > 3) {
     print(paste(x[i],"is greater than 3"))
     }
-  if(x[i] <= 3) {
+  if (x[i] <= 3) {
     print(paste(x[i],"is less than or equal to 3"))
     }
   }
 ```
 
 ```
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
 ## [1] "1 is less than or equal to 3"
 ## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "7 is greater than 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "7 is greater than 3"
+## [1] "1 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "5 is greater than 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "10 is greater than 3"
+## [1] "1 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "6 is greater than 3"
+## [1] "1 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "6 is greater than 3"
+## [1] "2 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
 ## [1] "3 is less than or equal to 3"
 ## [1] "5 is greater than 3"
+## [1] "2 is less than or equal to 3"
+## [1] "2 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "0 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "1 is less than or equal to 3"
+## [1] "3 is less than or equal to 3"
 ```
 
 --- ds:soothe
@@ -2377,10 +2500,10 @@ M
 ```
 
 ```
-##            [,1]       [,2]        [,3]
-## [1,]  0.1494313  0.8779963  0.25422087
-## [2,] -0.8206744  1.4368966 -1.01193249
-## [3,] -1.8166418 -0.4964814  0.06765827
+##            [,1]         [,2]       [,3]
+## [1,] -0.9195574 -0.003817313 -0.5123387
+## [2,]  0.5537405  0.167823085 -0.3541061
+## [3,]  1.0229264 -0.103687892 -0.4194641
 ```
 
 ```r
@@ -2388,7 +2511,7 @@ apply(M, 1, median)  # median of rows
 ```
 
 ```
-## [1]  0.2542209 -0.8206744 -0.4964814
+## [1] -0.5123387  0.1678231 -0.1036879
 ```
 
 ```r
@@ -2396,7 +2519,7 @@ apply(M, 2, median)  # median of columns
 ```
 
 ```
-## [1] -0.82067442  0.87799633  0.06765827
+## [1]  0.553740512 -0.003817313 -0.419464060
 ```
 
 ---
@@ -2416,7 +2539,7 @@ med.M
 ```
 
 ```
-## [1] -0.82067442  0.87799633  0.06765827
+## [1]  0.553740512 -0.003817313 -0.419464060
 ```
 
 ---
@@ -2681,23 +2804,24 @@ subtract(3, 6)
 
 ```r
 f4 <- function(x) {
+  output <- c()
   for (i in 1:ncol(x)) {
     if(class(x[, i]) != "numeric") {
-      next
-      }
+      output[i] <- NA
+    }
     if(class(x[, i]) == "numeric") {
-      print(mean(x[, i]))
+      output[i] <- mean(x[, i])
     }
   }
+  names(output) <- colnames(x)
+  return(output)
 }
 f4(iris)
 ```
 
 ```
-## [1] 5.843333
-## [1] 3.057333
-## [1] 3.758
-## [1] 1.199333
+## Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+##     5.843333     3.057333     3.758000     1.199333           NA
 ```
 
 ---
@@ -2759,14 +2883,14 @@ library(ggplot2)
 plot(x = iris$Species, y = iris$Sepal.Length)
 ```
 
-![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-1.png)
+![plot of chunk unnamed-chunk-95](assets/fig/unnamed-chunk-95-1.png)
 
 ```r
 library(ggplot2)
 ggplot(data = iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_classic()
 ```
 
-![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-2.png)
+![plot of chunk unnamed-chunk-95](assets/fig/unnamed-chunk-95-2.png)
 
 --- ds:noborder
 
@@ -2799,7 +2923,7 @@ library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-95](assets/fig/unnamed-chunk-95-1.png) 
+![plot of chunk unnamed-chunk-96](assets/fig/unnamed-chunk-96-1.png)
 
 --- ds:noborder .eighty
 
@@ -2816,7 +2940,7 @@ stateplot <- ggplot(data = state, aes(x = Population, y = Area))
 stateplot + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-96](assets/fig/unnamed-chunk-96-1.png) 
+![plot of chunk unnamed-chunk-97](assets/fig/unnamed-chunk-97-1.png)
 
 --- ds:noborder
 
@@ -2829,7 +2953,7 @@ Increase the size of points (`size` argument within `geom_point()`)
 ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 ```
 
-![plot of chunk unnamed-chunk-97](assets/fig/unnamed-chunk-97-1.png) 
+![plot of chunk unnamed-chunk-98](assets/fig/unnamed-chunk-98-1.png)
 
 --- ds:noborder
 
@@ -2842,7 +2966,7 @@ ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + geom_point(size = 2)
 ```
 
-![plot of chunk unnamed-chunk-98](assets/fig/unnamed-chunk-98-1.png) 
+![plot of chunk unnamed-chunk-99](assets/fig/unnamed-chunk-99-1.png)
 
 --- ds:noborder
 
@@ -2855,7 +2979,7 @@ ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + ge
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2)
 ```
 
-![plot of chunk unnamed-chunk-99](assets/fig/unnamed-chunk-99-1.png) 
+![plot of chunk unnamed-chunk-100](assets/fig/unnamed-chunk-100-1.png)
 
 --- ds:soothe ds:noborder
 
@@ -2870,7 +2994,7 @@ d2 <- diamonds[sample(1:nrow(diamonds), 1000), ]
 
 - Then generate this plot:
 
-![plot of chunk unnamed-chunk-101](assets/fig/unnamed-chunk-101-1.png)
+![plot of chunk unnamed-chunk-102](assets/fig/unnamed-chunk-102-1.png)
 
 --- ds:noborder
 
@@ -2888,7 +3012,7 @@ Type `geom_` and hit tab to see them all. Then, use `?geom_nameofgeom` to see th
 ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-102](assets/fig/unnamed-chunk-102-1.png) 
+![plot of chunk unnamed-chunk-103](assets/fig/unnamed-chunk-103-1.png)
 
 --- ds:noborder
 
@@ -2902,7 +3026,7 @@ ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black", fill = "paleturquoise")
 ```
 
-![plot of chunk unnamed-chunk-103](assets/fig/unnamed-chunk-103-1.png) 
+![plot of chunk unnamed-chunk-104](assets/fig/unnamed-chunk-104-1.png)
 
 --- ds:noborder
 
@@ -2914,7 +3038,7 @@ ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black
 ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
 ```
 
-![plot of chunk unnamed-chunk-104](assets/fig/unnamed-chunk-104-1.png) 
+![plot of chunk unnamed-chunk-105](assets/fig/unnamed-chunk-105-1.png)
 
 --- ds:noborder
 
@@ -2926,7 +3050,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
 ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 ```
 
-![plot of chunk unnamed-chunk-105](assets/fig/unnamed-chunk-105-1.png) 
+![plot of chunk unnamed-chunk-106](assets/fig/unnamed-chunk-106-1.png)
 
 --- ds:noborder
 
@@ -2938,7 +3062,7 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 ```
 
-![plot of chunk unnamed-chunk-106](assets/fig/unnamed-chunk-106-1.png) 
+![plot of chunk unnamed-chunk-107](assets/fig/unnamed-chunk-107-1.png)
 
 --- ds:soothe  ds:noborder
 
@@ -2959,7 +3083,7 @@ Plots can also have <b>facets</b>, which divide a plot into subplots based on so
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
 ```
 
-![plot of chunk unnamed-chunk-107](assets/fig/unnamed-chunk-107-1.png) 
+![plot of chunk unnamed-chunk-108](assets/fig/unnamed-chunk-108-1.png)
 
 --- ds:noborder
 
@@ -2972,7 +3096,7 @@ Change to `facet_grid(. ~ Species)` and get one row, three columns.
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(. ~ Species)
 ```
 
-![plot of chunk unnamed-chunk-108](assets/fig/unnamed-chunk-108-1.png) 
+![plot of chunk unnamed-chunk-109](assets/fig/unnamed-chunk-109-1.png)
 
 --- ds:noborder
 
@@ -2990,7 +3114,7 @@ Use `stat_smooth` to add a linear fit
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point() + stat_smooth(method = "lm")
 ```
 
-![plot of chunk unnamed-chunk-109](assets/fig/unnamed-chunk-109-1.png) 
+![plot of chunk unnamed-chunk-110](assets/fig/unnamed-chunk-110-1.png)
 
 --- ds:noborder
 
@@ -3008,40 +3132,40 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 
 ## Scales
 
-- log x and log y axes
+- log x and log y axes, `+ scale_x_log10()` and `+ scale_y_log10()`
 
 
 ```r
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-110](assets/fig/unnamed-chunk-110-1.png) 
+![plot of chunk unnamed-chunk-111](assets/fig/unnamed-chunk-111-1.png)
 
 --- ds:noborder
 
 ## Scales
 
-- Add color manually
+- Add color manually using `+ scale_colour_manual()`
 
 
 ```r
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
 ```
 
-![plot of chunk unnamed-chunk-111](assets/fig/unnamed-chunk-111-1.png) 
+![plot of chunk unnamed-chunk-112](assets/fig/unnamed-chunk-112-1.png)
 
 --- ds:noborder
 
 ## Labels
 
-- Add labels, including a title and axes labels, using `+ labs()`
+- Add labels, including a title and x and y axes labels, using `+ labs()`
 
 
 ```r
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)")
 ```
 
-![plot of chunk unnamed-chunk-112](assets/fig/unnamed-chunk-112-1.png) 
+![plot of chunk unnamed-chunk-113](assets/fig/unnamed-chunk-113-1.png)
 
 --- ds:noborder
 
@@ -3054,7 +3178,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)") + geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
 ```
 
-![plot of chunk unnamed-chunk-113](assets/fig/unnamed-chunk-113-1.png) 
+![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png)
 
 --- ds:noborder .ninety
 
@@ -3071,7 +3195,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_classic(base_family = "Helvetica", base_size = 14)
 ```
 
-![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png)
+![plot of chunk unnamed-chunk-115](assets/fig/unnamed-chunk-115-1.png)
 
 --- ds:noborder
 
@@ -3098,11 +3222,11 @@ You can specify the file name, dimensions, resolution, etc.
 ```r
 xvar <- rnorm(100)
 yvar <- rnorm(100)
-df <- data.frame(xvar, yvar) # coerce to data frame 
+df <- data.frame(xvar, yvar)  # coerce to data frame 
 ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-116](assets/fig/unnamed-chunk-116-1.png) 
+![plot of chunk unnamed-chunk-117](assets/fig/unnamed-chunk-117-1.png)
 
 --- ds:soothe
 
@@ -3128,12 +3252,12 @@ head(df)
 
 ```
 ##        spA      spB      spC      spD
-## 1 49.34121 74.40059 20.37955 26.06133
-## 2 50.60630 71.14543 19.76659 24.60005
-## 3 51.64812 74.83155 20.13314 23.95641
-## 4 50.14279 72.44632 20.30388 24.67845
-## 5 49.71275 77.20734 19.72316 25.50121
-## 6 50.98186 70.64108 19.76133 25.74668
+## 1 49.10396 68.27981 20.60649 25.39428
+## 2 48.64058 74.72528 19.87461 25.42307
+## 3 50.51679 74.40623 20.62008 25.50169
+## 4 49.02538 77.22343 19.37961 24.08362
+## 5 51.44201 67.03794 19.71196 23.91932
+## 6 50.83038 74.95657 19.92310 25.78173
 ```
 
 ```r
@@ -3158,12 +3282,12 @@ head(df2)
 
 ```
 ##   species   weight
-## 1       A 69.88494
-## 2       B 80.01379
-## 3       C 69.72905
-## 4       D 71.29536
-## 5       A 74.90285
-## 6       B 78.33449
+## 1       A 76.16731
+## 2       B 72.32543
+## 3       C 77.33441
+## 4       D 76.44599
+## 5       A 82.26476
+## 6       B 73.12404
 ```
 
 ```r
@@ -3187,12 +3311,12 @@ head(df)
 
 ```
 ##          A        B        C        D
-## 1 54.17452 78.48894 55.80395 51.50745
-## 2 43.70823 72.42498 48.16747 61.41588
-## 3 50.39943 68.64509 49.51931 57.44466
-## 4 47.13530 76.49758 52.89501 52.00872
-## 5 49.12320 73.81613 47.81027 55.77323
-## 6 57.31162 77.10177 57.05018 56.08265
+## 1 50.73795 71.54831 56.72058 55.50035
+## 2 54.38796 76.96641 50.84828 54.08178
+## 3 38.34681 75.33919 51.58912 54.43482
+## 4 53.64221 75.24042 47.13779 55.63801
+## 5 46.89473 70.01894 44.45489 51.73413
+## 6 57.43555 68.72379 51.50239 53.52847
 ```
 
 --- ds:noborder
@@ -3217,12 +3341,12 @@ head(df2)
 
 ```
 ##   variable    value
-## 1        A 54.17452
-## 2        A 43.70823
-## 3        A 50.39943
-## 4        A 47.13530
-## 5        A 49.12320
-## 6        A 57.31162
+## 1        A 50.73795
+## 2        A 54.38796
+## 3        A 38.34681
+## 4        A 53.64221
+## 5        A 46.89473
+## 6        A 57.43555
 ```
 
 ```r
@@ -3248,7 +3372,7 @@ ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(. ~ variable)
 FALSE `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![plot of chunk unnamed-chunk-123](assets/fig/unnamed-chunk-123-1.png)
+![plot of chunk unnamed-chunk-124](assets/fig/unnamed-chunk-124-1.png)
 
 --- ds:noborder
 
@@ -3284,7 +3408,7 @@ FALSE `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
 <a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Reproducible Research with RMarkdown</a>
 
-<a href = "http://rpubs.com/mccannecology/53465" target = "_blank">Advanced Data Manipulation with dplyr</a>
+<a href = "https://rpubs.com/mccannecology/54011" target = "_blank">Advanced Data Manipulation with dplyr</a>
 
 - I also recommend creating a GitHub account (where I've uploaded this course). GitHub is used for making code freely available as well as for version control (important for collaborating on projects)
 
