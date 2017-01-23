@@ -2052,7 +2052,7 @@ a
 
 - It may seem multidimensional, but it does behave as a one dimensional data structure.
 
---- .seventy
+--- .sixty
 
 ### Data structures: 4. Lists 
 #### Constructing lists and list syntax
@@ -2288,7 +2288,7 @@ for (i in 1:length(x)) {
 ### Flow Statements
 #### Controlling flow: else statements
 
-- If statements are often paired with else statements, for when we want to run specific code in a given case, and the same code for every other possible case.  
+- If statements are often paired with else statements, used when we want to run specific code in a given case and the same code for every other possible case.  
 
 
 ```r
@@ -2296,9 +2296,9 @@ x <- rpois(100, lambda = 2)
 output <- c()
 
 for (i in 1:length(x)) {
-  if (x[i] == 0) {
+  if (x[i] == 0) {  # execute the code in this if statement in one special case
     next
-  } else {
+  } else {  # for every other case, execute this code
     output[i] <- x[i]^2
   }
 }
@@ -2343,7 +2343,7 @@ for (i in 1:length(x)) {
 ## [1] "3 is less than or equal to 3"
 ```
 
----
+--- .ninety
 
 ### Flow Statements
 #### Controlling flow: next statements

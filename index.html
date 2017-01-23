@@ -1858,7 +1858,7 @@ a
 </ul>
 
 </section>
-<section class='seventy' data-state='' id='slide-114'>
+<section class='sixty' data-state='' id='slide-114'>
   <h3>Data structures: 4. Lists</h3>
   <h4>Constructing lists and list syntax</h4>
 
@@ -2061,16 +2061,16 @@ for (i in 1:length(x)) {
   <h4>Controlling flow: else statements</h4>
 
 <ul>
-<li>If statements are often paired with else statements, for when we want to run specific code in a given case, and the same code for every other possible case.<br></li>
+<li>If statements are often paired with else statements, used when we want to run specific code in a given case and the same code for every other possible case.<br></li>
 </ul>
 
 <pre><code class="r">x &lt;- rpois(100, lambda = 2)
 output &lt;- c()
 
 for (i in 1:length(x)) {
-  if (x[i] == 0) {
+  if (x[i] == 0) {  # execute the code in this if statement in one special case
     next
-  } else {
+  } else {  # for every other case, execute this code
     output[i] &lt;- x[i]^2
   }
 }
@@ -2114,7 +2114,7 @@ output
 </code></pre>
 
 </section>
-<section class='' data-state='' id='slide-123'>
+<section class='ninety' data-state='' id='slide-123'>
   <h3>Flow Statements</h3>
   <h4>Controlling flow: next statements</h4>
 
