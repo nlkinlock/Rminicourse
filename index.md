@@ -1,6 +1,6 @@
 ---
 title       : R Mini Course
-subtitle    : Developed by Mike McCann
+subtitle    : 
 author      : Nicole Kinlock
 job         : 
 framework   : revealjs
@@ -11,18 +11,17 @@ widgets     : [mathjax]
 mode        : selfcontained
 knit        : slidify::knit2slides
 github      :
-  user: nlk124
+  user: nlkinlock
   repo: Rminicourse
-
 ---
 
 ## <b>R Mini Course</b>
 
-### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)
+#### Nicole Kinlock
 
-#### <i>Nicole Kinlock</i>
+#### 10 June 2024
 
-##### January 21st and 22nd, 2016
+##### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)
 
 --- .seventy
 
@@ -496,8 +495,8 @@ y
 ```
 
 ```
-##  [1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
-## [24] 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+##  [1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
+## [26] 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
 ```
 
 ```r
@@ -758,15 +757,14 @@ head(norm)
 ```
 
 ```
-## [1] -2.0902195660 -0.5281914723 -0.1530587059 -0.4630696300  0.3055771295
-## [6]  0.0002270506
+## [1] -0.76884389 -0.07919592  0.66815319 -0.22530179 -0.10416527  1.38364367
 ```
 
 ```r
 hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 ```
 
-![plot of chunk unnamed-chunk-24](assets/fig/unnamed-chunk-24-1.png) 
+![plot of chunk unnamed-chunk-24](assets/fig/unnamed-chunk-24-1.png)
 
 --- ds:soothe
 
@@ -834,7 +832,7 @@ head(rivers)
 barplot(height = rivers[1:10], col = "paleturquoise", main = "Lengths of rivers in the United States", ylab = "Length (in miles)")
 ```
 
-![plot of chunk unnamed-chunk-25](assets/fig/unnamed-chunk-25-1.png) 
+![plot of chunk unnamed-chunk-25](assets/fig/unnamed-chunk-25-1.png)
 
 ---
 
@@ -861,7 +859,7 @@ sample <- rnorm(1000)
 hist(sample, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 ```
 
-![plot of chunk unnamed-chunk-26](assets/fig/unnamed-chunk-26-1.png) 
+![plot of chunk unnamed-chunk-26](assets/fig/unnamed-chunk-26-1.png)
 
 --- ds:soothe .ninety
 
@@ -890,7 +888,7 @@ sample(x, size = 20) # Sample without replacement
 ```
 
 ```
-##  [1] 96 56 10 30  4 99 93 60 49 36 85 65 28 88  2 32 48 64 94 76
+##  [1] 67 79 11 91 49 12 47 24 44 35 52 25 61 89 73 85 96 76 16  1
 ```
 
 ```r
@@ -898,7 +896,8 @@ sample(x, size = 20, replace = TRUE) # Sample with replacement
 ```
 
 ```
-##  [1] 24 59 59 97  7 78 81 10 68 31 42 50 46 32 87 42 84 57 46  5
+##  [1]  15  21  43  40  68  73 100  79  26  17  32  10  78  96   8  65  54  55  20
+## [20]  80
 ```
 
 --- ds:soothe
@@ -925,7 +924,7 @@ sample2 <- rnorm(n = 40, mean = 2, sd = 1)
 plot(formula = sample2 ~ sample1, pch = 20)
 ```
 
-![plot of chunk unnamed-chunk-28](assets/fig/unnamed-chunk-28-1.png) 
+![plot of chunk unnamed-chunk-28](assets/fig/unnamed-chunk-28-1.png)
 
 --- ds:noborder
 
@@ -939,7 +938,7 @@ plot(formula = sample2 ~ sample1, pch = 20)
 plot(x = sample1, y = sample2, pch = 20)
 ```
 
-![plot of chunk unnamed-chunk-29](assets/fig/unnamed-chunk-29-1.png) 
+![plot of chunk unnamed-chunk-29](assets/fig/unnamed-chunk-29-1.png)
 
 --- ds:noborder
 
@@ -954,7 +953,7 @@ plot(sample1, sample2)
 abline(a = -0.1, b = 1, col="royalblue4")
 ```
 
-![plot of chunk unnamed-chunk-30](assets/fig/unnamed-chunk-30-1.png) 
+![plot of chunk unnamed-chunk-30](assets/fig/unnamed-chunk-30-1.png)
 
 --- ds:noborder
 
@@ -971,7 +970,7 @@ plot(sample1, sample2)
 abline(lm(sample2 ~ sample1), col="royalblue4")
 ```
 
-![plot of chunk unnamed-chunk-31](assets/fig/unnamed-chunk-31-1.png) 
+![plot of chunk unnamed-chunk-31](assets/fig/unnamed-chunk-31-1.png)
 
 ---
 
@@ -1155,15 +1154,15 @@ iris[, 2]  # subset the entire second column
 ```
 
 ```
-##   [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9
-##  [18] 3.5 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2
-##  [35] 3.1 3.2 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2
-##  [52] 3.2 3.1 2.3 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7
-##  [69] 2.2 2.5 3.2 2.8 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0
-##  [86] 3.4 3.1 2.3 3.0 2.5 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7
-## [103] 3.0 2.9 3.0 3.0 2.5 2.9 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6
-## [120] 2.2 3.2 2.8 2.8 2.7 3.3 3.2 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0
-## [137] 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2 3.3 3.0 2.5 3.0 3.4 3.0
+##   [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5
+##  [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2
+##  [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3
+##  [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8
+##  [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5
+##  [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9
+## [109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2
+## [127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2
+## [145] 3.3 3.0 2.5 3.0 3.4 3.0
 ```
 
 --- .ninety
@@ -1237,7 +1236,7 @@ petal <- iris$Petal.Width  # Subset of the column petal width
 hist(petal, col = "darkseagreen1", main = "Petal width of Iris", xlab = "", ylab = "Frequency") # Make a histogram of petal width frequency
 ```
 
-![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png) 
+![plot of chunk unnamed-chunk-40](assets/fig/unnamed-chunk-40-1.png)
 
 ---
 
@@ -1561,7 +1560,7 @@ getwd()
 ```
 
 ```
-## [1] "/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/slides/Rminicourse"
+## [1] "/media/nlkhd/Nicole/Postdoc/Rminicourse"
 ```
 
 - This is the folder on your computer where R will look to open or write files. 
@@ -2005,8 +2004,8 @@ a
 
 ```
 ## $numeric
-##  [1] 0.00 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13
-## [15] 0.14 0.15 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24 0.25
+##  [1] 0.00 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10 0.11 0.12 0.13 0.14
+## [16] 0.15 0.16 0.17 0.18 0.19 0.20 0.21 0.22 0.23 0.24 0.25
 ## 
 ## $integer
 ##  [1] 10 11 12 13 14 15 16 17 18 19 20
@@ -2171,8 +2170,8 @@ outputs
 ```
 
 ```
-##  [1]  6.029596 13.761718 10.922449 14.737241  6.798512  6.913397  1.505247
-##  [8]  8.059382  7.972717  7.948766
+##  [1]  6.264113  8.373887 11.466381  8.602373 13.176893  6.966384 16.182672
+##  [8] 15.313594  8.730472 12.812418
 ```
 
 --- ds:soothe .seventy
@@ -2341,10 +2340,10 @@ M
 ```
 
 ```
-##            [,1]       [,2]        [,3]
-## [1,]  0.1494313  0.8779963  0.25422087
-## [2,] -0.8206744  1.4368966 -1.01193249
-## [3,] -1.8166418 -0.4964814  0.06765827
+##            [,1]       [,2]       [,3]
+## [1,] -1.1001276  0.9944834 -1.9514775
+## [2,] -0.8441152  0.7389345  0.8383174
+## [3,] -1.5969099 -0.5903557 -0.5729778
 ```
 
 ```r
@@ -2352,7 +2351,7 @@ apply(M, 1, median) # median of rows
 ```
 
 ```
-## [1]  0.2542209 -0.8206744 -0.4964814
+## [1] -1.1001276  0.7389345 -0.5903557
 ```
 
 ```r
@@ -2360,7 +2359,7 @@ apply(M, 2, median) # median of columns
 ```
 
 ```
-## [1] -0.82067442  0.87799633  0.06765827
+## [1] -1.1001276  0.7389345 -0.5729778
 ```
 
 ---
@@ -2380,7 +2379,7 @@ med.M
 ```
 
 ```
-## [1] -0.82067442  0.87799633  0.06765827
+## [1] -1.1001276  0.7389345 -0.5729778
 ```
 
 ---
@@ -2724,14 +2723,14 @@ library(ggplot2)
 plot(x = iris$Species, y = iris$Sepal.Length)
 ```
 
-![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-1.png) 
+![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-1.png)
 
 ```r
 library(ggplot2)
 ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_bw()
 ```
 
-![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-2.png) 
+![plot of chunk unnamed-chunk-94](assets/fig/unnamed-chunk-94-2.png)
 
 --- ds:noborder
 
@@ -2764,7 +2763,7 @@ library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-95](assets/fig/unnamed-chunk-95-1.png) 
+![plot of chunk unnamed-chunk-95](assets/fig/unnamed-chunk-95-1.png)
 
 --- ds:noborder .eighty
 
@@ -2781,7 +2780,7 @@ stateplot <- ggplot(data = state, aes(x = Population, y = Area))
 stateplot + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-96](assets/fig/unnamed-chunk-96-1.png) 
+![plot of chunk unnamed-chunk-96](assets/fig/unnamed-chunk-96-1.png)
 
 --- ds:noborder
 
@@ -2794,7 +2793,7 @@ Increase the size of points
 ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 ```
 
-![plot of chunk unnamed-chunk-97](assets/fig/unnamed-chunk-97-1.png) 
+![plot of chunk unnamed-chunk-97](assets/fig/unnamed-chunk-97-1.png)
 
 --- ds:noborder
 
@@ -2807,7 +2806,7 @@ ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + geom_point(size = 2)
 ```
 
-![plot of chunk unnamed-chunk-98](assets/fig/unnamed-chunk-98-1.png) 
+![plot of chunk unnamed-chunk-98](assets/fig/unnamed-chunk-98-1.png)
 
 --- ds:noborder
 
@@ -2820,7 +2819,7 @@ ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + ge
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2)
 ```
 
-![plot of chunk unnamed-chunk-99](assets/fig/unnamed-chunk-99-1.png) 
+![plot of chunk unnamed-chunk-99](assets/fig/unnamed-chunk-99-1.png)
 
 --- ds:soothe .noborder
 
@@ -2835,7 +2834,7 @@ d2 <- diamonds[sample(1:nrow(diamonds), 1000), ]
 
 - Then generate this plot:
 
-![plot of chunk unnamed-chunk-101](assets/fig/unnamed-chunk-101-1.png) 
+![plot of chunk unnamed-chunk-101](assets/fig/unnamed-chunk-101-1.png)
 
 --- ds:noborder
 
@@ -2853,7 +2852,7 @@ Type `geom_` and hit tab to see them all. Then, use `?geom_nameofgeom` to see th
 ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 ```
 
-![plot of chunk unnamed-chunk-102](assets/fig/unnamed-chunk-102-1.png) 
+![plot of chunk unnamed-chunk-102](assets/fig/unnamed-chunk-102-1.png)
 
 --- ds:noborder
 
@@ -2867,7 +2866,7 @@ ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black", fill = "paleturquoise")
 ```
 
-![plot of chunk unnamed-chunk-103](assets/fig/unnamed-chunk-103-1.png) 
+![plot of chunk unnamed-chunk-103](assets/fig/unnamed-chunk-103-1.png)
 
 --- ds:noborder
 
@@ -2879,7 +2878,7 @@ ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black
 ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
 ```
 
-![plot of chunk unnamed-chunk-104](assets/fig/unnamed-chunk-104-1.png) 
+![plot of chunk unnamed-chunk-104](assets/fig/unnamed-chunk-104-1.png)
 
 --- ds:noborder
 
@@ -2891,7 +2890,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
 ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 ```
 
-![plot of chunk unnamed-chunk-105](assets/fig/unnamed-chunk-105-1.png) 
+![plot of chunk unnamed-chunk-105](assets/fig/unnamed-chunk-105-1.png)
 
 --- ds:noborder
 
@@ -2903,7 +2902,7 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 ```
 
-![plot of chunk unnamed-chunk-106](assets/fig/unnamed-chunk-106-1.png) 
+![plot of chunk unnamed-chunk-106](assets/fig/unnamed-chunk-106-1.png)
 
 --- ds:soothe  ds:noborder
 
@@ -2924,7 +2923,7 @@ Plots can also have <b>facets</b>, which divide a plot into subplots based on so
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
 ```
 
-![plot of chunk unnamed-chunk-107](assets/fig/unnamed-chunk-107-1.png) 
+![plot of chunk unnamed-chunk-107](assets/fig/unnamed-chunk-107-1.png)
 
 --- ds:noborder
 
@@ -2937,7 +2936,7 @@ Change to `facet_grid(. ~ Species)` and get one row, three columns.
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(. ~ Species)
 ```
 
-![plot of chunk unnamed-chunk-108](assets/fig/unnamed-chunk-108-1.png) 
+![plot of chunk unnamed-chunk-108](assets/fig/unnamed-chunk-108-1.png)
 
 --- ds:noborder
 
@@ -2955,7 +2954,11 @@ Use `stat_smooth` to add a linear fit
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point() + stat_smooth(method = "lm")
 ```
 
-![plot of chunk unnamed-chunk-109](assets/fig/unnamed-chunk-109-1.png) 
+```
+## `geom_smooth()` using formula = 'y ~ x'
+```
+
+![plot of chunk unnamed-chunk-109](assets/fig/unnamed-chunk-109-1.png)
 
 --- ds:noborder
 
@@ -2980,7 +2983,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-110](assets/fig/unnamed-chunk-110-1.png) 
+![plot of chunk unnamed-chunk-110](assets/fig/unnamed-chunk-110-1.png)
 
 --- ds:noborder
 
@@ -2993,7 +2996,7 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
 ```
 
-![plot of chunk unnamed-chunk-111](assets/fig/unnamed-chunk-111-1.png) 
+![plot of chunk unnamed-chunk-111](assets/fig/unnamed-chunk-111-1.png)
 
 --- ds:noborder
 
@@ -3006,7 +3009,7 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)")
 ```
 
-![plot of chunk unnamed-chunk-112](assets/fig/unnamed-chunk-112-1.png) 
+![plot of chunk unnamed-chunk-112](assets/fig/unnamed-chunk-112-1.png)
 
 --- ds:noborder
 
@@ -3019,7 +3022,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)") + geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
 ```
 
-![plot of chunk unnamed-chunk-113](assets/fig/unnamed-chunk-113-1.png) 
+![plot of chunk unnamed-chunk-113](assets/fig/unnamed-chunk-113-1.png)
 
 --- ds:noborder .ninety
 
@@ -3036,7 +3039,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_bw(base_family = "Times", base_size = 14)
 ```
 
-![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png) 
+![plot of chunk unnamed-chunk-114](assets/fig/unnamed-chunk-114-1.png)
 
 --- ds:noborder
 
@@ -3067,7 +3070,7 @@ df <- data.frame(xvar, yvar) # coerce to data frame
 ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
-![plot of chunk unnamed-chunk-116](assets/fig/unnamed-chunk-116-1.png) 
+![plot of chunk unnamed-chunk-116](assets/fig/unnamed-chunk-116-1.png)
 
 --- ds:noborder
 
@@ -3083,12 +3086,12 @@ head(df)
 
 ```
 ##        spA      spB      spC      spD
-## 1 49.34121 74.40059 20.37955 26.06133
-## 2 50.60630 71.14543 19.76659 24.60005
-## 3 51.64812 74.83155 20.13314 23.95641
-## 4 50.14279 72.44632 20.30388 24.67845
-## 5 49.71275 77.20734 19.72316 25.50121
-## 6 50.98186 70.64108 19.76133 25.74668
+## 1 48.55572 60.47033 20.18512 25.38465
+## 2 49.68650 76.48473 20.56419 26.47495
+## 3 51.39300 68.88788 20.63296 25.21101
+## 4 50.19618 76.17369 20.46165 24.43100
+## 5 49.55430 68.66825 20.27674 24.46089
+## 6 48.73544 82.72539 20.56809 24.85730
 ```
 
 ```r
@@ -3113,12 +3116,12 @@ head(df2)
 
 ```
 ##   species   weight
-## 1       A 69.88494
-## 2       B 80.01379
-## 3       C 69.72905
-## 4       D 71.29536
-## 5       A 74.90285
-## 6       B 78.33449
+## 1       A 69.88205
+## 2       B 73.28626
+## 3       C 82.63824
+## 4       D 82.84713
+## 5       A 70.07250
+## 6       B 76.22356
 ```
 
 ```r
@@ -3145,12 +3148,12 @@ head(df)
 
 ```
 ##          A        B        C        D
-## 1 54.17452 78.48894 55.80395 51.50745
-## 2 43.70823 72.42498 48.16747 61.41588
-## 3 50.39943 68.64509 49.51931 57.44466
-## 4 47.13530 76.49758 52.89501 52.00872
-## 5 49.12320 73.81613 47.81027 55.77323
-## 6 57.31162 77.10177 57.05018 56.08265
+## 1 45.37140 65.88206 51.40177 54.02560
+## 2 43.52118 74.36319 51.66018 54.38069
+## 3 48.19100 73.17202 51.30986 55.98406
+## 4 57.57974 72.44217 48.23591 57.81578
+## 5 41.20753 74.21815 49.62289 57.06026
+## 6 51.54363 76.45493 46.11492 53.71475
 ```
 
 --- ds:noborder
@@ -3175,12 +3178,12 @@ head(df2)
 
 ```
 ##   variable    value
-## 1        A 54.17452
-## 2        A 43.70823
-## 3        A 50.39943
-## 4        A 47.13530
-## 5        A 49.12320
-## 6        A 57.31162
+## 1        A 45.37140
+## 2        A 43.52118
+## 3        A 48.19100
+## 4        A 57.57974
+## 5        A 41.20753
+## 6        A 51.54363
 ```
 
 ```r
@@ -3203,13 +3206,10 @@ ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
 ```
 
 ```
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
-FALSE stat_bin: binwidth defaulted to range/30. Use 'binwidth = x' to adjust this.
+FALSE `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![plot of chunk unnamed-chunk-123](assets/fig/unnamed-chunk-123-1.png) 
+![plot of chunk unnamed-chunk-123](assets/fig/unnamed-chunk-123-1.png)
 
 --- ds:noborder
 

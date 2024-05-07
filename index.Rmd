@@ -1,47 +1,36 @@
 ---
-title       : R Mini Course
-subtitle    : Developed by Mike McCann
-author      : Nicole Kinlock
-job         : 
-framework   : revealjs
-revealjs    : {theme: serif, transition: fade}
-highlighter : highlight.js
-hitheme     : zenburn
-widgets     : [mathjax]
-mode        : selfcontained
-knit        : slidify::knit2slides
-github      :
-  user: nlk124
-  repo: Rminicourse
-
+title: "R Mini Course"
+author: "Nicole Kinlock"
+date: 10 June 2024
+output:
+  revealjs::revealjs_presentation:
+    theme: night
+    highlight: zenburn
+    transition: fade
 ---
 
-## <b>R Mini Course</b>
+## About this course
 
-### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)
+This course was developed by Ben Weinstein (2014), Mike McCann (2015), and Nicole Kinlock (2016, 2017) to be a workshop held by the Department of Ecology & Evolution at Stony Brook University
 
-#### <i>Nicole Kinlock</i>
-
-##### January 21st and 22nd, 2016
-
---- .seventy
+---
 
 ## Directory
 
-- Part 1: <a href = "#/2"> Basics of R </a>
-- Part 2: <a href = "#/43"> Probability </a>
-- Part 3: <a href = "#/62"> Data manipulation </a>
-- Part 4: <a href = "#/95"> Looping and vectorization </a>
-- Part 5: <a href = "#/131"> Functions </a>
-- Part 6: <a href = "#/146"> Data visualization using ggplot2 </a>
+- Part 1: <a href = "#/3"> Basics of R </a>
+- Part 2: <a href = "#/44"> Probability </a>
+- Part 3: <a href = "#/63"> Data manipulation </a>
+- Part 4: <a href = "#/96"> Looping and vectorization </a>
+- Part 5: <a href = "#/132"> Functions </a>
+- Part 6: <a href = "#/147"> Data visualization using ggplot2 </a>
 
 ---
 
-## <b>Part 1:</b> Basics of R
+## <b>Part 1</b> Basics of R
 
-##### <a href = "#/1">Back to the directory</a>
+##### <a href = "#/2">Back to the directory</a>
 
---- ds:noborder
+---
 
 ## Introduction to R
 
@@ -52,9 +41,7 @@ github      :
 - Available on all platforms <i>(Windows, OSX, Linux)</i>
 - Not just for statistics, but also general purpose programming
 
-<img src = "https://www.r-project.org/Rlogo.png">
-
---- ds:noborder
+---
 
 ## Why use R?
 
@@ -63,7 +50,7 @@ github      :
 - Large user base
 - Valued skill <i>(Remember, R is a programming <b>language</b>)</i>
 
---- ds:noborder
+---
 
 ## RStudio
 
@@ -72,9 +59,7 @@ github      :
 - Also free!
 - Using R without RStudio feels kind of like using only Command (Windows) or Terminal (Mac) on your computer 
 
-<img src = "http://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gradient.png" height = "150", width = "370">
-
---- ds:noborder
+---
 
 ## Running R with RStudio
 
@@ -92,7 +77,7 @@ github      :
 
 - A <b>script</b> is a plain text file with R commands in it. This will be where you save the code that you are writing - the file will end in the extension <b>.R</b>
 
---- ds:ninety
+---
 
 ## R as a calculator 
 
@@ -119,7 +104,7 @@ Examples
 10 %% 7
 ```
 
---- .seventy
+---
 
 ## R is logical 
 
@@ -146,7 +131,7 @@ Examples
 7!=4
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -183,7 +168,7 @@ a
 
 <a href = "http://adv-r.had.co.nz/Style.html"> Advanced R: Style Guide </a>
 
---- ds:alert
+---
 
 ## R Tip: Comment on your code 
 
@@ -212,7 +197,7 @@ d <- 8 * 10 * 2 * 10
 d
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -288,7 +273,7 @@ x <- seq(from = 1, to = 20, by = 2)
 x
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -360,7 +345,7 @@ y[y <= 10]  # extract all elements less than or equal to 10
 y[y < 10 & y != 5]  # extract all elements less than 10 that are not equal to 5
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -422,7 +407,7 @@ x <- seq(5, 100, 5)
 mean(x)
 ```
 
---- ds:alert
+---
 
 ## R Tip: The help system
 
@@ -444,7 +429,7 @@ help(mean)
 ??robust
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -500,7 +485,7 @@ require(ggplot2)
 
 - <b>Note:</b> no quotation marks needed
 
---- ds:alert
+---
 
 ## R Tip: Loading Packages 
 
@@ -508,7 +493,7 @@ require(ggplot2)
 
 - <a href = "http://yihui.name/en/2014/07/library-vs-require/">Some say</a> that you should preferentially use `library()`. The logic behind this is because `require()` "tries" to laod a package and `library()` actually loads a package. If you use `require()` at the top of the screen and you don't have the package installed, you'll get a failure message later on when you use functions in the package. However, if you use `library()` at the top of the screen and you don't have the package installed, you'll get a failure message right away.
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -546,7 +531,7 @@ Worksheets created by Mike McCann and hosted on his Rpubs site
 
 ##### <a href = "#/1">Back to the directory</a>
 
---- ds:blackout
+---
 
 ## Review
 
@@ -557,7 +542,7 @@ Worksheets created by Mike McCann and hosted on his Rpubs site
 3. Find all of the elements of the vector `seq(1, 10, 0.1)` that are less than 2. What is the median value of these elements?
 
 
---- ds:noborder
+---
 
 ## Distributions
 
@@ -569,7 +554,7 @@ head(norm)
 hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -591,7 +576,7 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 <b>BEE552 Students:</b> Heather will pick up from here.
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -613,7 +598,7 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 - `pnorm()`, and `qnorm()` will be covered during Biometry. They are less commonly used.
 
---- .eighty ds:noborder
+---
 
 ## Univariate plots
 
@@ -651,7 +636,7 @@ sample <- rnorm(1000)
 hist(sample, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 ```
 
---- ds:soothe .ninety
+---
 
 ## Try It!
 
@@ -677,7 +662,7 @@ sample(x, size = 20) # Sample without replacement
 sample(x, size = 20, replace = TRUE) # Sample with replacement
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -687,7 +672,7 @@ sample(x, size = 20, replace = TRUE) # Sample with replacement
 
 3. Sample 0 or 1 twelve times, with and without replacement. What happens?
 
---- ds:noborder
+---
 
 ## Bivariate plots
 ### Scatterplots
@@ -700,7 +685,7 @@ sample2 <- rnorm(n = 40, mean = 2, sd = 1)
 plot(formula = sample2 ~ sample1, pch = 20)
 ```
 
---- ds:noborder
+---
 
 ## Bivariate plots
 ### Scatterplots
@@ -711,7 +696,7 @@ plot(formula = sample2 ~ sample1, pch = 20)
 plot(x = sample1, y = sample2, pch = 20)
 ```
 
---- ds:noborder
+---
 
 ## Bivariate plots
 ### Scatterplots
@@ -723,7 +708,7 @@ plot(sample1, sample2)
 abline(a = -0.1, b = 1, col="royalblue4")
 ```
 
---- ds:noborder
+---
 
 ## Bivariate plots
 ### Scatterplots
@@ -783,7 +768,7 @@ Download the file for this section
 head(trees)  # Pre-loaded dataset in R - measurements of black cherry trees
 ```
 
---- .eighty ds:noborder
+---
 
 ### Data structures: 2. Data frames
 
@@ -812,7 +797,7 @@ head(iris)
 - `rownames()` - row names 
 - `colnames()` - column names
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -824,7 +809,7 @@ head(iris)
 
 4. What classes are each of the columns?
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -838,7 +823,7 @@ head(iris)
 ```
 
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -851,7 +836,7 @@ iris[1, 1]  # first row, first column
 iris[3, 3]  # third row, third column
 ```
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -864,7 +849,7 @@ iris[2, ]  # subset the entire second row
 iris[, 2]  # subset the entire second column 
 ```
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -878,7 +863,7 @@ iris[, 2]  # subset the entire second column
 iris[c(5, 7, 9), 1:2]
 ```
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -896,7 +881,7 @@ iris[, "Sepal.Length"]
 iris$Sepal.Length
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -910,7 +895,7 @@ iris$Sepal.Length
 
 5. What happens when you use negative numbers to index the `iris` dataframe? <b>Hint:</b> Use `dim()` on the original and final objects.
 
---- .ninety ds:noborder
+---
 
 ### Data structures: 2. Data frames
 
@@ -946,7 +931,7 @@ This is the same as:
 iris[iris$Petal.Width > 1, ]
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1001,7 +986,7 @@ versicolor.4 <- iris[iris$Petal.Length > 4 & iris$Species == "versicolor", ]  # 
 head(versicolor.4)
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1028,7 +1013,7 @@ df <- data.frame(x = 1:5, y = 6:2)
 df
 ```
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -1048,7 +1033,7 @@ df$z <- 41:45
 df
 ```
 
---- .ninety
+---
 
 ### Data structures: 2. Data frames
 
@@ -1123,7 +1108,7 @@ getwd()
 
 - Set your working directory 
 
-```{r, eval = FALSE}
+```{r eval = FALSE}
 setwd("/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/slides/")
 ```
 
@@ -1133,12 +1118,12 @@ setwd("/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/slides/")
 
 - Store the downloaded seedling data in your environment
 
-```{r, eval=FALSE}
+```{r eval=FALSE}
 seedlings <- read.csv("/Users/nicolekinlock/Documents/Biometry TA/R Mini Course/data/seedlings.csv")
 head(seedlings)
 ```
 
---- ds:alert
+---
 
 ## R Tip: Variable names 
 
@@ -1154,7 +1139,7 @@ average.height # BETTER - this will work, but will be slow to type repeatedly
 avg.height     # GOOD!  
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1216,7 +1201,7 @@ list.files()
 
 ### Why use a for loop?
 
-1. We have a repeated process with indentical formatting, but different values.
+1. We have a repeated process with identical formatting, but different values.
 
 2. To avoid laborious typing into R
 
@@ -1271,7 +1256,6 @@ x <- 1:10
 
 x[6]
 x[6:9]
-
 ```
 
 ---
@@ -1315,6 +1299,7 @@ for (i in 1:4){
 ```
 
 ---
+
 ## For loops
 
 ### Using a for loop
@@ -1332,7 +1317,7 @@ for (i in 1:4){
 
 The operation `x <- x^2` will be done four times. `x` changes with each iteration because of the re-assignment in the loop.
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1340,11 +1325,11 @@ The operation `x <- x^2` will be done four times. `x` changes with each iteratio
 
 2. Create a for loop that prints numbers 100 to 1.
 
-3. Create a for loop that adds 1 to numbers 1:5.
+3. Create a for loop that adds 1 to numbers 1 through 5.
 
 4. Create a for loop that divides all even numbers from 0 to 20 by 10 (consider using `seq()`).
 
-5. <b>Bonus!</b> What would be the final value here (witout trying it)? Why?
+5. <b>Bonus!</b> What would be the final value here (without trying it)? Why?
 
 ```{r}
 dogs <- 10
@@ -1387,7 +1372,7 @@ nameVector[1] # The 1st position in nameVector
 paste("Hi,", nameVector[1], sep=" ") 
 ```
 
---- .seventy
+---
 
 ## For loops
 
@@ -1411,20 +1396,20 @@ for (i in 1:length(nameVector)){
 }
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
 1. Create a vector of names of people in your row, write them a nice message using a loop.   
 
 2. Explain why the following code is wrong:  
-```{r, eval=FALSE}
+```{r eval = FALSE}
 for (x in 1:10) {
   print(sum(i))
 }
 ```
 
---- .ninety
+---
 
 ### Data structures: 4. Lists 
 
@@ -1437,7 +1422,7 @@ x
 typeof(x)
 ```
 
---- .ninety
+---
 
 ### Data structures: 4. Lists
 
@@ -1448,7 +1433,7 @@ a <- list(numeric = seq(0, 0.25, 0.01), integer = 10:20, logical = c(TRUE, FALSE
 a
 ```
 
---- .seventy
+---
 
 ### Data structures: 4. Lists 
 #### Constructing lists and list syntax
@@ -1469,7 +1454,7 @@ v[2]  # Index a vector
 l[[2]]  # Index a list 
 ```
 
---- .seventy
+---
 
 ### Data structures: 4. Lists 
 #### List indexing
@@ -1492,7 +1477,7 @@ str(b[[2]])
 ### Data structures: 4. Lists 
 #### List indexing
 
-```{r}
+```{r error = TRUE}
 b[1] * b[2]  # can't do arithmatic on lists
 
 b[[1]] * b[[2]]  # can do arithmatic on numbers
@@ -1523,7 +1508,7 @@ for (i in 1:length(x)) {
 outputs
 ```
 
---- ds:soothe .seventy
+---
 
 ## Try It!
 
@@ -1535,7 +1520,8 @@ First, create a vector, y, with 10 draws from a standard normal distribution (me
 
 3. Find the the 47th element in the output vector from question 1 and the output list from question 2.
 
-4. What do each of these loops do?  
+4. What do each of these loops do?
+
 ```{r}
 output <- list()
 for(x in 1:10) {
@@ -1549,6 +1535,7 @@ for(x in 1:11) {
 ```
 
 ---
+
 ## Flow Statements
 ### if statements
 
@@ -1565,7 +1552,7 @@ if (3 > 2) {
 
 - Often, we want for loops to be able to do different things under different conditions. We want the for loop to account for variables, options, and logical statements.
 
-- Let's use an <b>if</b> statement:
+- Let's use an <b>if</b> statement
 
 ```{r}
 x <- 1:5
@@ -1621,7 +1608,7 @@ for (i in 1:length(x)) {
   }
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1793,7 +1780,7 @@ f(x = 1, y = 3)
 ```
 
 
---- .seventy
+---
 
 ### Functions and the environment 
 
@@ -1814,7 +1801,7 @@ g <- function() {
 g()
 ```
 
---- .eighty
+---
 
 ### Function basics
 
@@ -1839,7 +1826,7 @@ f2 <- function(a, b) {
 f2(1, 2)  # returns x, y, and z
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1882,7 +1869,7 @@ subtract()
 subtract(5, 6)
 ```
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1890,7 +1877,7 @@ subtract(5, 6)
 
 2. Write a function that calculates the mean of every column in a dataframe. Code the function so that it does not evaluate the column mean if the column elements are not numbers, using <b>`class(x) != "numeric"`</b>. Try your function on the `iris` dataset.
 
---- ds:soothe
+---
 
 ## Try It!
 
@@ -1930,7 +1917,7 @@ f4(iris)
 
 ##### <a href = "#/1"> Back to the directory </a>
 
---- ds:blackout
+---
 
 ## Review
 
@@ -1957,7 +1944,7 @@ library(ggplot2)
 - Easier to create visually appealing figures 
 - Useful for exploring trends in your data
 
---- ds:noborder
+---
 
 #### Why `ggplot2`?
 
@@ -1968,7 +1955,7 @@ library(ggplot2)
 ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_bw()
 ```
 
---- ds:noborder
+---
 
 ## Why gg?
 
@@ -1989,7 +1976,7 @@ ggplot(data=iris, aes(x = Species, y = Sepal.Length)) + geom_boxplot() + theme_b
   - `aes`(thetics): How your data are represented visually <i>(x, y, color, size, shape, etc.)</i>
   - `geom`(etry): What type of geometric objects you want to display <i>(points, lines, polygons, etc.)</i>
 
---- ds:noborder
+---
 
 ## A basic plot 
 
@@ -1998,7 +1985,7 @@ library(ggplot2)
 ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 ```
 
---- ds:noborder .eighty
+---
 
 ### Plots can be assembled in pieces 
 
@@ -2012,7 +1999,7 @@ stateplot <- ggplot(data = state, aes(x = Population, y = Area))
 stateplot + geom_point()
 ```
 
---- ds:noborder
+---
 
 ## Aesthetics
 
@@ -2022,7 +2009,7 @@ Increase the size of points
 ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 ```
 
---- ds:noborder
+---
 
 ## Aesthetics
 
@@ -2032,7 +2019,7 @@ ggplot(data = state, aes(x = Population, y = Area)) + geom_point(size = 3)
 ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + geom_point(size = 2)
 ```
 
---- ds:noborder
+---
 
 ## Aesthetics
 
@@ -2042,7 +2029,7 @@ ggplot(data = state, aes(x = Illiteracy, y = Murder, color = state.region)) + ge
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2)
 ```
 
---- ds:soothe .noborder
+--- 
 
 ## Try It!
 
@@ -2058,13 +2045,13 @@ d2 <- diamonds[sample(1:nrow(diamonds), 1000), ]
 ggplot(data = d2, aes(x = carat, y = price, color = color)) + geom_point()
 ```
 
---- ds:noborder
+---
 
 ## Other geometric objects
 
 Type `geom_` and hit tab to see them all. Then, use `?geom_nameofgeom` to see the help screen.
 
---- ds:noborder
+---
 
 ## Other geometric objects
 #### Boxplot
@@ -2073,7 +2060,7 @@ Type `geom_` and hit tab to see them all. Then, use `?geom_nameofgeom` to see th
 ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 ```
 
---- ds:noborder
+---
 
 ## Other geometric objects
 #### Histograms
@@ -2084,7 +2071,7 @@ ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black", fill = "paleturquoise")
 ```
 
---- ds:noborder
+---
 
 ## Other geometric objects
 #### Bar plots 
@@ -2093,7 +2080,7 @@ ggplot(faithful, aes(x = waiting)) + geom_histogram(binwidth = 8, color = "black
 ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
 ```
 
---- ds:noborder
+---
 
 ## Other geometric objects
 #### Line plots 
@@ -2102,7 +2089,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_bar(stat = "identity")
 ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 ```
 
---- ds:noborder
+---
 
 ## Other geometric objects
 #### Density plots 
@@ -2111,7 +2098,7 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 ```
 
---- ds:soothe  ds:noborder
+--- 
 
 ## Try It!
 
@@ -2119,7 +2106,7 @@ ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 
 2. Make a histogram of `Sepal.Length` from the `iris` data set. What did it do with the different species?
 
---- ds:noborder
+---
 
 ## Facets
 
@@ -2129,7 +2116,7 @@ Plots can also have <b>facets</b>, which divide a plot into subplots based on so
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(Species ~ .)
 ```
 
---- ds:noborder
+---
 
 ## Facets
 
@@ -2139,13 +2126,13 @@ Change to `facet_grid(. ~ Species)` and get one row, three columns.
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + facet_grid(. ~ Species)
 ```
 
---- ds:noborder
+---
 
 ## Stats 
 
 Type `stat_` and hit tab to see them all. Then, use `?stat_nameofstat` to see the help screen.
 
---- ds:noborder
+---
 
 ## Stats 
 
@@ -2154,7 +2141,7 @@ Use `stat_smooth` to add a linear fit
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_point() + stat_smooth(method = "lm")
 ```
 
---- ds:noborder
+---
 
 ## Scales
 
@@ -2166,7 +2153,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
   - `scale_colour_manual()` Specify colors for geoms 
   - `scale_fill_discrete()` Specify colors for geoms 
 
---- ds:noborder
+---
 
 ## Scales
 
@@ -2176,7 +2163,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + geom_poi
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point()
 ```
 
---- ds:noborder
+---
 
 ## Scales
 
@@ -2186,7 +2173,7 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scale_y_log10() + scale_x_log10() + geom_point() + scale_colour_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
 ```
 
---- ds:noborder
+---
 
 ## Labels
 
@@ -2196,7 +2183,7 @@ ggplot(data = state, aes(x = Population, y = Area, color = state.region)) + scal
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)")
 ```
 
---- ds:noborder
+---
 
 ## Labels
 
@@ -2206,7 +2193,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + geom_point(size = 2) + labs(title = "US States, 1977", x = "Life expectancy (in years)", y = "High school graduation rate (percent)") + geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
 ```
 
---- ds:noborder .ninety
+---
 
 ## Themes 
 
@@ -2220,7 +2207,7 @@ ggplot(data = state, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape 
 ggplot(iris, aes(Species, Sepal.Length)) + geom_bar(stat = "identity") + theme_bw(base_family = "Times", base_size = 14)
 ```
 
---- ds:noborder
+---
 
 ## Saving plots
 
@@ -2234,7 +2221,7 @@ You can specify the file name, dimensions, resolution, etc.
 
 <b>Note:</b> Saved in your current working directory (unless specified).
 
---- ds:noborder
+---
 
 ## Remember!
 
@@ -2247,7 +2234,7 @@ df <- data.frame(xvar, yvar) # coerce to data frame
 ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
---- ds:noborder
+---
 
 ## Proper data formatting 
 
@@ -2264,7 +2251,7 @@ head(df)
 dim(df)
 ```
 
---- ds:noborder
+---
 
 ## Proper data formatting 
 
@@ -2280,7 +2267,7 @@ head(df2)
 dim(df2)
 ```
 
---- ds:noborder
+---
 
 ### Melting: from wide to long 
 
@@ -2293,7 +2280,7 @@ df <- data.frame(A = rnorm(100, 50, 6),
 head(df)
 ```
 
---- ds:noborder
+---
 
 ### Melting: from wide to long 
 
@@ -2306,7 +2293,7 @@ head(df2)
 dim(df2)
 ```
 
---- ds:noborder
+---
 
 ## Melting: from wide to long 
 
@@ -2316,7 +2303,7 @@ dim(df2)
 ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
 ```
 
---- ds:noborder
+---
 
 ## Helpful links
 
@@ -2348,7 +2335,7 @@ ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
 
 3. Use `ggplot2` to make a plot of some attribute of the data. 
 
---- .ninety
+---
 
 ## Additional topics and links
 
@@ -2365,5 +2352,3 @@ ggplot(df2, aes(x = value)) + geom_histogram() + facet_grid(.~variable)
 <a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/">Basic tutorial on using GitHub (with RStudio)</a>
 
 <a href = "https://try.github.io">GitHub tutorial (using command line)</a>
-
- 
