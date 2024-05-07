@@ -1,6 +1,6 @@
 ---
 title       : R Mini Course
-subtitle    : Developed by Mike McCann
+subtitle    : 
 author      : Nicole Kinlock
 job         : 
 framework   : revealjs
@@ -11,18 +11,18 @@ widgets     : [mathjax]
 mode        : selfcontained
 knit        : slidify::knit2slides
 github      :
-  user: nlk124
+  user: nlkinlock
   repo: Rminicourse
 
 ---
 
 ## <b>R Mini Course</b>
 
-### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)
+#### Nicole Kinlock
 
-#### <i>Nicole Kinlock</i>
+#### 10 June 2024
 
-##### January 19th and 20th, 2017
+##### Course developed by <a href = "http://mccannecology.weebly.com/">Mike McCann</a> (2015) and <a href = "http://benweinstein.weebly.com/">Ben Weinstein</a> (2014)
 
 --- .seventy
 
@@ -88,7 +88,7 @@ github      :
 
 ## Running R with RStudio
 
-- Type directly into the console (best when you don't want to save the code) or type into the script - then type `(CTRL + ENTER)` (Windows) or `(CMD + ENTER)` (Mac)
+- Type directly into the console (best when you don't want to save the code) or type into the script - then run `(CTRL + ENTER)` (Windows) or `(CMD + ENTER)` (Mac)
 
 - A <b>script</b> is a plain text file with R commands in it. This will be where you save the code that you are writing - the file will end in the extension <b>.R</b>
 
@@ -1612,6 +1612,7 @@ head(seedlings)
 
 - One of the largest sources of frustration with R can be importing data. Variable names, e.g. column names in a spreadsheet, often cause problems. 
   - <b>Do not have spaces in variable names</b>  
+  - <b>Use lower case letters</b> 
   - <b>Abbreviate when appropriate</b>  
 
 
@@ -2553,6 +2554,7 @@ med.M
   - `vapply()`
   - `mapply()`
 
+- Read more <a href = "http://www.ats.ucla.edu/stat/r/library/advanced_function_r.htm">here</a> and <a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/">here</a>.
 
 ---
 
