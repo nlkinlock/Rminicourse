@@ -48,16 +48,15 @@ This course was developed by Ben Weinstein (2014), Mike McCann (2015), and Nicol
 - Flexible
 - Transparent
 - Large user base
-- Valued skill <i>(Remember, R is a programming <b>language</b>)</i>
+- Valued skill
 
 ---
 
 ## RStudio
 
 - Integrated development environment (IDE) for the R language
-- AKA use R with a nice, shiny interface
-- Also free!
-- Using R without RStudio feels kind of like using only Command (Windows) or Terminal (Mac) on your computer 
+- Specifically designed to improve coding experience in R
+- Free version available
 
 ---
 
@@ -67,15 +66,20 @@ This course was developed by Ben Weinstein (2014), Mike McCann (2015), and Nicol
   - <b>Workspace:</b> (Top left) Where scripts are written & saved
   - <b>Console:</b> (Bottom left) Where commands are run
   - <b>Environment, History:</b> (Top right) Where objects are stored
-  - <b>Files, Plots, Packages, and Help:</b> (Bottom right) View data, help 
+  - <b>Files, Plots, Packages, and Help:</b> (Bottom right) View filesystem, figures, packages, help 
 
 ---
 
 ## Running R with RStudio
 
-- Type directly into the console (best when you don't want to save the code) or type into the script - then run `(CTRL + ENTER)` (Windows) or `(CMD + ENTER)` (Mac)
+- Type directly into the console (best when you don't want to save the code) or type into a script (can be saved and rerun as needed)
 
-- A <b>script</b> is a plain text file with R commands in it. This will be where you save the code that you are writing - the file will end in the extension <b>.R</b>
+- Run code by hitting `CTRL + ENTER` (`STRG + ⏎`) on Windows/Linux or `CMD + ENTER` (`CMD + ⏎`) on Mac
+
+- Either run the line where you cursor is placed or highlight a larger block of code and run
+
+- A <b>script</b> is a plain text file with R commands in it -- this will be where you save the code that you are writing
+    - The file will end in the extension `.R`
 
 ---
 
@@ -139,7 +143,7 @@ Examples
 
 2. What is 13 cubed?
 
-3. Is 9 to the fourth equal to the sum of 2000 and 187 multiplied by 3?
+3. Is 9 to the fourth power equal to the sum of 2000 and 187 multiplied by 3?
 
 ---
 
@@ -160,11 +164,13 @@ a
 
 ## Assignment operator
 
-- Do not use <b>`a = 12 + 180`</b> for assignment in R. It's best practice to use `<-` intead of `=`.
+- Do not use <b>`a = 12 + 180`</b> for assignment in R. It's best practice to use `<-` instead of `=`.
 
-- This may seem arbitrary, but it is helpful when you are reading someone else's code.
+- This is arbitrary, but a convention in R (the reasoning is that `<-` maintains backwards compatibility with S-Plus)
 
-<a href = "https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml"> Google's R Style Guide  </a>
+- But, it is good to follow conventions -- this makes your code more readable
+
+<a href = "https://google.github.io/styleguide/Rguide.html"> Google's R Style Guide  </a>
 
 <a href = "http://adv-r.had.co.nz/Style.html"> Advanced R: Style Guide </a>
 
@@ -172,19 +178,19 @@ a
 
 ## R Tip: Comment on your code 
 
-<b>Use `#` signs to comment on your script.</b> Anything to the right of a `#` is ignored. Good scripts (and homework) have comments before every major block of code. It's surprisingly hard to remember what you did when reviewing older code without comments, and it's particularly important when other people are reading your code.  
+<b>Use `#` signs to comment on your script.</b> Anything to the right of a `#` is ignored. Good scripts have comments before every major block of code. It's surprisingly hard to remember what you did when reviewing older code, and it's particularly important when other people are reading your code.  
 
 ```{r}
-5 + 5 # This adds five and five 
+5 + 5  # this adds five and five 
 
-# 10 + 10 this does not add ten and ten 
+# 10 + 10 this does not add ten and ten
 ```
 
 ---
 
 ## Expressions using objects
 
-- Objects can be combined into other, larger, and more complex objects.
+- Objects can be combined into other, larger and more complex objects.
 
 ```{r}
 a <- 8 * 10
