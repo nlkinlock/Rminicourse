@@ -12,7 +12,7 @@ output:
 
 ## About this course
 
-This course was developed by Ben Weinstein (2014), Mike McCann (2015), and Nicole Kinlock (2016, 2017) to be a workshop in the Department of Ecology & Evolution at Stony Brook University
+This course was developed by Ben Weinstein (2014), Mike McCann (2015), and Nicole Kinlock (2016, 2017) as a workshop in the Department of Ecology & Evolution at Stony Brook University
 
 ```{r, echo = FALSE}
 library(knitr)
@@ -24,11 +24,11 @@ opts_knit$set(global.par = TRUE)
 ## Directory
 
 - Part 1: <a href = "#/3"> Basics of R </a>
-- Part 2: <a href = "#/43"> Probability & distributions </a>
-- Part 3: <a href = "#/61"> Data manipulation </a>
-- Part 4: <a href = "#/94"> Looping and vectorization </a>
-- Part 5: <a href = "#/131"> Functions </a>
-- Part 6: <a href = "#/144"> Data visualization using ggplot2 </a>
+- Part 2: <a href = "#/44"> Probability & distributions </a>
+- Part 3: <a href = "#/62"> Data manipulation </a>
+- Part 4: <a href = "#/98"> Looping and vectorization </a>
+- Part 5: <a href = "#/136"> Functions </a>
+- Part 6: <a href = "#/149"> Data visualization using ggplot2 </a>
 
 ---
 
@@ -140,7 +140,7 @@ Examples
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. What is 21 multiplied by 342?
 
@@ -167,16 +167,18 @@ a
 ## Assignment operator
 
 - Do not use `=` for assignment in R. It's best practice to use `<-` instead.
-- This is arbitrary, but a convention in R (the reasoning is that `<-` maintains backwards compatibility with S-Plus)
-- But, it is good to follow conventions -- this makes your code more readable to others
-<a href = "https://google.github.io/styleguide/Rguide.html" target = "_blank"> Google's R Style Guide  </a>
-<a href = "http://adv-r.had.co.nz/Style.html" target = "_blank"> Advanced R: Style Guide </a>
+- This is arbitrary, but a convention in R
+    - FYI: the reasoning is that `<-` maintains backwards compatibility with S-Plus
+- But, it can be a good idea to follow conventions -- this makes your code more readable to others
+    - <a href = "https://google.github.io/styleguide/Rguide.html" target = "_blank">Google's R Style Guide</a>
+    - <a href = "http://adv-r.had.co.nz/Style.html" target = "_blank">Advanced R: Style Guide</a>
 
 ---
 
 ## R Tip: Comment on your code {data-background-color=#66BA43}
 
-<b>Use hashtags (`#`) to comment on your script.</b> Anything to the right of a `#` is ignored. Good scripts have comments before every major block of code. It's surprisingly hard to remember what you did when reviewing older code, and it's particularly important when other people are reading your code.  
+- <b>Use hashtags (`#`) to comment on your script.</b> Anything to the right of a `#` is ignored. Good scripts have comments before every major block of code.
+- It's surprisingly hard to remember what you did when reviewing older code, and it's particularly important when other people are reading your code.  
 
 ```{r}
 5 + 5  # this adds five and five 
@@ -187,7 +189,7 @@ a
 
 ## Expressions using objects
 
-Objects can be combined into other, larger and more complex objects
+Objects can be combined into other, larger objects
 
 ```{r}
 a <- 8 * 10
@@ -201,7 +203,7 @@ d
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Create an object that is equal to your age. Create another object that is equal to the age of the person to your right. Find the difference between these objects. 
 
@@ -259,7 +261,11 @@ x <- 1:10
 x
 ```
 
-- You can use `seq(from = , to = , by = )` to create a sequential vector with a particular minimum (`from`), maximum (`to`), and increment (`by`)
+---
+
+## Data structures: 1. Vectors - Regular sequences
+
+- You can use the `seq(from = , to = , by = )` function to create a sequential vector with a particular minimum (`from`), maximum (`to`), and increment (`by`)
 
 ```{r}
 x <- seq(from = 0, to = 20, by = 2)
@@ -268,7 +274,7 @@ x
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Create a vector that includes all integers between 5 and 25. Name this vector `x`.
 2. Create a vector that includes all even integers between 2 and 22. Name this vector `y`.
@@ -276,12 +282,11 @@ x
 
 ---
 
-## Data structures: 1. Vectors - Indexing by position
+## Data structures: 1. Vectors - Index by position
 
-You can access any element in a vector by putting its <b>position</b> in square brackets `[ ]`
+You can access any element in a vector by putting its <b>position</b> in square brackets `[]`
 
 ```{r}
-# create a vector
 height <- c(76, 72, 74, 74, 78)
 height
 height[1]  # extract the 1st element in the vector 
@@ -290,7 +295,7 @@ height[5]  # extract the 5th element
 
 ---
 
-## Data structures: 1. Vectors - Indexing by position
+## Data structures: 1. Vectors - Index by position
 
 You can also use positional vector indexing to return the same vector, but with certain elements missing, using the minus (`-`) sign
 
@@ -301,14 +306,13 @@ height[-1]
 
 ---
 
-## Data structures: 1. Vectors - Indexing by name
+## Data structures: 1. Vectors - Index by name
 
 You can assign <b>names</b> to each element of the vector, and then extract an element by indexing based on the name
 
 ```{r}
-# create a vector with named elements 
 temp <- c(monday = 28.1, tuesday = 28.5, wednesday = 29.0, thursday = 30.1, 
-          friday = 30.2)
+          friday = 30.2)  # named vector
 temp
 temp["wednesday"]
 temp[3]
@@ -329,7 +333,7 @@ y[y < 10 & y != 5]   # extract all elements less than 10 that are not equal to 5
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. What are the 9th and 12th positions of the vector `seq(from = 1, to = 27, by = 0.5)`? 
 
@@ -339,16 +343,17 @@ y[y < 10 & y != 5]   # extract all elements less than 10 that are not equal to 5
 
 ## Functions
 
-- A <b>function</b> is a stored object that performs a task given some inputs (called <i>arguments</i>). R has many functions already available, but you can also write your own functions.
-- Try using the tab key (`↹`) while entering arguments in any function to discover a useful feature of RStudio. (Try this now using the `seq()` function.)
-- Functions are called in the format: `NameOfFunction(inputs)`   
-- The output of a function can be saved to an object: `output <- NameOfFunction(inputs)`
+- A <b>function</b> is an object that performs a task given some inputs (called <i>arguments</i>). R has many functions already available, but you can also write your own functions.
+- Try using the tab key (`↹`) while entering arguments in any function to discover a useful feature of RStudio
+- Functions are called in the format: `NameOfFunction(arguments)`   
+- The output of a function can be saved as an object: `output <- NameOfFunction(arguments)`
 
 ---
 
 ## Functions
 
-It's not necessary to explicitly name arguments, but it can be helpful for you and others reading your code
+- It's not necessary to explicitly name arguments, but it can be helpful for you and others reading your code
+- If you don't name arguments, then the order in which you enter them matters
 
 ```{r}
 seq(1, 10, 1)
@@ -407,7 +412,7 @@ help(mean)
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. What is the median of 26, 24, 8, 17, and 42?   
 <i>Hint:</i> functions are often named intuitively
@@ -430,7 +435,7 @@ help(mean)
 
 - There are many, many R packages - currently 20,690 (when I first taught this course in 2016, there were "only" 7,742)
 - You can view all packages here: <a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html" target = "_blank"> List of R Packages</a>
-- There are lots of packages commonly used by ecologists and evolutionary biologists (check out `ape`, `sf`, `vegan`, `lme4`, `dplyr`, ...)
+- There are lots of packages commonly used by ecologists and evolutionary biologists (`ape`, `sf`, `vegan`, `lme4`, `dplyr`, ...)
 
 ---
 
@@ -450,7 +455,7 @@ install.packages("ggplot2")
 ## Loading packages 
 
 - Installing a package <b>downloads</b> it to your computer. You need to download packages before loading them.
-- Additionally, you have to <b>load</b> packages before you use them every time you restart R. This lets R know which packages to load and not waste memory by loading all possible functions.    
+- Additionally, you have to <b>load</b> packages in order to use them every time you restart R. This lets R know which packages to load and not waste memory by loading all possible functions.    
 
 ```{r}
 # two ways to load packages
@@ -478,11 +483,11 @@ require(ggplot2)
 
 <a href = "http://www.r-project.org/mail.html" target = "_blank">R Mailing Lists</a>
 
-Note that large language model chatbots (like ChatGPT) were trained using the above sources.
+Note that large language model chatbots (like ChatGPT) were trained using the above sources
 
 ---
 
-## Practice {data-background-color=#4387BA}
+## Practice 
 
 Worksheets created by Mike McCann and hosted on his Rpubs site
 
@@ -510,26 +515,24 @@ Worksheets created by Mike McCann and hosted on his Rpubs site
 
 ## Distributions
 
-It is often useful to generate a sample from a particular statistical distribution. To generate a sample of 1000 elements from a standard normal distribution (mean 0 and standard deviation 1) we can use the `rnorm()` function.
+- It is useful to generate a sample from a statistical distribution
+- To generate a sample of 1000 elements from a standard normal distribution (mean 0 and standard deviation 1) we can use the `rnorm()` function
 
 ```{r, echo = FALSE}
 par(mfrow = c(1, 1), mar = c(2.5, 2.5, 0, 0), mgp = c(1.5, 0.6, 0), cex.main = 1.1, cex.axis = 1.1, cex.lab = 1.1)
 ```
 
 ```{r, fig.height = 2, fig.width = 3}
-# create vector of samples from standard normal dist
 norm <- rnorm(n = 1000, mean = 0, sd = 1)
-# view the first six elements of the vector
 head(norm)
-# plot the vector of samples as a histogram
 hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 ```
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
-1. Draw 100 random numbers from a normal distribution with a mean of 3 and a standard deviation of 2, assign it to an object `a`.
+1. Draw 100 random numbers from a normal distribution with a mean of 3 and a standard deviation of 2, and assign it to an object `a`.
 2. Find the mean of your sample. How close was it to the true mean (the mean that you set in `rnorm()`)?
 3. What is the 13th element in your vector `a`?
 
@@ -537,17 +540,17 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 
 ## Generating random samples from other distributions
 
-- R has many available distributions, including all those commonly used in biological analyses
+- R has many available distributions, including all of those commonly used in biological analyses
 - Depending on the distribution, each function has its own set of parameter arguments
-- For example, the `rpois()` function is the random sampler for the Poisson distribution, and it has only the parameter <i>lambda</i> ($\lambda$).
+- For example, the `rpois()` function is the random sampler for the Poisson distribution and it has only one parameter, <i>lambda</i> ($\lambda$).
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
-1. Draw 100 random samples from a Poisson distribution with `lambda = 3`, assign it to an object `w`.
-2. Draw 1000 random samples from a Poisson distribution with `lambda = 3`, assign it to an object `y`.
-3. Calculate the means of both vectors. What is the difference in means?
+1. Draw 100 random samples from a Poisson distribution with `lambda = 3`, and assign it to an object `x`.
+2. Draw 1000 random samples from a Poisson distribution with `lambda = 3`, and assign it to an object `y`.
+3. Calculate the means of both vectors. What is the difference between the means?
 
 ---
 
@@ -592,7 +595,8 @@ arrows(x0 = 2.8, y0 = 0.04, x1 = 2, y1 = 0, col = "#74E851", lwd = 1, length = 0
 
 ## Univariate plots - Barplots
 
-Barplots are a basic type of univariate plot. The R function to create one is `barplot()`
+- Barplots are a basic type of univariate plot
+- The R function to create one is `barplot()`
 
 ```{r, fig.height = 2, fig.width = 5}
 head(rivers)
@@ -604,8 +608,9 @@ barplot(height = rivers[1:10], col = "paleturquoise",
 
 ##  Univariate plots - Histograms
 
-- Histograms are also a common univariate plot. Histograms place data into "bins", and count the number (frequency) of data falling into each bin. 
-- Bins are usually plotted as bars, with the x range on the x axis, and frequency on the y axis.
+- Histograms are also a common univariate plot
+- Histograms place data into "bins", and count the number (frequency) of data falling into each bin
+- Bins are usually plotted as bars, with bin range on the x axis and frequency on the y axis
 
 ---
 
@@ -616,17 +621,16 @@ Histograms are an effective way of visualizing distributions
 ```{r, fig.height = 3, fig.width = 5}
 # generate and visualize 1000 random samples from a standard normal distribution
 sample <- rnorm(1000)
-hist(sample, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
+hist(sample, col = "palevioletred", main = "", xlab = "Value", ylab = "Frequency")
 ```
 
 <small>For those who care about color selection: <a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R Colors</a></small>
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Draw 10 random variates (values) from a normal distribution and plot a histogram of the sample. Repeat for 100, then 1000 random variates. What do you notice about the histograms?
-
 2. Explore at least one other distribution; look up `?distributions`. Take a random sample of the new distribution and plot the sample.
 
 ---
@@ -643,7 +647,7 @@ sample(x, size = 20, replace = TRUE)  # sample with replacement
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Sample 9 elements from a vector of integers between 125 and 325 without replacement.
 2. Sample 5 letters (using the pre-installed vector `letters`) with replacement.
@@ -667,7 +671,8 @@ plot(x = sample1, y = sample2, pch = 20, xlab = "Sample 1", ylab = "Sample 2")
 
 ## Bivariate plots - Scatterplots
 
-You can add straight lines to a plot using the `abline()` function. Argument `a` specifies the intercept and `b` specifies the slope
+- You can add straight lines to a plot using the `abline()` function
+- Argument `a` specifies the intercept and `b` specifies the slope
 
 ```{r, fig.height = 3, fig.width = 3}
 plot(sample1, sample2, pch = 20, xlab = "Sample 1", ylab = "Sample 2")
@@ -680,7 +685,7 @@ abline(a = -0.1, b = 1, lwd = 2, col = "royalblue4")
 
 - Lines can also be model fits 
 
-- `lm()` fits a linear relationship between <b>x</b> and <b>y</b>.
+- `lm()` fits a linear model of <b>y</b> (`sample2`) as a function of <b>x</b> (`sample1`).
 
 ```{r, fig.height = 3, fig.width = 3}
 plot(sample1, sample2, pch = 20, xlab = "Sample 1", ylab = "Sample 2")
@@ -701,11 +706,11 @@ abline(lm(sample2 ~ sample1), lwd = 2, col = "royalblue")
 
 <a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R Colors</a>
 
-More on plotting later (we will make plots that are much more visually appealing!)
+You can find more on plotting in Part 6.
 
 ---
 
-## Practice {data-background-color=#4387BA}
+## Practice {data-background-color=#BA43B0}
 
 <a href = "https://rpubs.com/mccannecology/53352" target = "_blank">Worksheet</a>
 
@@ -749,21 +754,21 @@ head(iris)
 
 ---
 
-## Data structures: 2. Data frames - Useful functions
+## Data str.: 2. Data frames - Useful functions
 
-- `head()` - see first six rows
-- `tail()` - see last six rows
+- `head()` - first six rows
+- `tail()` - last six rows
 - `dim()` - dimensions (# rows, # columns)
 - `nrow()` - number of rows
 - `ncol()` - number of columns
-- `str()` - structure of any object <i>(very useful!)</i>
-- `class()` - class of any object
+- `str()` - structure of object <i>(very useful!)</i>
+- `class()` - class of object
 - `rownames()` - row names 
 - `colnames()` - column names
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. How many rows does the `iris` data frame have?
 2. How many columns? What are the column names?
@@ -772,8 +777,37 @@ head(iris)
 
 ---
 
-## Data structures: 2. Data frames - Syntax and subsetting
+## Data structures: 3. Factors
 
+- Diversion!
+- In the `iris` data frame, species are encoded as a <b>factor</b>
+- Factors, like vectors, are one dimensional
+- Factors describe categorical data, ordered by levels
+
+```{r}
+str(iris$Species)
+levels(iris$Species)
+```
+
+---
+
+## Data structures: 3. Factors
+
+- To make a vector into a factor, use the `factor()` function
+- Provide the levels (using the `levels` argument) as a vector in your desired order
+
+```{r}
+exp.df <- data.frame(Individual = 1:4, Treatment = c("Drought", "Control", "Drought", "Control"))
+str(exp.df$Treatment)
+exp.df$Treatment <- factor(x = exp.df$Treatment, levels = c("Drought", "Control"))
+str(exp.df$Treatment)
+```
+
+---
+
+## Data str.: 2. Data frames - Subsetting
+
+- Back to data frames!
 - R has many powerful subset operators that will allow you to easily perform complex operations on any kind of dataset (much easier than with Excel!)
 - Think of data frames as a series of vectors grouped together into a table
 
@@ -783,18 +817,18 @@ head(iris)
 
 ---
 
-## Data structures: 2. Data frames - Index by position
+## Data str.: 2. Data frames - Index by position
 
 Index individual elements of a data frame with `df[row#, column#]`
 
 ```{r}
 iris[1, 1]  # first row, first column
-iris[3, 3]  # third row, third column
+iris[3, 4]  # third row, fourth column
 ```
 
 ---
 
-## Data structures: 2. Data frames - Index by position
+## Data str.: 2. Data frames - Index by position
 
 Index entire rows or columns by leaving one of the positions blank, i.e. `df[, column#]` or `df[row#, ]`
 
@@ -805,7 +839,7 @@ iris[, 2]  # subset the entire second column
 
 ---
 
-## Data structures: 2. Data frames - Index by position
+## Data str.: 2. Data frames - Index by position
 
 - Data frames can be indexed for both rows and columns
 - To get the 5th, 7th, and 9th rows for the first two columns in the `iris` data frame:
@@ -816,7 +850,7 @@ iris[c(5, 7, 9), 1:2]
 
 ---
 
-## Data structures: 2. Data frames - Index by name
+## Data str.: 2. Data frames - Index by name
 
 - Columns can also be called by name using brackets
 
@@ -832,49 +866,54 @@ iris$Sepal.Length
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. What is the 9th entry of the `Sepal.Width` column? Save it as object `x`.
 2. Subset the 17th row of the data frame `iris`.
 3. Return an object with the 1st, 4th and 7th rows of the `iris` dataframe.
 4. Use the `seq()` function to subset all odd rows in the `iris` dataset.
-5. What happens when you use negative numbers to index the `iris` dataframe? <b>Hint:</b> Use the function `dim()` on the original and final objects.
+5. What happens when you use negative numbers to index the `iris` dataframe? <i>Hint:</i> Use the function `dim()` on the original and final objects.
 
 ---
 
-## Data structures: 2. Data frames - Logical indexing
+## Data str.: 2. Data frames - Logical indexing
 
-- It can be extremely helpful to subset your data using logic rather than by position or name  
-
-```{r, fig.height = 3, fig.width = 5}
-# make a histogram of petal width frequency
-hist(iris$Petal.Width, col = "darkseagreen1", xlab = "Petal width (in cm)", ylab = "Frequency", main = NULL)
-```
-
-- Continued on next slide
-
----
-
-## Data structures: 2. Data frames - Logical indexing
+- It can be helpful to subset your data using logic rather than by position/name
+- Let's subset the `iris` data frame to petal widths >1 cm
 
 ```{r}
-# which petal widths are greater than 1 cm?
+# create logical vector based on logical expression
 large.petals.logi <- iris$Petal.Width > 1  
 head(large.petals.logi)
-# subset of iris only including individuals where petal width is greater than 1 cm
+# subset iris df using logical vector
 iris.p1.sub <- iris[large.petals.logi, ]  
 head(iris.p1.sub)
 ```
 
-This is the same as:
+---
 
-```{r, eval = FALSE}
-iris[iris$Petal.Width > 1, ]
+## Data str.: 2. Data frames - Logical indexing
+
+We can compare the distributions of petal widths for the complete dataset and the subset
+
+```{r, echo = FALSE}
+par(mfrow = c(1, 2))
+```
+
+```{r, fig.height = 3, fig.width = 6}
+hist(iris$Petal.Width, col = "darkseagreen1", xlab = "Petal width (in cm)", 
+     ylab = "Frequency", main = NULL)
+hist(iris.p1.sub$Petal.Width, col = "darkseagreen1", xlab = "Petal width (in cm)", 
+     ylab = "Frequency", main = NULL)
+```
+
+```{r, echo = FALSE}
+par(mfrow = c(1, 1))
 ```
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Why is `iris[iris > 3, ]` a nonsensical command? 
 2. Why is `iris[iris$Sepal.Length > 3]` a nonsensical command?
@@ -884,9 +923,9 @@ iris[iris$Petal.Width > 1, ]
 
 ---
 
-## Data structures: 2. Data frames - Logical indexing
+## Data str.: 2. Data frames - Logical indexing
 
-For all types of data, if we want to subset a specific value/character/factor we use the logical operator "`==`"
+For all types of data, if we want to subset a specific value we use the logical operator "`==`"
 
 ```{r}
 # subset of observations where petal length is equal to 4 cm
@@ -896,23 +935,23 @@ head(iris.p4.sub)
 
 ---
 
-## Data structures: 2. Data frames - Logical indexing
+## Data str.: 2. Data frames - Logical indexing
 
-- Subset only records from the species <i>Iris versicolor</i>
-- Note that quotation marks are needed when dealing with characters or factors
+Note that quotation marks are needed when subsetting by characters or factors
 
 ```{r}
+# subset only records from the species Iris versicolor
 iris.vers.sub <- iris[iris$Species == "versicolor", ]
 head(iris.vers.sub)
 ```
 
 ---
 
-## Data structures: 2. Data frames - Logical indexing
+## Data str.: 2. Data frames - Logical indexing
 
-- It's also possible to combine logical statments:
-  - Use <b>`&`</b> (AND) if you want both statements to be true.  
-  - Use <b>`|`</b> (OR) if you want either statement to be true.
+- It's also possible to combine logical statements:
+  - Use <b>`&`</b> (AND) if you want <u>both</u> statements to be true.  
+  - Use <b>`|`</b> (OR) if you want <u>either</u> statement to be true.
 
 ```{r}
 # subset of observations of Iris versicolor where petal length is greater than 4 cm
@@ -922,18 +961,18 @@ head(iris.vers4.sub)
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 Explain in words each of the following indexing statements:
 
 1. `iris[1:4, ]`
 2. `iris[c(1:15), c(1, 3)]`
 3. `iris[iris$Species == "setosa", "Petal.Width"]`
-4. What happens when you add a `!` before a logical statement? <b>Hint:</b> Compare `iris[iris$Species == "setosa", ]` and `iris[!(iris$Species == "setosa"), ]`.
+4. What happens when you add a `!` before a logical statement? <i>Hint:</i> Compare `iris[iris$Species == "setosa", ]` and `iris[!(iris$Species == "setosa"), ]`.
 
 ---
 
-## Data structures: 2. Data frames - Building from scratch
+## Data str.: 2. Data frames - Building from scratch
 
 Use the <b>`data.frame()`</b> function
 
@@ -944,12 +983,11 @@ num.df
 
 ---
 
-## Data structures: 2. Data frames - Adding columns
+## Data str.: 2. Data frames - Add columns
 
 - You can add columns using the `data.frame()` function
 
 ```{r}
-# adding new column z to previous df
 num.df <- data.frame(num.df, z = 41:45)
 num.df
 ```
@@ -963,16 +1001,16 @@ num.df
 
 ---
 
-## Data structures: 2. Data frames - Removing columns
+## Data str.: 2. Data frames - Remove columns
 
-- Use the minus (`-`) sign and the index of the position you want to remove
+- Use the minus (`-`) sign and the position you want to remove
 
 ```{r}
 num.sub <- num.df[, -3]
 num.sub
 ```
 
-- Or, assign `NULL` to the column (using the assignment operator `<-` and the `$` notation)
+- Or, assign `NULL` to the column
 
 ```{r}
 num.df$z <- NULL
@@ -981,23 +1019,31 @@ num.df
 
 ---
 
-## Data structures: 3. Matrices
+## Data structures: 4. Matrices
 
-- Similar to data frames, matrices are two-dimensional. However, they can consist only of numbers (not characters or factors).
-- Why do you need them? Some functions (e.g., matrix algebra) require a matrix as an input
+- Similar to data frames, matrices are two-dimensional
+- However, they can consist only of numbers (not characters or factors).
 
-```{r error = TRUE}
+```{r}
 num.mat <- matrix(1:9, ncol = 3, nrow = 3)
 num.mat
-num.df <- as.data.frame(num.mat)  # convert matrix to df
+```
 
+---
+
+## Data structures: 4. Matrices
+
+Why do you need them? Some functions (e.g., matrix algebra functions) require a matrix as an input
+
+```{r error = TRUE}
+num.df <- as.data.frame(num.mat)  # convert matrix to df
 diag(num.df)  # function fails with df
 diag(num.mat)  # works with matrix
 ```
 
 ---
 
-## Data structures: 3. Matrices
+## Data structures: 4. Matrices
 
 Indexing is the same as with data frames
 
@@ -1012,15 +1058,16 @@ num.mat[2, ]
 
 ## Importing your own data
 
-- R is not a spreadsheet program, so it's not great for direct data entry. It's best to start with spreadsheets for data entry and storage, and to import spreadsheets into R for data analysis and visualization.
-- CSV (comma separated values) files are often the preferred format to import into R. 
-- Before we do that, we will need to consider <b>working directories</b>.
+- R is not a spreadsheet program, so it's not great for direct data entry
+- It's best to start with spreadsheets for data entry and storage, and to import spreadsheets into R for data analysis and visualization
+- CSV (comma separated values) files are often the preferred format for importing into R
+- Before we import the example CSV file, we will need to consider <b>working directories</b>
 
 ---
 
 ## Working directory
 
-- Find out what your current working directory is
+- Find out what your current working directory is using the `getwd()` function
 
 ```{r}
 getwd()
@@ -1032,7 +1079,7 @@ getwd()
 
 ## Working directory
 
-- Set your working directory 
+Set your working directory using the `setwd()` function
 
 ```{r, eval = FALSE}
 setwd("/home/nlkinlock/Documents/")
@@ -1042,11 +1089,14 @@ setwd("/home/nlkinlock/Documents/")
 
 ## Importing your own data
 
-- Load the downloaded seedling data to your environment
+- Load the downloaded seedling data to your environment using the `read.csv()` function
+- If you include the full path to your file, you do not need to set your working directory
+- File encoding can be a real pain with R -- special characters can render incorrectly (e.g., as "Ã", �, or question marks)
+    - Try to save spreadsheets with UTF-8 encoding and always include the `fileEncoding = "UTF-8"` argument when reading or writing files
 
 ```{r, eval = FALSE}
-seedling.df <- read.csv("/home/nlkinlock/Documents/seedlings.csv", fileEncoding = "UTF-8")
-head(seedling.df)
+seedling.df <- read.csv(file = "/home/nlkinlock/Documents/seedlings.csv", 
+                        fileEncoding = "UTF-8")
 ```
 
 ---
@@ -1068,7 +1118,7 @@ avg.height, avg_height, avgHeight
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Import the data frame <a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0" target = "_blank">seedlings.csv</a> and load it to your environment. Store it as an object, `seedlings.df`.
 2. What is the mean height for all seedlings? What about the mean height for all seedlings except <i>Rhus typhina</i>?
@@ -1078,10 +1128,12 @@ avg.height, avg_height, avgHeight
 
 ## Exporting data frames 
 
-- After you've made changes (subsetting, etc.), you may want to export the altered data frame.
+- After you've made changes or conducted an analyses, you may want to export your data frame
+- Use the `write.csv()` function to export data frames
+- Remember the `fileEncoding = "UTF-8"` argument
 
 ```{r, eval = FALSE}
-# write the file 
+# write the iris data frame to file 
 write.csv(iris, file = "iris_cleaned.csv", row.names = FALSE, fileEncoding = "UTF-8")
 ```
 
@@ -1093,7 +1145,7 @@ write.csv(iris, file = "iris_cleaned.csv", row.names = FALSE, fileEncoding = "UT
 
 ---
 
-## Practice {data-background-color=#4387BA}
+## Practice {data-background-color=#BA43B0}
 
 <a href = "https://rpubs.com/mccannecology/53354" target = "_blank">Worksheet</a>
 
@@ -1109,8 +1161,9 @@ write.csv(iris, file = "iris_cleaned.csv", row.names = FALSE, fileEncoding = "UT
 
 ## For loops
 
-- Loops are an important programming tool. The first loop we will learn is a <b>for loop</b>. 
-- For loops run for a certain number of steps (iterations) that you define, during which any statements in the loop are executed.
+- Loops are an important programming tool across languages 
+- The first loop we will learn is a <b>for loop</b>
+- For loops run for a certain number of steps (iterations) that you define, during which any statements in the loop are executed
 - The basic syntax is:
 
 `for (i in 1:number_of_iterations) {`
@@ -1124,19 +1177,22 @@ write.csv(iris, file = "iris_cleaned.csv", row.names = FALSE, fileEncoding = "UT
 
 ## For loops - Why use a for loop?
 
-1. We have a repeated process with identical steps, but different values
-2. To avoid laborious typing into R
+- For loops are useful when we have a repeated process with identical steps, but different values
+- Using loops can help you avoid writing repetitive code
 
 ---
 
-## For loops - Our first loop
+## For loops - Our first loop (pseudocode)
 
 `for (i in 1:5) {`
 
-- `i` starts at 1. R will execute some statements; 
-- `i` is increased to `i = 2` and statements are executed again; 
-- `i` is increased to `i = 3` and statements are executed again; 
-- and so on, until `i = 5`, at which point the loop executes the set of statements for the last time
+`i` starts at 1. R will execute some statements; 
+
+`i` is increased to `2` and statements are executed again; 
+
+`i` is increased to `3` and statements are executed again; 
+
+and so on, until `i = 5`, at which point the loop executes the set of statements for the last time
 
 `}`
 
@@ -1154,23 +1210,32 @@ for (i in 1:5) {
 
 ## For loops - Syntax 
 
-- <b>Be sure you can distinguish between:</b>
-    - curly braces `{ }` 
-    - parentheses `( )`  
-    - square brackets `[ ]`
+- <b>Be sure to distinguish among</b>
+    - curly braces `{}` 
+    - parentheses `()`  
+    - square brackets `[]`
 
 ---
 
 ## For loops - Syntax 
 
-Square brackets `[ ]` are used to access <i>elements</i> of vectors, matrices, and data frames. The number of dimensions is very important.
+- Square brackets `[]` are used to access <i>elements</i> of vectors, matrices, and data frames
+- The number of dimensions is very important.
 
 ```{r}
-# initialize vector
-test.vec <- 1:10
+test.vec <- seq(0.1, 10, 0.1)
 test.vec[6]   # vectors have one dimension
 test.vec[c(2, 6, 9)]
-# initialize matrix
+```
+
+---
+
+## For loops - Syntax 
+
+- Square brackets `[]` are used to access <i>elements</i> of vectors, matrices, and data frames
+- The number of dimensions is very important.
+
+```{r}
 test.mat <- matrix(data = seq(0.1, 10, 0.1), nrow = 10, ncol = 10)
 test.mat[6, 6]  # matrices have two dimensions
 test.mat[6, ]
@@ -1180,7 +1245,7 @@ test.mat[6, ]
 
 ## For loops - Syntax 
 
-Parentheses `( )` are used to specify arguments to <i>functions</i>
+Parentheses `()` are used to specify arguments to <i>functions</i>
 
 ```{r}
 x <- 1:10
@@ -1192,7 +1257,7 @@ mean(x)
 
 ## For loops - Syntax 
 
-Finally, curly braces `{ }` are used to enclose all of the statements to be executed in a loop
+Finally, curly braces `{}` are used to enclose all of the statements to be executed in a loop
 
 ```{r}
 for (i in 1:3) {
@@ -1217,6 +1282,9 @@ for (i in 1:4) {
 ## For loops - Using a for loop
 
 - <b>Assignments</b> can occur in a loop
+- The loop variable, `i`,  is not directly called in this loop, unlike in the previous examples
+- The operation `x <- x^2` is done four times
+- `x` changes each iteration because it is re-assigned in the loop
 
 ```{r}
 x <- 2
@@ -1226,24 +1294,21 @@ for (i in 1:4) {
 }
 ```
 
-- `i` is not directly called in this loop, unlike in the previous examples
-
-- The operation `x <- x^2` is done four times -- `x` changes with each iteration because of its re-assignment in the loop
-
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Create a for loop that prints integers 1 to 100.
 2. Create a for loop that prints integers 100 to 1.
 3. Create a for loop that adds 1 to integers 1 through 5.
-4. Create a for loop that divides all even integers from 0 to 20 by 10 (consider using `seq()`).
+4. Create a for loop that divides all even integers from 0 to 20 by 10. <i>Hint</i>: Use the `seq()` function.
 
 ---
 
 ## For loops - Vectors and for loops
 
-In the above examples, we used the loop variable `i` directly in mathematical operations. It is more common to loop over elements of a vector to accomplish some particular task.
+- In most of the above examples, we used the loop variable, `i`, directly in mathematical operations
+- It is more common to use the loop variable to loop over elements of a vector
 
 ```{r}
 name.vec <- c("Larry", "Curly", "Moe")
@@ -1278,7 +1343,7 @@ for (i in 1:length(name.vec)) {
 }
 ```
 
-Without `print()` or an assignment `<-` no results are returned
+Without `print()` or an assignment `<-` no output is returned
 
 ```{r}
 for (i in 1:length(name.vec)) {
@@ -1288,10 +1353,11 @@ for (i in 1:length(name.vec)) {
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
-1. Create a vector of the days of the week and generate a message that says "Today is x" using a loop. 
-2. Explain why the following code is wrong:  
+1. Create a vector of the days of the week and generate a message that says "Today is x" using a loop
+2. Explain why the following code is wrong:
+
 ```{r, eval = FALSE}
 for (x in 1:10) {
     print(sum(i))
@@ -1300,10 +1366,11 @@ for (x in 1:10) {
 
 ---
 
-## Data structures: 4. Lists 
+## Data structures: 5. Lists 
 
-- <b>Lists</b> are another of the five basic data structures in R. Lists, like vectors, are one dimensional.
-- First, let's compare with vectors. The elements of a vector must all be the same type. In this example, `1` and `2` are converted to characters because `"blue"` is included.
+- <b>Lists</b> are another of the five basic data structures in R
+- Lists, like vectors, are one dimensional
+- First, let's compare lists with vectors -- because the elements of a vector must all be the same type, in this example, `1` and `2` are converted to characters because `"blue"` is included.
 
 ```{r}
 x <- c(1, 2, "blue")
@@ -1313,20 +1380,21 @@ typeof(x)
 
 ---
 
-## Data structures: 4. Lists
+## Data structures: 5. Lists
 
-- In contrast, the elements of a list can be any type (numeric, integer, logical, character), or other lists.
+- In contrast, the elements of a list can be any type
+- Lists may seem multidimensional, but they behave as one-dimensional data structures
 
 ```{r}
-test.lst <- list(numeric = seq(0, 0.25, 0.01), integer = 10:20, logical = c(TRUE, FALSE, FALSE), character = c("open", "closed", "closed", "open"))
-test.lst
+plant.lst <- list(Mass = seq(0, 0.25, 0.01), Count = 10:20, 
+                  Adult = c(TRUE, FALSE, FALSE), 
+                  Flower = c("open", "closed", "closed", "open"))
+str(plant.lst)
 ```
-
-- It may seem multidimensional, but it does behave as a one dimensional data structure.
 
 ---
 
-## Data structures: 4. Lists - Constructing lists
+## Data structures: 5. Lists - Constructing lists
 
 You can construct a list with the `list()` function (compare with the combine function, `c()`, for vectors) 
 
@@ -1341,7 +1409,7 @@ str(test.lst)
 
 ---
 
-## Data structures: 4. Lists - List indexing
+## Data structures: 5. Lists - List indexing
 
 - Using the single square bracket index operator `[]` will return <u>a list</u>
 - Using a double square bracket index operator `[[]]` will return <u>contents within a list</u>
@@ -1356,7 +1424,9 @@ str(test.lst[[2]])  # returns numbers from list
 
 ---
 
-## Data structures: 4. Lists - List indexing
+## Data structures: 5. Lists - List indexing
+
+- The class of the output matters
 
 ```{r error = TRUE}
 test.lst[1] * test.lst[2]  # can't do arithmetic on lists
@@ -1365,9 +1435,9 @@ test.lst[[1]] * test.lst[[2]]  # can do arithmetic on numbers
 
 ---
 
-## Data structures: 4. Lists - List indexing
+## Data structures: 5. Lists - List indexing
 
-In order to reference a <b>single list element</b> directly, we have to use both the double square bracket `[[ ]]` operator and the single bracket `[]` operator
+In order to reference a <b>single list element</b> directly, we have to use both the double square bracket `[[]]` operator and the single bracket `[]` operator
 
 ```{r}
 test.lst[[2]]  # 2nd element of list 
@@ -1393,7 +1463,7 @@ output.vec
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 First, create a vector, `y`, with 10 random samples from a standard normal distribution `(mean = 0, sd = 1)`.
 
@@ -1419,10 +1489,10 @@ if (3 < 2) {
 ## Flow statements - if statements
 
 - Often, we want for loops to be able to do different things under different conditions
-- Let's use an <b>if</b> statement:
+- Let's use an <b>if</b> statement inside a for loop
 
 ```{r}
-x <- 1:5
+x <- 1:8
 for (i in 1:length(x)) {
     if (x[i] > 3) {
         print(paste(x[i],"is greater than 3"))
@@ -1462,7 +1532,7 @@ output.vec
 - We can end a loop based on an <b>if</b> and <b>break</b> statement
 
 ```{r}
-x <- 1:10
+x <- 1:8
 for (i in 1:length(x)) {
     if (x[i] > 3){
         break
@@ -1496,7 +1566,7 @@ for (i in 1:length(x)) {
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 First, create a vector, `x`, with all integers between 1 and 100.
 
@@ -1508,11 +1578,13 @@ First, create a vector, `x`, with all integers between 1 and 100.
 
 ## Alternatives to for loops: The apply family
 
-- The <i>apply</i> family of functions allows you to process whole rows, columns, or list elements, and they can replace for loops
-- `apply(X, MARGIN, FUN)`
-- `X` is your matrix or data frame
-- `MARGIN = 1` apply function to rows of matrix; `MARGIN = 2` apply to columns of matrix; `MARGIN = c(1,2)` apply to rows and columns of matrix
-- `apply(M, 2, MyFunction)` = apply `MyFunction` to the columns of `M`
+- The <i>apply</i> family of functions allows you to process whole rows, columns, or list elements
+- They can be used to replace for loops
+- The `apply(X, MARGIN, FUN)` function takes three arguments
+    - `X` is your matrix or data frame
+    - `MARGIN = 1` apply function to rows of matrix; `MARGIN = 2` apply to columns of matrix; `MARGIN = c(1,2)` apply to rows and columns of matrix
+    - `FUN` function to apply
+    - `apply(M, 2, MyFunction)` = apply `MyFunction` to the columns of `M`
 
 ---
 
@@ -1577,7 +1649,7 @@ lapply(test.lst, sum)  # applies function to each element in the list
 
 ---
 
-## Practice {data-background-color=#4387BA}
+## Practice {data-background-color=#BA43B0}
 
 <a href = "https://rpubs.com/mccannecology/53355" target = "_blank">Worksheet</a>
 
@@ -1665,13 +1737,13 @@ NoReturn <- function(a, b) {
   # x, y, z exist only in function environment
     x <- a + b 
     y <- (a + b)^2
-    z <- a/b
+    z <- a / b
 }
 NoReturn(1, 2)  # doesn't return anything
 YesReturn <- function(a, b) {
     x <- a + b 
     y <- (a + b)^2
-    z <- a/b
+    z <- a / b
     return(c(x, y, z))
 }
 YesReturn(1, 2)  # returns x, y, and z
@@ -1679,11 +1751,11 @@ YesReturn(1, 2)  # returns x, y, and z
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
-1. Create a function that takes in two arguments, `x` and `y`, and computes `x * 2 * y`.
+1. Create a function that takes in two arguments, `x` and `y`, and computes `x * y * 2`.
 2. Create a function that takes in three arguments, and makes a vector from the result.
-3. Create a function that counts the number of matching elements in two separate vectors. <b>Hint:</b> use `%in%` to create a logical statement.
+3. Create a function that counts the number of matching elements in two separate vectors. <i>Hint:</i> use `%in%` to create a logical statement.
 
 ---
 
@@ -1705,27 +1777,26 @@ MultAlphaBeta(params)
 
 ## Function basics
 
-You can set pre-defined values for function arguments
+You can set pre-defined "default" values for function arguments
 
 ```{r}
 subtract <- function(a = 5, b = 2) {
     return(a - b)
 }
-
 subtract()
 subtract(3, 6)
 ```
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Write a function that takes a vector as an argument and multiplies the sum of the vector by 10. Return a logical statement based on whether the sum is under 1000.
 2. Write a function that calculates the mean of every column in a data frame. Code the function so that it does not evaluate the column mean if the column elements are not numbers, using the logical statement <b>`class(x) != "numeric"`</b>. Try your function on the `iris` dataset.
 
 ---
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 ```{r}
 ColumnMeans <- function(x) {
@@ -1746,7 +1817,7 @@ ColumnMeans(iris)
 
 ---
 
-## Helpful links
+## Useful links
 
 <a href = "https://dept.stat.lsa.umich.edu/~jerrick/courses/stat701/notes/functions.html" target = "_blank">Tutorial on using functions in R</a>
 
@@ -1754,7 +1825,7 @@ ColumnMeans(iris)
 
 ---
 
-## Practice {data-background-color=#4387BA}
+## Practice {data-background-color=#BA43B0}
 
 <a href = "https://rpubs.com/mccannecology/53356" target = "_blank">Worksheet</a>
 
@@ -1788,7 +1859,7 @@ library(ggplot2)
 
 ## Why `ggplot2`?
 
-- Works very well with data frames
+- Works very well with data frames, especially when some of your data are factors
 - Easier to create visually appealing figures 
 - Useful for exploring trends in your data
 
@@ -1797,9 +1868,7 @@ library(ggplot2)
 ## Why gg?
 
 - `gg` stands for "grammar of graphics"
-
 - There is a set of terms that defines the basic components of (every) plot
-
 - Using this set of terms, you can produce figures using coherent, consistent syntax (very similar code for very different figures)
   - However, this syntax does vary quite a bit from typical R syntax!
   - If you are a little confused by the syntax at first, that probably just means that you are getting more comfortable with the R language
@@ -1808,7 +1877,7 @@ library(ggplot2)
 
 ## The grammar
 
-- A basic `ggplot2` plot consists of:
+- A basic `ggplot` consists of:
   - `data`: Must be a <b>data frame</b>
   - `aes`(thetics): How your data are represented visually <i>(x, y, color, size, shape, etc.)</i>
   - `geom`(etry): What type of geometric objects you want to display <i>(points, lines, polygons, etc.)</i>
@@ -1827,7 +1896,6 @@ ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point()
 ## Plots can be assembled in pieces 
 
 - Useful for exploring data in different ways
-
 - I'll be using variables from the `state.x77` and `state.region` datasets (US state data from 1977)
 
 ```{r, fig.height = 3, fig.width = 6}
@@ -1840,7 +1908,7 @@ state.fig + geom_point()
 
 ## Aesthetics
 
-You can increase the size of points using `size` argument within `geom_point()`
+You can increase the size of points using the `size` argument in `geom_point()`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(data = state.df, aes(x = Population, y = Area)) + geom_point(size = 3)
@@ -1850,7 +1918,7 @@ ggplot(data = state.df, aes(x = Population, y = Area)) + geom_point(size = 3)
 
 ## Aesthetics
 
-You can easily differentiate state region by <b>color</b> using the `color` argument within `aes()`
+You can differentiate state region by <b>color</b> using the `color` argument in `aes()`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(data = state.df, aes(x = Illiteracy, y = Murder, color = state.region)) + 
@@ -1861,7 +1929,7 @@ ggplot(data = state.df, aes(x = Illiteracy, y = Murder, color = state.region)) +
 
 ## Aesthetics
 
-You can also differentiate state region by <b>color</b> and <b>shape</b> using the `shape` argument within `aes()`
+You can also differentiate state region by <b>shape</b> using the `shape` argument in `aes()`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(data = state.df, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) + 
@@ -1870,7 +1938,7 @@ ggplot(data = state.df, aes(x = Life.Exp, y = HS.Grad, color = state.region, sha
 
 --- 
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 - First, take a sample of 1000 rows from the `diamonds` dataset (pre-installed with R)
 
@@ -1886,15 +1954,16 @@ ggplot(data = d2, aes(x = carat, y = price, color = color)) + geom_point()
 
 ---
 
-## Other geometric objects
+## Geoms
 
-- Type `geom_` and hit the tab key (`↹`) to see all possible geometries
-
-- Then, use `?geom_` to view the help page
+- Geoms are geometries that represent data points
+    - We've already seen `geom_point()`
+- You can see all options by typing `geom_` and hitting the tab key (`↹`)
+    - Then, use `?geom_` to view the help page
 
 ---
 
-## Other geometric objects - Boxplot
+## Geoms - Boxplot
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
@@ -1902,9 +1971,9 @@ ggplot(iris, aes(x = Species,y = Sepal.Length)) + geom_boxplot()
 
 ---
 
-## Other geometric objects - Histograms
+## Geoms - Histograms
 
-Change some of the aesthetics, such as `binwidth`, `fill`
+You can change some of the aesthetics, such as `binwidth` or `fill`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(faithful, aes(x = waiting)) + 
@@ -1913,7 +1982,7 @@ ggplot(faithful, aes(x = waiting)) +
 
 ---
 
-## Other geometric objects - Bar plots 
+## Geoms - Bar plots 
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(iris, aes(x = Species, y = Sepal.Length)) + 
@@ -1922,7 +1991,7 @@ ggplot(iris, aes(x = Species, y = Sepal.Length)) +
 
 ---
 
-## Other geometric objects - Line plots 
+## Geoms - Line plots 
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
@@ -1930,7 +1999,7 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = as.factor(cyl))) + geom_line()
 
 ---
 
-## Other geometric objects - Density plots 
+## Geoms - Density plots 
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
@@ -1938,7 +2007,7 @@ ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 
 --- 
 
-## Your turn {data-background-color=#BA43B0}
+## Your turn {data-background-color=#4387BA}
 
 1. Make a histogram of `Sepal.Length` from the `iris` data set. What did it do with the different species?
 
@@ -1947,9 +2016,9 @@ ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
 ## Facets
 
 - Plots can also have <b>facets</b>, which divide a plot into subplots based on a factor
-- The syntax is `facet_grid(Species ~ .)`, where there are as many rows as species and there is only one column (represented by the period)
+- The syntax is `facet_grid(Species ~ .)`, where rows are species and there is only one column
 
-```{r, fig.height = 3, fig.width = 5, message = FALSE}
+```{r, fig.height = 3, fig.width = 3, message = FALSE}
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + 
     facet_grid(Species ~ .)
 ```
@@ -1958,9 +2027,9 @@ ggplot(iris, aes(Sepal.Length)) + geom_histogram() +
 
 ## Facets
 
-Switch to `facet_grid(. ~ Species)` in order to get one row and three columns
+Flip to `facet_grid(. ~ Species)` in order to get one row and three columns
 
-```{r, fig.height = 3, fig.width = 7, message = FALSE}
+```{r, fig.height = 2.5, fig.width = 7, message = FALSE}
 ggplot(iris, aes(Sepal.Length)) + geom_histogram() + 
     facet_grid(. ~ Species)
 ```
@@ -1969,13 +2038,15 @@ ggplot(iris, aes(Sepal.Length)) + geom_histogram() +
 
 ## Stats 
 
-Type `stat_` and hit the tab key (`↹`) to see them all. Then, use `?stat_` to see the help screen.
+- Stats show summaries of your data by building a new variable to plot
+- Type `stat_` and hit the tab key (`↹`) to see all options
+    - Then, use `?stat_` to see the help screen
 
 ---
 
 ## Stats 
 
-Use `stat_smooth` to add a linear fit
+Use `stat_smooth` to add a linear fit to a scatterplot
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) + 
@@ -1986,12 +2057,14 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 ## Scales
 
-- `scales` are used to modify axes and colors 
+- Scales map data values to aesthetics
+- You can define the colors, labels, limits, etc. for your scale
+- Scales can modify axis (`scale_y_`, `scale_x_`), color (`scale_color_`), fill (`scale_fill_`), shape (`scale_shape_`), and size (`scale_size_`) aesthetics
 - For example: 
-  - `scale_y_continuous()`: Set name, breaks, labels, and limits of y-axis 
-  - `scale_x_log10()`: log transform the x-axis 
-  - `scale_colour_manual()`: Specify colors for geoms 
-  - `scale_fill_discrete()`: Specify colors for geoms 
+    - `scale_*_continuous()`: continuous data
+    - `scale_*_discrete()`: discrete data
+    - `scale_*_manual()`: discrete data, you specify colors
+    - `scale_*_log10()`: log transform an x- and/or y-axis 
 
 ---
 
@@ -2008,20 +2081,20 @@ ggplot(data = state.df, aes(x = Population, y = Area, color = state.region)) +
 
 ## Scales
 
-Add color manually using `scale_colour_manual()`
+Choose colors manually using `scale_color_manual()`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(data = state.df, aes(x = Population, y = Area, color = state.region)) + 
     geom_point() + 
     scale_y_log10() + scale_x_log10() + 
-    scale_colour_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
+    scale_color_manual(values = c("palegreen3","palevioletred3","peachpuff3", "paleturquoise3"))
 ```
 
 ---
 
 ## Labels
 
-Add labels, including x- and y-axis labels, using `labs()`
+Edit labels, including x- and y-axis labels, using `labs()`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(data = state.df, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) +
@@ -2037,20 +2110,20 @@ Add labels inside the figure using `geom_text()`
 
 ```{r, fig.height = 3, fig.width = 6}
 ggplot(data = state.df, aes(x = Life.Exp, y = HS.Grad, color = state.region, shape = state.region)) +
-    geom_point(size = 2) + 
+    geom_point(size = 1) + 
     labs(x = "Life expectancy (in years)", y = "High school graduation rate (percent)") + 
-    geom_text(aes(label = state.abb, size = 2, hjust = 0, vjust = 0))
+    geom_text(aes(label = state.abb, size = 1.2, hjust = 0.1, vjust = 0.1))
 ```
 
 ---
 
 ## Themes 
 
-- You can use <b>themes</b> to control the aesthetics of the figure -- see `?theme` for all of the options 
-- I prefer `theme_bw()` (white background with gridlines) or `theme_classic()` (white background without gridlines)
-- You can also change the overall font family and font size
+- You can use <b>themes</b> to control the aesthetics of the figure
+- You can make broad changes by including `theme_bw()` or `theme_classic()` (white backgrounds with/without gridlines, respectively)
+- You can customize the theme by adding arguments to the `theme()` function (see `?theme` for all customization options)
 
-```{r, fig.height = 3, fig.width = 6}
+```{r, fig.height = 2.5, fig.width = 4}
 ggplot(iris, aes(Species, Sepal.Length)) + 
     geom_bar(stat = "identity") + 
     theme_classic() +
@@ -2062,20 +2135,22 @@ ggplot(iris, aes(Species, Sepal.Length)) +
 ## Saving plots
 
 - Plots created with `ggplot2` can be saved using the `ggsave()` function
-- The file type is determined by the file extension, and you can also specify the file name, dimensions, resolution, etc.
-- Figures are saved in your current working directory unless you specify the complete file path with the `filename` argument
+- The file type is determined by the file extension
+- You can also specify the dimensions and resolution
+- Figures are saved in your current working directory unless you include the complete file path in the `filename` argument
 
 ```{r, fig.height = 3, fig.width = 6, eval = FALSE}
 iris.fig <- ggplot(iris, aes(Species, Sepal.Length)) + 
     geom_bar(stat = "identity") + theme_bw()
-ggsave(filename = "IrisFigure.png", iris.fig, dpi = 600, height = 4, width = 4, units = "in")
+ggsave(filename = "IrisFigure.png", iris.fig, dpi = 600, height = 4, width = 4,
+       units = "in")
 ```
 
 ---
 
 ## R Tip: ggplot2 uses data frames {data-background-color=#66BA43}
 
-Your data structure must be a data frame (or comparable format) in order to plot with ggplot2
+Your data structure must be a data frame in order to plot with ggplot2
 
 ```{r,  fig.height = 3, fig.width = 5}
 xvar <- rnorm(100)
@@ -2088,7 +2163,7 @@ ggplot(df, aes(xvar, yvar)) + geom_point()
 
 ## Proper data formatting 
 
-- Sometimes data looks like this, with multiple observations in each row (<b>wide</b>-format)
+- Sometimes data looks like this, with multiple observations in each row (<b>wide</b> format)
 
 ```{r, echo = FALSE}
 spp.df.wide <- data.frame(SpeciesA = rnorm(100, 50, 1), SpeciesB = rnorm(100, 75, 5), 
@@ -2104,7 +2179,7 @@ dim(spp.df.wide)
 
 ## Proper data formatting 
 
-- Data is much easier to analyze visually and statistically if it looks like this (<b>long</b>-format), with only one row per observation
+- Data is much easier to analyze if it looks like this (<b>long</b> format), with only one row per observation
 
 ```{r, echo = FALSE}
 spp.df.long <- data.frame(Species = rep(c("A", "B", "C", "D"), 100), Mass = rnorm(400, 75, 5))
@@ -2130,11 +2205,12 @@ head(test.df.wide)
 
 ## Melting: from wide to long 
 
-Use the `melt()` function in `reshape2` package
+Use the `melt()` function in the `reshape2` package
 
 ```{r, message = FALSE}
 library(reshape2)
-test.df.long <- melt(data = test.df.wide, variable.name = "Species", value.name = "Mass")
+test.df.long <- melt(data = test.df.wide, variable.name = "Species",
+                     value.name = "Mass")
 head(test.df.long)
 dim(test.df.long)
 ```
@@ -2145,13 +2221,14 @@ dim(test.df.long)
 
 Melting the data makes it easier to plot with `ggplot2`
 
-```{r, fig.height = 3, fig.width = 6, comment = FALSE}
-ggplot(test.df.long, aes(x = Mass)) + geom_histogram() + facet_grid(. ~ Species)
+```{r, fig.height = 3, fig.width = 7, comment = FALSE}
+ggplot(test.df.long, aes(x = Mass)) + facet_grid(. ~ Species) + 
+    geom_histogram(bins = 20)
 ```
 
 ---
 
-## Helpful links
+## Useful links
 
 <a href = "https://ggplot2.tidyverse.org/" target = "_blank">ggplot2 documentation</a>
 
@@ -2165,7 +2242,7 @@ ggplot(test.df.long, aes(x = Mass)) + geom_histogram() + facet_grid(. ~ Species)
 
 ---
 
-## Practice {data-background-color=#4387BA}
+## Practice {data-background-color=#BA43B0}
 
 <a href = "https://rpubs.com/mccannecology/53357" target = "_blank">Worksheet</a>
 
@@ -2187,6 +2264,6 @@ ggplot(test.df.long, aes(x = Mass)) + geom_histogram() + facet_grid(. ~ Species)
 
 <a href = "http://jonlefcheck.net/2013/11/04/a-basic-tutorial-to-version-control-using-git/" target = "_blank">Basic tutorial on using GitHub (with RStudio)</a>
 
-<a href = "https://try.github.io" target = "_blank">GitHub tutorial (using command line)</a>
+<a href = "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git" target = "_blank">GitHub tutorial</a>
 
-<a href = "#/2"> Back to the directory </a>
+<a href = "#/2">Back to the directory</a>
