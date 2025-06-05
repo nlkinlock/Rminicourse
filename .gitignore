@@ -2,4 +2,5 @@
 .Rproj
 .Rhistory
 .RData
-.cache/
+.cache
+SyncGHPagesMaster.txt
