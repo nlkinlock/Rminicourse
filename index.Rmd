@@ -1121,7 +1121,7 @@ sum(x)  # parentheses call sum() function
 ```
 
 
-## For loops - Curly braces 
+## For-loops - Curly braces 
 
 Curly braces `{}` are used to enclose all of the statements to be executed in a for-loop (or another control flow statement, e.g., `if`, `while`, etc.)
 
@@ -1161,7 +1161,7 @@ for (i in 1:4) {
 
 ## Your turn {data-background-color=#b3cde3}
 
-Create a for loop that ...
+Create a for-loop that ...
 
 1. ...prints integers 1 to 100.
 
@@ -1500,7 +1500,7 @@ lapply(test.lst, sum)
 
 <a href = "https://adv-r.hadley.nz/control-flow.html" target = "_blank">Control flow</a>
 
-<a href = "https://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/loops.html" target = "_blank">For loops</a>
+<a href = "https://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/loops.html" target = "_blank">For-loops</a>
 
 <a href = "https://www.r-bloggers.com/2022/03/complete-tutorial-on-using-apply-functions-in-r/" target = "_blank">Apply family of functions</a>
 
