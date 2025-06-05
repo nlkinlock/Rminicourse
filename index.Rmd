@@ -1,5 +1,5 @@
 ---
-title: "R mini course"
+title: "R mini course TEST"
 author: "Nicole Kinlock"
 date: June 11, 2025
 output:
