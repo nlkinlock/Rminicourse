@@ -1,7 +1,6 @@
 ---
-title: "R mini course TEST2"
+title: "R mini course"
 author: "Nicole Kinlock"
-date: June 11, 2025
 output:
   revealjs::revealjs_presentation:
     theme: simple
@@ -19,7 +18,7 @@ output:
 
 ```{css, echo = FALSE}
 :root {
-    --r-main-font-size: 36px;
+    --r-main-font-size: 32px;
 }
 ```
 
@@ -28,12 +27,12 @@ library(knitr)
 opts_knit$set(global.par = TRUE)
 ```
 
-- Part 1: <a href = "#/3"> Basics of R </a>
-- Part 2: <a href = "#/44"> Probability & distributions </a>
-- Part 3: <a href = "#/62"> Data manipulation </a>
-- Part 4: <a href = "#/98"> Looping and vectorization </a>
-- Part 5: <a href = "#/136"> Functions </a>
-- Part 6: <a href = "#/149"> Data visualization using ggplot2 </a>
+- Part 1: <a href = "#/2"> Basics of R </a>
+- Part 2: <a href = "#/3"> Probability & distributions </a>
+- Part 3: <a href = "#/4"> Data manipulation </a>
+- Part 4: <a href = "#/5"> Looping and vectorization </a>
+- Part 5: <a href = "#/6"> Functions </a>
+- Part 6: <a href = "#/7"> Data visualization using ggplot2 </a>
 
 
 ## About this course
@@ -301,7 +300,6 @@ temp <- c(monday = 28.1, tuesday = 28.5, wednesday = 29.0,
           thursday = 30.1, friday = 30.2)
 temp
 temp["wednesday"]
-temp[3]
 ```
 
 
@@ -510,9 +508,9 @@ hist(norm, col = "palevioletred", main = "", xlab = "", ylab = "Frequency")
 3. Calculate the means of both vectors. What is the difference between the means?
 
 
-## Other properties of distributions 
+## Fundamental quantities of distributions 
 
-- For each distribution, there are 4 functions that generate fundamental quantities
+- For each distribution, there are 4 useful functions:
   - **`rnorm()`** random sample
   - **`dnorm()`** probability density function
   - **`pnorm()`** cumulative distribution function
@@ -550,15 +548,13 @@ arrows(x0 = 2.8, y0 = 0.04, x1 = 2, y1 = 0, col = "#74E851", lwd = 1, length = 0
 
 ##  Plot distributions with histograms
 
-- Histograms (`hist()`) place data into "bins", and count the number (frequency) of data falling into each bin
+Histograms (`hist()`) place data into "bins", and count the number (frequency) of data falling into each bin
 
 ```{r, fig.height = 3, fig.width = 5}
 sample <- rnorm(1000)
 hist(sample, col = "palevioletred", main = "", xlab = "Value", 
      ylab = "Frequency")
 ```
-
-- For those who care about color selection: <a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R Colors</a>
 
 
 ## Your turn {data-background-color=#b3cde3}
@@ -593,15 +589,14 @@ sample(x, size = 20, replace = TRUE)  # sample with replacement
 Scatterplots show the relationship between two variables (`plot(x, y)`)
  
 ```{r, fig.height = 3, fig.width = 3}
-# random sample from a normal dist
+# random samples from normal distributions
 sample1 <- rnorm(n = 40, mean = 4, sd = 2)
-# random sample from a different normal dist
 sample2 <- rnorm(n = 40, mean = 2, sd = 1)
 plot(x = sample1, y = sample2, xlab = "Sample 1", ylab = "Sample 2")
 ```
 
 
-## Add line to scatterplot
+## Add lines to scatterplots
 
 - Add straight lines to a plot using the `abline()` function
 - Argument `a` specifies the intercept and `b` the slope
@@ -612,7 +607,7 @@ abline(a = 0.5, b = 0.75, lwd = 2, col = "royalblue")
 ```
 
 
-## Add model fit line to scatterplot
+## Add model fit lines to scatterplots
 
 Lines can also be model fits -- `lm()` fits a linear model of **y** (`sample2`) as a function of **x** (`sample1`)
 
@@ -645,15 +640,10 @@ We will talk more about plotting in Part 6
 # **Part 3:** Data manipulation
 
 
-## Download the file for this section
-
-<a href = "https://www.dropbox.com/s/qk11hhsipddk3fk/seedlings.csv?dl=0" target = "_blank">seedlings.csv</a>
-
-
 ## Data structure 2: Data frames
 
-- Most data we work with in ecology & evolution is two-dimensional, including rows and columns
-- **Data frames** are thus a very important data type in R
+- Most data we work with in ecology & evolution is two-dimensional, with rows and columns
+- **Data frames** are thus a very important data structure
 
 ```{r}
 # data frame with measurements of black cherry trees
@@ -731,7 +721,7 @@ head(iris)
 
 ## Data frames - Index by position
 
-Index individual elements of a data frame with square brackets `df[row#, column#]`
+Index individual elements of a data frame using square brackets `df[row#, column#]`
 
 ```{r}
 iris[1, 1]  # first row, first column
@@ -761,13 +751,13 @@ iris[c(5, 7, 9), 1:2]
 
 ## Data frames - Index by name
 
-- Columns can also be called by name using brackets
+- Columns can be indexed by name using square brackets
 
 ```{r, eval = FALSE}
 iris[, "Sepal.Length"]
 ```
 
-- Or you can call a column by name using dollar sign (`$`) notation
+- Or you can index a column by name using the dollar sign (`$`) operator
 
 ```{r, eval = FALSE}
 iris$Sepal.Length
@@ -964,7 +954,7 @@ num.mat[c(2, 3), 2]
 
 - Find out what your current working directory is using the `getwd()` function
 - This is the folder on your computer where R will look to open or write files
-- Though you could also use the `Files` tab (bottom right panel) in RStudio, again I recommend relying on the GUI as little as possible
+- Though you could also use the `Files` tab (bottom right panel) in RStudio, again, I recommend relying on the GUI as little as possible
 
 ```{r}
 getwd()
@@ -993,7 +983,7 @@ seedling.df <- read.csv(file = "/home/nlkinlock/Documents/seedlings.csv",
 
 ## Importing data - file encoding
 
-- File encoding can be a real pain with R -- special characters can render incorrectly (e.g., as "Ã", �, or question marks)
+- File encoding can be a real pain with R -- special characters can render incorrectly (e.g., as Ã, �, or question marks)
 - Try to save spreadsheets with UTF-8 encoding and always include the `fileEncoding = "UTF-8"` argument when reading or writing files
 
 ```{r, eval = FALSE}
@@ -1246,7 +1236,6 @@ for (x in 1:10) {
 
 ## Data structure 5: Lists 
 
-- **Lists** are the final basic data structure in R
 - Lists, like vectors, are one-dimensional
 - In the example with vector `x` below, `1` and `2` are converted to characters because `"blue"` is included -- elements in a vector must all be the same type
 
@@ -1440,20 +1429,20 @@ for (i in 1:length(x)) {
 
 ## Your turn {data-background-color=#b3cde3}
 
-First, create a vector, `x`, with all integers from 1 to 100. Then, create a for-loop that...
+First, create a vector, `x`, with all integers from 1 to 100.
 
-1. ...computes `x[i] * 2` for 100 iterations (the length of vector `x`). Place the output in a vector. However, calculate `x[i] * 3` when `x[i] == 32`. 
+1. Create a for-loop that computes `x[i] * 2` for 100 iterations (the length of vector `x`). Place the output in a vector. However, calculate `x[i] * 3` when `x[i] == 32`. 
 
-2. ...computes `x[i] * 2` for 100 iterations. Place the output in a list. However, break the loop after 51 iterations.
+2. Create a for-loop that computes `x[i] * 2` for 100 iterations. Place the output in a list. However, break the loop after 51 iterations.
 
-3. ...computes `x[i] * 2` for 100 iterations. Place the output in a vector. However, skip `x == 71`.
+3. Create a for-loop that computes `x[i] * 2` for 100 iterations. Place the output in a vector. However, skip `x == 71`.
 
 
 ## Alternatives to for-loops: `apply` family
 
-- The `apply` family of functions allows you to repeatedly call a function across rows, columns, or elements
-- The `apply(X, MARGIN, FUN)` function takes three arguments
-    - `X`: is your matrix or data frame
+- The `apply` family of functions allows you to repeatedly do a function to every row, column, or element in a data frame (or vector, or list)
+- `apply(X, MARGIN, FUN)` function takes three arguments
+    - `X`: your matrix or data frame
     - `MARGIN = 1`: apply to rows
     - `MARGIN = 2`:  columns
     - `MARGIN = c(1, 2)`: rows and columns
@@ -1462,7 +1451,7 @@ First, create a vector, `x`, with all integers from 1 to 100. Then, create a for
 
 ## Using `apply`
 
-Use `apply()` to take the median of the columns of matrix `M` using the `median()` function
+Use `apply()` to take the median of the columns of matrix `M`
 
 ```{r}
 M <- matrix(rnorm(9), ncol = 3, nrow = 3)
@@ -1544,7 +1533,7 @@ mean(log10(iris$Sepal.Length))
 
 ## Functions in packages 
 
-- We have also seen functions that are loaded from packages
+We have also seen functions that are loaded from packages
 
 ```{r, eval = FALSE}
 # this would not run - tree is not loaded 
@@ -1558,7 +1547,7 @@ tree(formula = Species ~ . -Species, data = iris)
 
 ## Writing your own function
 
-- *Define your own function* instead of writing the same lines of code over and over
+- It is a good idea to write your own functions instead of repeating the same lines of code over and over
 - R functions are **objects** just like vectors, lists, etc.
 
 `FunctionName <- function(<arguments>) { <body> }`
@@ -1770,20 +1759,21 @@ ggplot(data = iris, aes(x = Sepal.Length, y = Sepal.Width)) +
 
 ## Plots can be assembled in pieces 
 
-```{r, fig.height = 3, fig.width = 4}
+```{r, fig.height = 3.25, fig.width = 4.5}
 # US state data from 1977
 state.df <- data.frame(state.x77, state.region, state.abb)
-state.fig <- ggplot(data = state.df, aes(x = Population, y = Area))
+state.fig <- ggplot(data = state.df, aes(x = Income, y = Life.Exp))
 state.fig + geom_point()
 ```
 
 
 ## Aesthetics - point size
 
-Increase the size of points using the `size` argument in `geom_point()`
+Increase the point size using the `size` argument in `geom_point()`
 
-```{r, fig.height = 3, fig.width = 4}
-ggplot(data = state.df, aes(x = Population, y = Area)) + geom_point(size = 3)
+```{r, fig.height = 3.25, fig.width = 4.5}
+ggplot(data = state.df, aes(x = Income, y = Life.Exp)) + 
+    geom_point(size = 3)
 ```
 
 
@@ -1792,7 +1782,7 @@ ggplot(data = state.df, aes(x = Population, y = Area)) + geom_point(size = 3)
 Differentiate state region by **color** using the `color` argument in `aes()`
 
 ```{r, fig.height = 3, fig.width = 6}
-ggplot(data = state.df, aes(x = Illiteracy, y = Murder, color = state.region)) + 
+ggplot(data = state.df, aes(x = Population, y = Murder, color = state.region)) + 
     geom_point(size = 2)
 ```
 
@@ -1812,11 +1802,11 @@ ggplot(data = state.df, aes(x = Life.Exp, y = HS.Grad, color = state.region, sha
 First, take a sample of 1000 rows from the `diamonds` dataset (pre-installed with R). Then, try to generate this plot using `ggplot()`.
 
 ```{r}
-d2 <- diamonds[sample(1:nrow(diamonds), 1000), ]
+diamonds.samp <- diamonds[sample(1:nrow(diamonds), 1000), ]
 ```
 
 ```{r, fig.height = 3, fig.width = 6, echo = FALSE}
-ggplot(data = d2, aes(x = carat, y = price, color = color)) + geom_point()
+ggplot(data = diamonds.samp, aes(x = carat, y = price, color = color)) + geom_point()
 ```
 
 
@@ -1865,7 +1855,7 @@ ggplot(mtcars, aes(x = wt, y = mpg, color = cyl)) +
 ## Geoms - Density plots 
 
 ```{r, fig.height = 4, fig.width = 5}
-ggplot(faithful, aes(waiting)) + geom_density(fill = "thistle")
+ggplot(faithful, aes(waiting)) + geom_density(fill = "paleturquoise")
 ```
 
 
@@ -1992,23 +1982,13 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 - Plots created with `ggplot2` can be saved using the `ggsave()` function
 - File type is determined by the file extension
-- Specify the dimensions (`height`, `width`) and resolution (`dpi`)
+- Specify the dimensions (`height`, `width`) and resolution (`dpi`, dots per inch)
 
 ```{r, eval = FALSE}
 iris.fig <- ggplot(iris, aes(Species, Sepal.Length)) + 
     geom_bar(stat = "identity") + theme_bw()
 ggsave(filename = "IrisSepalLength.png", iris.fig, dpi = 600,
        height = 4, width = 4, units = "in")
-```
-
-
-## R Tip: ggplot2 uses data frames {data-background-color=#ccebc5}
-
-```{r,  fig.height = 3, fig.width = 4}
-xvar <- rnorm(100)
-yvar <- rnorm(100)
-df <- data.frame(xvar, yvar)  # coerce to data frame 
-ggplot(df, aes(xvar, yvar)) + geom_point()
 ```
 
 
