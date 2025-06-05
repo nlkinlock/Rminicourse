@@ -136,14 +136,13 @@
 </section>
 
 <section>
-<section id="about-this-course" class="title-slide slide level1">
-<h1>About this course</h1>
-<p>This course was developed by Ben Weinstein (2014), Mike McCann
-(2015), and Nicole Kinlock (2016, 2017) as a workshop in the Department
-of Ecology &amp; Evolution at Stony Brook University</p>
-</section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
+<section id="overview" class="title-slide slide level1">
+<h1>Overview</h1>
+<style type="text/css">
+:root {
+    --r-main-font-size: 36px;
+}
+</style>
 <ul>
 <li>Part 1: <a href = "#/3"> Basics of R </a></li>
 <li>Part 2: <a href = "#/44"> Probability &amp; distributions </a></li>
@@ -153,6 +152,12 @@ of Ecology &amp; Evolution at Stony Brook University</p>
 <li>Part 6: <a href = "#/149"> Data visualization using ggplot2
 </a></li>
 </ul>
+</section>
+<section id="about-this-course" class="slide level2">
+<h2>About this course</h2>
+<p>This course was originally developed by Ben Weinstein (2014), Mike
+McCann (2015), and Nicole Kinlock (2016, 2017) as a workshop in the
+Department of Ecology &amp; Evolution at Stony Brook University</p>
 </section></section>
 <section>
 <section id="part-1-basics-of-r" class="title-slide slide level1">
@@ -666,8 +671,8 @@ value of these elements?</p></li>
 function</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(norm)</span></code></pre></div>
-<pre><code>## [1]  1.0733318 -0.5096684  0.5771522 -1.5239532  0.7051551 -0.5894909</code></pre>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-25-1.png" width="288" /></p>
+<pre><code>## [1]  2.0235244  0.6195797 -0.2248441 -0.2144881 -0.4949040 -0.2877673</code></pre>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="288" /></p>
 </section>
 <section id="your-turn-5" class="slide level2"
 data-background-color="#b3cde3">
@@ -722,7 +727,7 @@ function</li>
 <li><strong><code>qnorm()</code></strong> quantile function</li>
 </ul></li>
 </ul>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="576" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-27-1.png" width="576" /></p>
 <p><small>Figure adapted from
 <a href = "http://user.mendelu.cz/drapela/Forest_Biometry/Lecture%20notes/R%20-%20tutorials%20and%20commands/R%20Probability%20Functions.pdf" target = _blank">this</a>
 website</small></p>
@@ -736,7 +741,7 @@ the number (frequency) of data falling into each bin</li>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sample, <span class="at">col =</span> <span class="st">&quot;palevioletred&quot;</span>, <span class="at">main =</span> <span class="st">&quot;&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Value&quot;</span>, </span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-27-1.png" width="480" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-28-1.png" width="480" /></p>
 <ul>
 <li>For those who care about color selection:
 <a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R
@@ -761,9 +766,9 @@ histogram of the sample.</p></li>
 <code>sample()</code> function</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">20</span>)  <span class="co"># sample without replacement</span></span></code></pre></div>
-<pre><code>##  [1] 24 38 28 17 16 25 49 13 23  5 46 37 44 47 20 12 40 30  7 41</code></pre>
+<pre><code>##  [1] 10 12 16 11 36 46  8  5 14 42 24 34  6 28 49 20 18 44  7 31</code></pre>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># sample with replacement</span></span></code></pre></div>
-<pre><code>##  [1] 40 18  4 34 44 14 25 36 48 18 17 18 14 13 42 38  3 44 37 35</code></pre>
+<pre><code>##  [1] 25 43 39 16  8 20 17 16 25 48 33 41 44 11 38 50 25 12 35 33</code></pre>
 </section>
 <section id="your-turn-8" class="slide level2"
 data-background-color="#b3cde3">
@@ -786,7 +791,7 @@ happens?</p></li>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co"># random sample from a different normal dist</span></span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>sample2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">40</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> sample1, <span class="at">y =</span> sample2, <span class="at">xlab =</span> <span class="st">&quot;Sample 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sample 2&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-29-1.png" width="288" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-30-1.png" width="288" /></p>
 </section>
 <section id="add-line-to-scatterplot" class="slide level2">
 <h2>Add line to scatterplot</h2>
@@ -798,7 +803,7 @@ the slope</li>
 </ul>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sample1, sample2, <span class="at">xlab =</span> <span class="st">&quot;Sample 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sample 2&quot;</span>)</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">a =</span> <span class="fl">0.5</span>, <span class="at">b =</span> <span class="fl">0.75</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;royalblue&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-30-1.png" width="288" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-31-1.png" width="288" /></p>
 </section>
 <section id="add-model-fit-line-to-scatterplot" class="slide level2">
 <h2>Add model fit line to scatterplot</h2>
@@ -807,7 +812,7 @@ of <strong>y</strong> (<code>sample2</code>) as a function of
 <strong>x</strong> (<code>sample1</code>)</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(sample1, sample2, <span class="at">xlab =</span> <span class="st">&quot;Sample 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Sample 2&quot;</span>)</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(sample2 <span class="sc">~</span> sample1), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;royalblue&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-31-1.png" width="288" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-32-1.png" width="288" /></p>
 </section>
 <section id="lots-of-useful-links-for-plotting" class="slide level2">
 <h2>Lots of useful links for plotting</h2>
@@ -1032,7 +1037,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb1
 <h2>Data frames - Logical indexing</h2>
 <p>We can compare the distributions of petal widths for the complete
 dataset and the subset:</p>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-43-1.png" width="576" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-44-1.png" width="624" /></p>
 </section>
 <section id="your-turn-11" class="slide level2"
 data-background-color="#b3cde3">
@@ -1669,8 +1674,8 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="#cb1
 <span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a>    output.vec[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> <span class="dv">10</span></span>
 <span id="cb185-5"><a href="#cb185-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb185-6"><a href="#cb185-6" aria-hidden="true" tabindex="-1"></a>output.vec</span></code></pre></div>
-<pre><code>##  [1] 14.231073 19.511350  9.392998  0.312510  1.130503 10.674476 12.055264
-##  [8]  7.580922 13.359709 13.449714</code></pre>
+<pre><code>##  [1]  3.647758  9.737986  7.918528  8.906231  2.546560  1.014760 18.222218
+##  [8] 15.577186  5.902993  3.454475</code></pre>
 </section>
 <section id="how-do-we-save-for-loop-outputs-1" class="slide level2">
 <h2>How do we save for-loop outputs?</h2>
@@ -1686,8 +1691,8 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="#cb1
 <span id="cb187-4"><a href="#cb187-4" aria-hidden="true" tabindex="-1"></a>    output.vec[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> <span class="dv">10</span></span>
 <span id="cb187-5"><a href="#cb187-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb187-6"><a href="#cb187-6" aria-hidden="true" tabindex="-1"></a>output.vec</span></code></pre></div>
-<pre><code>##  [1]  3.614413  7.992137 13.611900  8.281463  8.860486 10.491121  9.585338
-##  [8] 12.114401  4.835523 11.523372</code></pre>
+<pre><code>##  [1] 17.286015  7.683266 10.372833  7.331214 11.929529 12.529461  8.724110
+##  [8]  1.377951 13.985177 12.193510</code></pre>
 </section>
 <section id="your-turn-16" class="slide level2"
 data-background-color="#b3cde3">
@@ -1755,7 +1760,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="#cb1
 <span id="cb194-8"><a href="#cb194-8" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb194-9"><a href="#cb194-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb194-10"><a href="#cb194-10" aria-hidden="true" tabindex="-1"></a>output.vec</span></code></pre></div>
-<pre><code>##  [1]    1    1 -100    9 -100 -100 -100    1    1    1</code></pre>
+<pre><code>##  [1] -100 -100 -100 -100    1 -100 -100    4 -100    4</code></pre>
 </section>
 <section id="control-flow-statements---break" class="slide level2">
 <h2>Control flow statements - break</h2>
@@ -1830,13 +1835,13 @@ arguments
 <div class="sourceCode" id="cb200"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">9</span>), <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
 <span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a>M</span></code></pre></div>
-<pre><code>##            [,1]        [,2]       [,3]
-## [1,] -1.1938527 -0.48045486 -0.8728178
-## [2,] -0.9634525  0.93737887 -1.1126832
-## [3,] -0.1072513 -0.03833151 -0.9668756</code></pre>
+<pre><code>##            [,1]       [,2]       [,3]
+## [1,] -0.4642892 -0.5501913 -0.7001564
+## [2,] -1.5674587 -1.1784813 -1.2992266
+## [3,] -1.2042780 -0.4516637 -1.0629343</code></pre>
 <div class="sourceCode" id="cb202"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(M, <span class="dv">2</span>, median)</span></code></pre></div>
-<pre><code>## [1] -0.96345248 -0.03833151 -0.96687556</code></pre>
+<pre><code>## [1] -1.2042780 -0.5501913 -1.0629343</code></pre>
 </section>
 <section id="apply-vs.-for-loop" class="slide level2">
 <h2><code>apply</code> vs. for-loop</h2>
@@ -1847,7 +1852,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="#cb2
 <span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a>    median.vec[i] <span class="ot">&lt;-</span> <span class="fu">median</span>(M[, i])</span>
 <span id="cb204-4"><a href="#cb204-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb204-5"><a href="#cb204-5" aria-hidden="true" tabindex="-1"></a>median.vec</span></code></pre></div>
-<pre><code>## [1] -0.96345248 -0.03833151 -0.96687556</code></pre>
+<pre><code>## [1] -1.2042780 -0.5501913 -1.0629343</code></pre>
 </section>
 <section id="apply-family-of-functions" class="slide level2">
 <h2><code>apply</code> family of functions</h2>
@@ -1884,7 +1889,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="#cb2
 ## [1] 12.3
 ## 
 ## [[3]]
-## [1] -4.030095</code></pre>
+## [1] -2.512065</code></pre>
 </section>
 <section id="useful-links" class="slide level2">
 <h2>Useful links</h2>
@@ -2178,57 +2183,52 @@ display <em>(points, lines, polygons, etc.)</em></li>
 class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb229-2"><a href="#cb229-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width)) <span class="sc">+</span></span>
 <span id="cb229-3"><a href="#cb229-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-98-1.png" width="384" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-99-1.png" width="384" /></p>
 </section>
 <section id="plots-can-be-assembled-in-pieces" class="slide level2">
 <h2>Plots can be assembled in pieces</h2>
-<p>I’ll be using the <code>state.x77</code> and
-<code>state.region</code> datasets (US state data from 1977)</p>
 <div class="sourceCode" id="cb230"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a>state.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(state.x77, state.region, state.abb)</span>
-<span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a>state.fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area))</span>
-<span id="cb230-3"><a href="#cb230-3" aria-hidden="true" tabindex="-1"></a>state.fig <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-99-1.png" width="384" /></p>
+class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="co"># US state data from 1977</span></span>
+<span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a>state.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(state.x77, state.region, state.abb)</span>
+<span id="cb230-3"><a href="#cb230-3" aria-hidden="true" tabindex="-1"></a>state.fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area))</span>
+<span id="cb230-4"><a href="#cb230-4" aria-hidden="true" tabindex="-1"></a>state.fig <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-100-1.png" width="384" /></p>
 </section>
 <section id="aesthetics---point-size" class="slide level2">
 <h2>Aesthetics - point size</h2>
-<p>You can increase the size of points using the <code>size</code>
-argument in <code>geom_point()</code></p>
+<p>Increase the size of points using the <code>size</code> argument in
+<code>geom_point()</code></p>
 <div class="sourceCode" id="cb231"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-100-1.png" width="384" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-101-1.png" width="384" /></p>
 </section>
 <section id="aesthetics---color" class="slide level2">
 <h2>Aesthetics - color</h2>
-<p>You can differentiate state region by <strong>color</strong> using
-the <code>color</code> argument in <code>aes()</code></p>
+<p>Differentiate state region by <strong>color</strong> using the
+<code>color</code> argument in <code>aes()</code></p>
 <div class="sourceCode" id="cb232"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Illiteracy, <span class="at">y =</span> Murder, <span class="at">color =</span> state.region)) <span class="sc">+</span> </span>
 <span id="cb232-2"><a href="#cb232-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-101-1.png" width="480" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-102-1.png" width="576" /></p>
 </section>
 <section id="aesthetics---shape" class="slide level2">
 <h2>Aesthetics - shape</h2>
-<p>You can also differentiate state region by <strong>shape</strong>
-using the <code>shape</code> argument in <code>aes()</code></p>
+<p>Differentiate state region by <strong>shape</strong> using the
+<code>shape</code> argument in <code>aes()</code></p>
 <div class="sourceCode" id="cb233"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Life.Exp, <span class="at">y =</span> HS.Grad, <span class="at">color =</span> state.region, <span class="at">shape =</span> state.region)) <span class="sc">+</span> </span>
 <span id="cb233-2"><a href="#cb233-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-102-1.png" width="480" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-103-1.png" width="576" /></p>
 </section>
 <section id="your-turn-21" class="slide level2"
 data-background-color="#b3cde3">
 <h2 data-background-color="#b3cde3">Your turn</h2>
-<ul>
-<li>First, take a sample of 1000 rows from the <code>diamonds</code>
-dataset (pre-installed with R)</li>
-</ul>
+<p>First, take a sample of 1000 rows from the <code>diamonds</code>
+dataset (pre-installed with R). Then, try to generate this plot using
+<code>ggplot()</code>.</p>
 <div class="sourceCode" id="cb234"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="#cb234-1" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> diamonds[<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(diamonds), <span class="dv">1000</span>), ]</span></code></pre></div>
-<ul>
-<li>Then, try to generate this plot using <code>ggplot()</code>:</li>
-</ul>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-104-1.png" width="576" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-105-1.png" width="576" /></p>
 </section>
 <section id="geoms" class="slide level2">
 <h2>Geoms</h2>
@@ -2248,23 +2248,23 @@ tab key (<code>↹</code>)
 <h2>Geoms - Boxplot</h2>
 <div class="sourceCode" id="cb235"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species,<span class="at">y =</span> Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-105-1.png" width="384" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-106-1.png" width="384" /></p>
 </section>
 <section id="geoms---histograms" class="slide level2">
 <h2>Geoms - Histograms</h2>
-<p>You can change some of the aesthetics, such as <code>binwidth</code>
-or <code>fill</code></p>
+<p>You can change the aesthetics, like <code>binwidth</code> or
+<code>fill</code></p>
 <div class="sourceCode" id="cb236"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(<span class="at">x =</span> waiting)) <span class="sc">+</span> </span>
 <span id="cb236-2"><a href="#cb236-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;paleturquoise&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-106-1.png" width="480" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-107-1.png" width="480" /></p>
 </section>
 <section id="geoms---bar-plots" class="slide level2">
 <h2>Geoms - Bar plots</h2>
 <div class="sourceCode" id="cb237"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Sepal.Length)) <span class="sc">+</span> </span>
 <span id="cb237-2"><a href="#cb237-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;firebrick1&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-107-1.png" width="384" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-108-1.png" width="384" /></p>
 </section>
 <section id="geoms---line-plots" class="slide level2">
 <h2>Geoms - Line plots</h2>
@@ -2272,13 +2272,13 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="#cb2
 class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="#cb238-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">$</span>cyl <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(mtcars<span class="sc">$</span>cyl)</span>
 <span id="cb238-2"><a href="#cb238-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> wt, <span class="at">y =</span> mpg, <span class="at">color =</span> cyl)) <span class="sc">+</span> </span>
 <span id="cb238-3"><a href="#cb238-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-108-1.png" width="528" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-109-1.png" width="528" /></p>
 </section>
 <section id="geoms---density-plots" class="slide level2">
 <h2>Geoms - Density plots</h2>
 <div class="sourceCode" id="cb239"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(faithful, <span class="fu">aes</span>(waiting)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">&quot;thistle&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-109-1.png" width="480" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-110-1.png" width="480" /></p>
 </section>
 <section id="your-turn-22" class="slide level2"
 data-background-color="#b3cde3">
@@ -2298,19 +2298,16 @@ factor</li>
 species and there is only one row</li>
 </ul>
 <div class="sourceCode" id="cb240"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length)) <span class="sc">+</span> </span>
-<span id="cb240-2"><a href="#cb240-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;royalblue1&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb240-3"><a href="#cb240-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(. <span class="sc">~</span> Species)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-110-1.png" width="576" /></p>
+class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;royalblue1&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb240-2"><a href="#cb240-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(. <span class="sc">~</span> Species)</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-111-1.png" width="576" /></p>
 </section>
 <section id="facets-1" class="slide level2">
 <h2>Facets</h2>
-<p>To get one column and three rows:</p>
 <div class="sourceCode" id="cb241"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length)) <span class="sc">+</span> </span>
-<span id="cb241-2"><a href="#cb241-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;royalblue1&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb241-3"><a href="#cb241-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(Species <span class="sc">~</span> .)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-111-1.png" width="288" /></p>
+class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Sepal.Length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">&quot;royalblue1&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb241-2"><a href="#cb241-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(Species <span class="sc">~</span> .)</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-112-1.png" width="288" /></p>
 </section>
 <section id="stats" class="slide level2">
 <h2>Stats</h2>
@@ -2330,8 +2327,7 @@ all options
 <div class="sourceCode" id="cb242"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
 <span id="cb242-2"><a href="#cb242-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
-<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-112-1.png" width="576" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-113-1.png" width="576" /></p>
 </section>
 <section id="scales" class="slide level2">
 <h2>Scales</h2>
@@ -2354,39 +2350,38 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="#cb2
 <h2>Scales - log scale</h2>
 <p>Include log x and log y axes using <code>scale_x_log10()</code> and
 <code>scale_y_log10()</code></p>
-<div class="sourceCode" id="cb244"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area, <span class="at">color =</span> state.region)) <span class="sc">+</span> </span>
-<span id="cb244-2"><a href="#cb244-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-113-1.png" width="576" /></p>
+<div class="sourceCode" id="cb243"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="#cb243-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area, <span class="at">color =</span> state.region)) <span class="sc">+</span> </span>
+<span id="cb243-2"><a href="#cb243-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-114-1.png" width="576" /></p>
 </section>
 <section id="scales---manual" class="slide level2">
 <h2>Scales - manual</h2>
 <p>Choose colors manually using <code>scale_color_manual()</code></p>
-<div class="sourceCode" id="cb245"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area, <span class="at">color =</span> state.region)) <span class="sc">+</span> </span>
-<span id="cb245-2"><a href="#cb245-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb245-3"><a href="#cb245-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span> </span>
-<span id="cb245-4"><a href="#cb245-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">South</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;palegreen3&quot;</span>, <span class="st">`</span><span class="at">Northeast</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;palevioletred3&quot;</span>, <span class="st">`</span><span class="at">West</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;peachpuff3&quot;</span>, <span class="st">`</span><span class="at">North Central</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;paleturquoise3&quot;</span>), <span class="at">name =</span> <span class="st">&quot;Region&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-114-1.png" width="576" /></p>
+<div class="sourceCode" id="cb244"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Population, <span class="at">y =</span> Area, <span class="at">color =</span> state.region)) <span class="sc">+</span> </span>
+<span id="cb244-2"><a href="#cb244-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">scale_x_log10</span>() <span class="sc">+</span> </span>
+<span id="cb244-3"><a href="#cb244-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">South</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;palegreen3&quot;</span>, <span class="st">`</span><span class="at">Northeast</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;palevioletred3&quot;</span>, <span class="st">`</span><span class="at">West</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;peachpuff3&quot;</span>, <span class="st">`</span><span class="at">North Central</span><span class="st">`</span> <span class="ot">=</span> <span class="st">&quot;paleturquoise3&quot;</span>), <span class="at">name =</span> <span class="st">&quot;Region&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-115-1.png" width="576" /></p>
 </section>
 <section id="axis-labels" class="slide level2">
 <h2>Axis labels</h2>
 <p>Edit labels, including x- and y-axis labels, using
 <code>labs()</code></p>
-<div class="sourceCode" id="cb246"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Life.Exp, <span class="at">y =</span> HS.Grad, <span class="at">color =</span> state.region, <span class="at">shape =</span> state.region)) <span class="sc">+</span></span>
-<span id="cb246-2"><a href="#cb246-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb246-3"><a href="#cb246-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;High school graduation (%)&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-115-1.png" width="576" /></p>
+<div class="sourceCode" id="cb245"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Life.Exp, <span class="at">y =</span> HS.Grad, <span class="at">color =</span> state.region, <span class="at">shape =</span> state.region)) <span class="sc">+</span></span>
+<span id="cb245-2"><a href="#cb245-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb245-3"><a href="#cb245-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;High school graduation (%)&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-116-1.png" width="576" /></p>
 </section>
 <section id="labels-inside-figure" class="slide level2">
 <h2>Labels inside figure</h2>
 <p>Add labels inside the figure using <code>geom_text()</code></p>
-<div class="sourceCode" id="cb247"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Life.Exp, <span class="at">y =</span> HS.Grad, <span class="at">color =</span> state.region, <span class="at">shape =</span> state.region)) <span class="sc">+</span></span>
-<span id="cb247-2"><a href="#cb247-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> state.abb), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb247-3"><a href="#cb247-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;High school graduation (%)&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-116-1.png" width="576" /></p>
+<div class="sourceCode" id="cb246"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> state.df, <span class="fu">aes</span>(<span class="at">x =</span> Life.Exp, <span class="at">y =</span> HS.Grad, <span class="at">color =</span> state.region, <span class="at">shape =</span> state.region)) <span class="sc">+</span></span>
+<span id="cb246-2"><a href="#cb246-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> state.abb), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb246-3"><a href="#cb246-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Life expectancy (years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;High school graduation (%)&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-117-1.png" width="576" /></p>
 </section>
 <section id="themes" class="slide level2">
 <h2>Themes</h2>
@@ -2403,21 +2398,19 @@ customization options)</li>
 </section>
 <section id="themes-1" class="slide level2">
 <h2>Themes</h2>
-<div class="sourceCode" id="cb248"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb248-2"><a href="#cb248-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb248-3"><a href="#cb248-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb248-4"><a href="#cb248-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;Serif&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-117-1.png" width="576" /></p>
+<div class="sourceCode" id="cb247"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb247-2"><a href="#cb247-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb247-3"><a href="#cb247-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;Serif&quot;</span>, <span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-118-1.png" width="576" /></p>
 </section>
 <section id="themes-2" class="slide level2">
 <h2>Themes</h2>
-<div class="sourceCode" id="cb249"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
-<span id="cb249-2"><a href="#cb249-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb249-3"><a href="#cb249-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb249-4"><a href="#cb249-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>))</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-118-1.png" width="576" /></p>
+<div class="sourceCode" id="cb248"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span> </span>
+<span id="cb248-2"><a href="#cb248-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb248-3"><a href="#cb248-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">&quot;deeppink&quot;</span>))</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-119-1.png" width="576" /></p>
 </section>
 <section id="saving-plots" class="slide level2">
 <h2>Saving plots</h2>
@@ -2428,102 +2421,94 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="#cb2
 <li>Specify the dimensions (<code>height</code>, <code>width</code>) and
 resolution (<code>dpi</code>)</li>
 </ul>
-<div class="sourceCode" id="cb250"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="#cb250-1" aria-hidden="true" tabindex="-1"></a>iris.fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Sepal.Length)) <span class="sc">+</span> </span>
-<span id="cb250-2"><a href="#cb250-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
-<span id="cb250-3"><a href="#cb250-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;IrisSepalLength.png&quot;</span>, iris.fig, <span class="at">dpi =</span> <span class="dv">600</span>,</span>
-<span id="cb250-4"><a href="#cb250-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1" aria-hidden="true" tabindex="-1"></a>iris.fig <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Sepal.Length)) <span class="sc">+</span> </span>
+<span id="cb249-2"><a href="#cb249-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb249-3"><a href="#cb249-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;IrisSepalLength.png&quot;</span>, iris.fig, <span class="at">dpi =</span> <span class="dv">600</span>,</span>
+<span id="cb249-4"><a href="#cb249-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">4</span>, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>)</span></code></pre></div>
 </section>
 <section id="r-tip-ggplot2-uses-data-frames" class="slide level2"
 data-background-color="#ccebc5">
 <h2 data-background-color="#ccebc5">R Tip: ggplot2 uses data frames</h2>
-<p>Your data structure must be a data frame in order to plot with
-ggplot2</p>
-<div class="sourceCode" id="cb251"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="#cb251-1" aria-hidden="true" tabindex="-1"></a>xvar <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb251-2"><a href="#cb251-2" aria-hidden="true" tabindex="-1"></a>yvar <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb251-3"><a href="#cb251-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(xvar, yvar)  <span class="co"># coerce to data frame </span></span>
-<span id="cb251-4"><a href="#cb251-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(xvar, yvar)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-120-1.png" width="384" /></p>
+<div class="sourceCode" id="cb250"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="#cb250-1" aria-hidden="true" tabindex="-1"></a>xvar <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb250-2"><a href="#cb250-2" aria-hidden="true" tabindex="-1"></a>yvar <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb250-3"><a href="#cb250-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(xvar, yvar)  <span class="co"># coerce to data frame </span></span>
+<span id="cb250-4"><a href="#cb250-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(xvar, yvar)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-121-1.png" width="384" /></p>
 </section>
 <section id="wide-format-data" class="slide level2">
 <h2>Wide format data</h2>
 <p>Sometimes data is in a <strong>wide</strong> format, with multiple
 observations in each row</p>
-<div class="sourceCode" id="cb252"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spp.df.wide)</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="#cb251-1" aria-hidden="true" tabindex="-1"></a>spp.df.wide[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>##   SpeciesA SpeciesB SpeciesC SpeciesD
-## 1 50.41328 83.02950 20.27796 24.42664
-## 2 50.73139 77.85445 20.36212 25.12126
-## 3 51.01259 79.20989 19.87145 24.78755
-## 4 50.78531 75.29884 19.55998 25.13786
-## 5 50.48259 77.51739 20.97240 24.25920
-## 6 51.55891 76.26110 19.56856 26.29375</code></pre>
-<div class="sourceCode" id="cb254"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(spp.df.wide)</span></code></pre></div>
+## 1 49.50402 80.42932 20.69487 24.98056
+## 2 51.71980 78.74751 20.01322 23.54121
+## 3 51.22642 70.36322 20.67263 24.36075</code></pre>
+<div class="sourceCode" id="cb253"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(spp.df.wide)</span></code></pre></div>
 <pre><code>## [1] 100   4</code></pre>
 </section>
 <section id="proper-data-format---long" class="slide level2">
 <h2>Proper data format - long</h2>
 <p>Data is much easier to analyze if it is in a <strong>long</strong>
 format, with only one row per observation (experimental unit)</p>
-<div class="sourceCode" id="cb256"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(spp.df.long)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="#cb255-1" aria-hidden="true" tabindex="-1"></a>spp.df.long[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>##   Species     Mass
-## 1       A 75.49754
-## 2       B 76.27192
-## 3       C 73.77573
-## 4       D 82.88861
-## 5       A 77.37396
-## 6       B 79.67968</code></pre>
-<div class="sourceCode" id="cb258"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(spp.df.long)</span></code></pre></div>
+## 1       A 80.82865
+## 2       B 76.20810
+## 3       C 67.97256</code></pre>
+<div class="sourceCode" id="cb257"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(spp.df.long)</span></code></pre></div>
 <pre><code>## [1] 400   2</code></pre>
 </section>
 <section id="melting-from-wide-to-long" class="slide level2">
 <h2>Melting: from wide to long</h2>
-<div class="sourceCode" id="cb260"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make some fake wide-format data</span></span>
-<span id="cb260-2"><a href="#cb260-2" aria-hidden="true" tabindex="-1"></a>test.df.wide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">6</span>),</span>
-<span id="cb260-3"><a href="#cb260-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">B =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">75</span>, <span class="dv">5</span>), </span>
-<span id="cb260-4"><a href="#cb260-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">C =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">4</span>),</span>
-<span id="cb260-5"><a href="#cb260-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">D =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">55</span>, <span class="dv">3</span>))</span>
-<span id="cb260-6"><a href="#cb260-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test.df.wide)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make some fake wide-format data</span></span>
+<span id="cb259-2"><a href="#cb259-2" aria-hidden="true" tabindex="-1"></a>test.df.wide <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">A =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">6</span>),</span>
+<span id="cb259-3"><a href="#cb259-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">B =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">75</span>, <span class="dv">5</span>), </span>
+<span id="cb259-4"><a href="#cb259-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">C =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">4</span>),</span>
+<span id="cb259-5"><a href="#cb259-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">D =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">55</span>, <span class="dv">3</span>))</span>
+<span id="cb259-6"><a href="#cb259-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test.df.wide)</span></code></pre></div>
 <pre><code>##          A        B        C        D
-## 1 48.25301 73.50717 58.37017 53.65719
-## 2 43.54566 72.52526 49.32794 54.10470
-## 3 51.44591 64.77149 50.01193 55.08141
-## 4 57.91379 83.50829 47.58036 49.68684
-## 5 59.37146 81.64863 48.65428 58.58047
-## 6 52.91978 76.44358 48.85228 53.28476</code></pre>
+## 1 47.84023 81.15026 56.94995 50.43480
+## 2 61.00265 76.08040 44.45706 52.15845
+## 3 49.62270 80.18758 47.86186 49.58533
+## 4 46.58760 68.04425 48.94547 61.58026
+## 5 56.93436 74.59749 49.35064 52.17808
+## 6 48.47184 72.58853 53.68440 58.59832</code></pre>
 </section>
 <section id="melting-from-wide-to-long-1" class="slide level2">
 <h2>Melting: from wide to long</h2>
 <p>Use the <code>melt()</code> function from the <code>reshape2</code>
 package</p>
-<div class="sourceCode" id="cb262"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb262-2"><a href="#cb262-2" aria-hidden="true" tabindex="-1"></a>test.df.long <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data =</span> test.df.wide,</span>
-<span id="cb262-3"><a href="#cb262-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">variable.name =</span> <span class="st">&quot;Species&quot;</span>,</span>
-<span id="cb262-4"><a href="#cb262-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value.name =</span> <span class="st">&quot;Mass&quot;</span>)</span>
-<span id="cb262-5"><a href="#cb262-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test.df.long)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb261-2"><a href="#cb261-2" aria-hidden="true" tabindex="-1"></a>test.df.long <span class="ot">&lt;-</span> <span class="fu">melt</span>(<span class="at">data =</span> test.df.wide,</span>
+<span id="cb261-3"><a href="#cb261-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">variable.name =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb261-4"><a href="#cb261-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value.name =</span> <span class="st">&quot;Mass&quot;</span>)</span>
+<span id="cb261-5"><a href="#cb261-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test.df.long)</span></code></pre></div>
 <pre><code>##   Species     Mass
-## 1       A 48.25301
-## 2       A 43.54566
-## 3       A 51.44591
-## 4       A 57.91379
-## 5       A 59.37146
-## 6       A 52.91978</code></pre>
+## 1       A 47.84023
+## 2       A 61.00265
+## 3       A 49.62270
+## 4       A 46.58760
+## 5       A 56.93436
+## 6       A 48.47184</code></pre>
 </section>
 <section id="melting-from-wide-to-long-2" class="slide level2">
 <h2>Melting: from wide to long</h2>
 <p>Melting the data makes it easier to plot with
 <code>ggplot2</code></p>
-<div class="sourceCode" id="cb264"><pre
-class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(test.df.long, <span class="fu">aes</span>(<span class="at">x =</span> Mass)) <span class="sc">+</span> </span>
-<span id="cb264-2"><a href="#cb264-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(. <span class="sc">~</span> Species) <span class="sc">+</span> </span>
-<span id="cb264-3"><a href="#cb264-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">&quot;lightsalmon1&quot;</span>)</span></code></pre></div>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-127-1.png" width="672" /></p>
+<div class="sourceCode" id="cb263"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(test.df.long, <span class="fu">aes</span>(<span class="at">x =</span> Mass)) <span class="sc">+</span> </span>
+<span id="cb263-2"><a href="#cb263-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(. <span class="sc">~</span> Species) <span class="sc">+</span> </span>
+<span id="cb263-3"><a href="#cb263-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">&quot;lightsalmon1&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-128-1.png" width="672" /></p>
 </section>
 <section id="useful-links-2" class="slide level2">
 <h2>Useful links</h2>
@@ -2664,6 +2649,8 @@ tutorial</a></p>
         hideInactiveCursor: true,
         // Time before the cursor is hidden (in ms)
         hideCursorTime: 5000,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.02,
 
         menu: {
           // Configuration from
