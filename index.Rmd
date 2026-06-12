@@ -166,7 +166,7 @@ a
     - FYI: the reasoning is that `<-` maintains backwards compatibility with S-Plus
 - But, it can be a good idea to follow conventions -- this makes your code more readable to others
     - <a href = "https://google.github.io/styleguide/Rguide.html" target = "_blank">Google's R Style Guide</a>
-    - <a href = "http://adv-r.had.co.nz/Style.html" target = "_blank">Advanced R: Style Guide</a>
+    - <a href = "https://style.tidyverse.org/" target = "_blank">Tidyverse Style Guide</a>
 
 
 ## R Tip: Comment on your code {data-background-color=#ccebc5}
@@ -393,7 +393,7 @@ help(mean)
 
 ## Packages
 
-- There are many, many R packages - currently 22,477 (when I first taught this course in 2016, there were "only" 7,742)
+- There are many, many R packages - currently 23,897 (when I first taught this course in 2016, there were "only" 7,742)
 - You can view all packages here: <a href = "http://cran.r-project.org/web/packages/available_packages_by_name.html" target = "_blank"> List of R Packages</a>
 - There are lots of packages commonly used by ecologists and evolutionary biologists (e.g., `ape`, `sf`, `lme4`, `dplyr`)
 
@@ -625,7 +625,9 @@ abline(lm(sample2 ~ sample1), lwd = 2, col = "royalblue")
 
 <a href = "http://www.harding.edu/fmccown/r/" target = "_blank">Producing Simple Graphs with R</a>
 
-<a href = "http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" target = "_blank">R Colors</a>
+<a href = "https://r-charts.com/colors/" target = "_blank">Colors in R</a>
+
+<a href = "https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf" target = "_blank">R color cheatsheet</a>
 
 We will talk more about plotting in Part 6
 
@@ -1024,7 +1026,7 @@ write.csv(iris, file = "iris.csv", row.names = FALSE,
 
 ## Helpful link
 
-<a href = "http://adv-r.had.co.nz/Data-structures.html" target = "_blank">Data structures</a>
+<a href = "https://adv-r.hadley.nz/vectors-chap.html" target = "_blank">Advanced R - Data structures (Vectors)</a>
 
 
 ## Practice {data-background-color=#fbb4ae}
@@ -1496,15 +1498,13 @@ lapply(test.lst, sum)
 
 ## Useful links
 
-<a href = "https://adv-r.hadley.nz/subsetting.html" target = "_blank">Subsetting tutorial</a>
+<a href = "https://adv-r.hadley.nz/subsetting.html" target = "_blank">Advanced R - Subsetting</a>
 
-<a href = "https://adv-r.hadley.nz/control-flow.html" target = "_blank">Control flow</a>
+<a href = "https://adv-r.hadley.nz/control-flow.html" target = "_blank">Advanced R - Control flow</a>
 
 <a href = "https://bookdown.org/content/d1e53ac9-28ce-472f-bc2c-f499f18264a3/loops.html" target = "_blank">For-loops</a>
 
 <a href = "https://www.r-bloggers.com/2022/03/complete-tutorial-on-using-apply-functions-in-r/" target = "_blank">Apply family of functions</a>
-
-<a href = "http://www.r-bloggers.com/using-apply-sapply-lapply-in-r/" target = "_blank">Apply family of functions</a>
 
 
 ## Practice {data-background-color=#fbb4ae}
@@ -1695,7 +1695,7 @@ ColumnMeans(iris)
 
 <a href = "https://dept.stat.lsa.umich.edu/~jerrick/courses/stat506_f24/01-R-basics.html#functions" target = "_blank">Tutorial on using functions in R</a>
 
-<a href = "http://adv-r.had.co.nz/Functions.html" target = "_blank">Advanced R - Functions</a>
+<a href = "https://adv-r.hadley.nz/functions.html" target = "_blank">Advanced R - Functions</a>
 
 
 ## Practice {data-background-color=#fbb4ae}
