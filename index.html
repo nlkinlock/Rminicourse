@@ -666,7 +666,7 @@ value of these elements?</p></li>
 function</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>norm <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(norm)</span></code></pre></div>
-<pre><code>## [1] -0.1360750 -1.0899380  0.3072019  0.3279809 -0.1896367 -0.8357660</code></pre>
+<pre><code>## [1]  1.2962971  1.5957582 -0.6280748 -0.9463074  0.3634875  1.2677440</code></pre>
 <p><img src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="288" /></p>
 </section>
 <section id="your-turn-5" class="slide level2"
@@ -754,9 +754,9 @@ histogram of the sample.</p></li>
 <code>sample()</code> function</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">20</span>)  <span class="co"># sample without replacement</span></span></code></pre></div>
-<pre><code>##  [1] 16 24 27 19 21 35 43 26 48 30  3 50 33  4  8 15 38 25 39 29</code></pre>
+<pre><code>##  [1] 41 18 22 40  3 48 21 29  8 44 43 14 49 42 20 30 27 23  4  6</code></pre>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># sample with replacement</span></span></code></pre></div>
-<pre><code>##  [1] 11 42 12 19 18 48 17  8 18 19 50 14 41 11 47 23 37 40 49 49</code></pre>
+<pre><code>##  [1] 21 49 18 18 50 40 35  4 22 44 38 14 45 18 19 15 20 47 49 17</code></pre>
 </section>
 <section id="your-turn-8" class="slide level2"
 data-background-color="#b3cde3">
@@ -1095,7 +1095,7 @@ data-background-color="#b3cde3">
 <p>Explain each of the following indexing statements:</p>
 <ol type="1">
 <li><p><code>iris[1:4, ]</code></p></li>
-<li><p><code>iris[c(1:15), c(1, 3)]</code></p></li>
+<li><p><code>iris[c(3, 15, 45), c(1, 3)]</code></p></li>
 <li><p><code>iris[iris$Species == "setosa", "Petal.Width"]</code></p></li>
 <li><p>What happens when you add a <code>!</code> before a logical
 statement? <em>Hint:</em> Compare
@@ -1369,16 +1369,15 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="#cb1
 ## [1] 4
 ## [1] 5</code></pre>
 </section>
-<section id="for-loops---braces-vs.-brackets" class="slide level2">
-<h2>For-loops - braces vs. brackets</h2>
+<section id="for-loops---brackets-parentheses-braces"
+class="slide level2">
+<h2>For-loops - brackets, parentheses, braces</h2>
 <ul>
 <li>We’ll now go through the differences among:
 <ul>
 <li>square brackets <code>[]</code></li>
-<li>curly braces <code>{}</code>: encases multiple statements within a
-control-flow construct (<code>for</code>, <code>while</code>,
-<code>if</code>, etc.)</li>
-<li>parentheses <code>()</code>: arithmetic use as well as</li>
+<li>parentheses <code>()</code></li>
+<li>curly braces <code>{}</code></li>
 </ul></li>
 </ul>
 </section>
@@ -1656,8 +1655,8 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="#cb1
 <span id="cb183-4"><a href="#cb183-4" aria-hidden="true" tabindex="-1"></a>    output.vec[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> <span class="dv">10</span></span>
 <span id="cb183-5"><a href="#cb183-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb183-6"><a href="#cb183-6" aria-hidden="true" tabindex="-1"></a>output.vec</span></code></pre></div>
-<pre><code>##  [1] 12.3696025  0.5697258 17.2368494  9.2661207 10.6775069  5.9088956
-##  [7] 10.3581068  4.8837208 14.0087878  6.9623751</code></pre>
+<pre><code>##  [1] 12.101430 17.323934  3.115839 10.797821 10.773223 19.815585 19.466967
+##  [8]  4.795689  9.076968 19.784356</code></pre>
 </section>
 <section id="how-do-we-save-for-loop-outputs-1" class="slide level2">
 <h2>How do we save for-loop outputs?</h2>
@@ -1673,8 +1672,8 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="#cb1
 <span id="cb185-4"><a href="#cb185-4" aria-hidden="true" tabindex="-1"></a>    output.vec[i] <span class="ot">&lt;-</span> x[i] <span class="sc">*</span> <span class="dv">10</span></span>
 <span id="cb185-5"><a href="#cb185-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb185-6"><a href="#cb185-6" aria-hidden="true" tabindex="-1"></a>output.vec</span></code></pre></div>
-<pre><code>##  [1] 11.473383  1.817030 12.288090 19.593897 16.886416 10.091032 11.265035
-##  [8]  6.520240  7.644995  4.438440</code></pre>
+<pre><code>##  [1]  2.067667 -7.978321 10.773916 14.152444  6.257472 14.843596  4.837205
+##  [8] 13.192404 11.472780  6.847058</code></pre>
 </section>
 <section id="your-turn-16" class="slide level2"
 data-background-color="#b3cde3">
@@ -1687,8 +1686,8 @@ vector y) using a for-loop with index <code>i</code>. Place the output
 in a <strong>vector</strong>.</p></li>
 <li><p>Compute <code>y[i] * 2</code> for 10 iterations using a for-loop.
 Place the output in a <strong>list</strong>.</p></li>
-<li><p>Find the the 4th element in the output vector from question 1 and
-the output list from question 2.</p></li>
+<li><p>Find the 4th element in the output vector from question 1 and the
+output list from question 2.</p></li>
 </ol>
 </section>
 <section id="control-flow-statements---if" class="slide level2">
@@ -1742,7 +1741,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="#cb1
 <span id="cb192-8"><a href="#cb192-8" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb192-9"><a href="#cb192-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb192-10"><a href="#cb192-10" aria-hidden="true" tabindex="-1"></a>output.vec</span></code></pre></div>
-<pre><code>##  [1] -100    4    4 -100    1    4 -100    1    4 -100</code></pre>
+<pre><code>##  [1]    1    1   16    1    4 -100 -100    4    1    1</code></pre>
 </section>
 <section id="control-flow-statements---break" class="slide level2">
 <h2>Control flow statements - break</h2>
@@ -1820,13 +1819,13 @@ vector, or list)</li>
 <div class="sourceCode" id="cb198"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">9</span>), <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
 <span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a>M</span></code></pre></div>
-<pre><code>##           [,1]       [,2]      [,3]
-## [1,] 0.4778846  0.5312273 0.2523959
-## [2,] 0.4557595 -0.8781574 1.3094573
-## [3,] 0.3923765  0.5309819 0.3318021</code></pre>
+<pre><code>##             [,1]       [,2]        [,3]
+## [1,]  0.03463281 -0.1913064  0.35583428
+## [2,] -1.35787523 -0.5454034 -0.28483020
+## [3,] -1.90640494  0.9405241  0.09402314</code></pre>
 <div class="sourceCode" id="cb200"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(M, <span class="dv">2</span>, median)</span></code></pre></div>
-<pre><code>## [1] 0.4557595 0.5309819 0.3318021</code></pre>
+<pre><code>## [1] -1.35787523 -0.19130641  0.09402314</code></pre>
 </section>
 <section id="apply-vs.-for-loop" class="slide level2">
 <h2><code>apply</code> vs. for-loop</h2>
@@ -1837,7 +1836,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="#cb2
 <span id="cb202-3"><a href="#cb202-3" aria-hidden="true" tabindex="-1"></a>    median.vec[i] <span class="ot">&lt;-</span> <span class="fu">median</span>(M[, i])</span>
 <span id="cb202-4"><a href="#cb202-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb202-5"><a href="#cb202-5" aria-hidden="true" tabindex="-1"></a>median.vec</span></code></pre></div>
-<pre><code>## [1] 0.4557595 0.5309819 0.3318021</code></pre>
+<pre><code>## [1] -1.35787523 -0.19130641  0.09402314</code></pre>
 </section>
 <section id="apply-family-of-functions" class="slide level2">
 <h2><code>apply</code> family of functions</h2>
@@ -1874,7 +1873,7 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="#cb2
 ## [1] 12.3
 ## 
 ## [[3]]
-## [1] -4.946674</code></pre>
+## [1] 2.589852</code></pre>
 </section>
 <section id="useful-links" class="slide level2">
 <h2>Useful links</h2>
@@ -2415,9 +2414,9 @@ observations in each row</p>
 <div class="sourceCode" id="cb248"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="#cb248-1" aria-hidden="true" tabindex="-1"></a>spp.df.wide[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>##   SpeciesA SpeciesB SpeciesC SpeciesD
-## 1 50.88284 72.63438 19.90711 25.46378
-## 2 49.49502 75.03181 19.64588 26.25453
-## 3 49.90255 71.36740 20.36793 24.97970</code></pre>
+## 1 50.33678 64.76384 19.61440 24.21597
+## 2 50.65122 69.78516 20.58344 23.88077
+## 3 51.45860 71.37763 19.50046 24.15696</code></pre>
 <div class="sourceCode" id="cb250"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="#cb250-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(spp.df.wide)</span></code></pre></div>
 <pre><code>## [1] 100   4</code></pre>
@@ -2429,9 +2428,9 @@ format, with only one row per observation (experimental unit)</p>
 <div class="sourceCode" id="cb252"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="#cb252-1" aria-hidden="true" tabindex="-1"></a>spp.df.long[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code></pre></div>
 <pre><code>##   Species     Mass
-## 1       A 72.38406
-## 2       B 69.17753
-## 3       C 76.50722</code></pre>
+## 1       A 73.50406
+## 2       B 68.85443
+## 3       C 78.89955</code></pre>
 <div class="sourceCode" id="cb254"><pre
 class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(spp.df.long)</span></code></pre></div>
 <pre><code>## [1] 400   2</code></pre>
@@ -2446,12 +2445,12 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="#cb2
 <span id="cb256-5"><a href="#cb256-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">D =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">55</span>, <span class="dv">3</span>))</span>
 <span id="cb256-6"><a href="#cb256-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test.df.wide)</span></code></pre></div>
 <pre><code>##          A        B        C        D
-## 1 55.30828 73.60926 44.76476 56.61079
-## 2 46.96735 82.32865 47.06703 50.60158
-## 3 68.09063 80.07945 47.55839 58.41935
-## 4 56.78371 72.47990 53.22355 55.02542
-## 5 48.67651 70.83351 48.73614 55.28996
-## 6 52.68795 81.41580 45.70485 55.00075</code></pre>
+## 1 48.27665 74.92683 52.99892 55.41582
+## 2 45.40381 74.81773 44.81947 58.61906
+## 3 53.91417 80.33177 47.65848 58.51843
+## 4 47.49185 78.78356 52.61922 59.17097
+## 5 57.52381 78.61931 50.03317 54.15938
+## 6 62.29263 69.55388 49.49573 56.05505</code></pre>
 </section>
 <section id="melting-from-wide-to-long-1" class="slide level2">
 <h2>Melting: from wide to long</h2>
@@ -2464,12 +2463,12 @@ class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="#cb2
 <span id="cb258-4"><a href="#cb258-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value.name =</span> <span class="st">&quot;Mass&quot;</span>)</span>
 <span id="cb258-5"><a href="#cb258-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(test.df.long)</span></code></pre></div>
 <pre><code>##   Species     Mass
-## 1       A 55.30828
-## 2       A 46.96735
-## 3       A 68.09063
-## 4       A 56.78371
-## 5       A 48.67651
-## 6       A 52.68795</code></pre>
+## 1       A 48.27665
+## 2       A 45.40381
+## 3       A 53.91417
+## 4       A 47.49185
+## 5       A 57.52381
+## 6       A 62.29263</code></pre>
 </section>
 <section id="melting-from-wide-to-long-2" class="slide level2">
 <h2>Melting: from wide to long</h2>
